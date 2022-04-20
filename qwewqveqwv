@@ -1,5 +1,10 @@
 -- _G.Activate = true
 -- _G.FirstWait = 0
+
+
+
+
+
 spawn(function()
 
     repeat wait() until game:IsLoaded()
@@ -28,6 +33,60 @@ spawn(function()
     game.CoreGui:FindFirstChild("Kiwwylib"):Destroy()
     end
     wait(_G.FirstWait)
+    --------------------
+        function time()
+        return ""..os.date("%H")..":"..os.date("%M")..":"..os.date("%S")
+    end
+    req = request or syn.request
+    makefolder("Kiwwy")
+    print(time() .. " -> " .. game.Players.LocalPlayer.Name)
+        
+        -- check have 2 file then del all
+    if isfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt")  and isfile("Kiwwy/"..game.Players.LocalPlayer.Name.."_success.txt") then
+                print(time() .. " -> " .."Have Succes And Normal File")
+        delfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt")
+        delfile("Kiwwy/"..game.Players.LocalPlayer.Name.."_success.txt")
+                print(time() .. " -> " .."Delete Success")
+    end
+    
+    -- check is succes then shutdown
+    
+    if isfile("Kiwwy/"..game.Players.LocalPlayer.Name.."_success.txt") then
+        
+        print(time() .. " -> " .."Have A Success")
+        token = 'IFrNuMoL2l7CnMJEOYrT9C6nur9GzIII0LVfAhA3MeX'
+        b = req({
+        Url = 'https://notify-api.line.me/api/notify',
+        Method = "POST",
+        Headers = {['content-type'] = 'application/x-www-form-urlencoded' , ['Authorization'] = 'Bearer '..token},
+        Body = "message=" .. game.Players.LocalPlayer.Name .. "\nเสร็จแล้วจะเปิดอีกหาแม่มึงหรอ "
+        })
+        print(b.Body)
+        game:Shutdown()
+        return
+    end
+    
+    
+    
+    --check check no any file then create normal file
+    
+    if isfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt") == false and isfile("Kiwwy/"..game.Players.LocalPlayer.Name.."_success.txt") == false then
+        print(time() .. " -> " ..'Kiwwy WorkSpace -> No File Succes And Normal'..game.Players.LocalPlayer.Name..".txt")
+        
+        writefile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt","")
+        
+        print(time() .. " -> " .."Create -> ".. game.Players.LocalPlayer.Name..".txt")
+        
+    end
+    
+    --check have a normal file
+    if isfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt") == false then
+        print(time() .. " ->" .. "No File Normal")
+        
+    else
+        print(time() .. " -> " .. "Have file Doing")
+    end
+    --------------------------------
     local ScreenGui = Instance.new("ScreenGui")
     local TextLabel = Instance.new("TextLabel")
 
@@ -186,7 +245,7 @@ spawn(function()
             }
         }}
     }
-    req = request or syn.request
+    
     a = req({
         Url = "https://discord.com/api/webhooks/960294659958120538/fQoPhQTSOy2JknGf4eANJV-UN2kIXdW-Rh4nHpj1fX833ekF2dSm2JIQaCdQppqCJRRB",
         Method = "POST",
@@ -203,6 +262,13 @@ spawn(function()
     Body = "message=" .. game.Players.LocalPlayer.Name .. " Success \n" .. "Fruit " .. Fruit .. "\nMastery " .. ValueFruit .. "\nAwaked " .. awaked
     })
     print(b.Body)
+    if isfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt") == true then
+        delfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt")
+        print(time() .. " -> " .. "Deleted Doing File")
+        writefile("Kiwwy/"..game.Players.LocalPlayer.Name.."_success.txt","")
+        print(time() .. " -> " .. "Created Succes File")
+end
+
     wait(10)
     game:Shutdown()
     end
