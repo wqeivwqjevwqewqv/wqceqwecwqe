@@ -96,7 +96,7 @@ spawn(function()
 
     TextLabel.Parent = ScreenGui
     TextLabel.Position = UDim2.new(0.3, 0, 0.1, 0)
-    TextLabel.Size = UDim2.new(0, 200, 0, 50)
+    TextLabel.Size = UDim2.new(0, 300, 0, 50)
     TextLabel.Font = Enum.Font.SourceSans
     TextLabel.BackgroundTransparency = 1
     TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
