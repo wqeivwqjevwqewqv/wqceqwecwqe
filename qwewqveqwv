@@ -247,7 +247,7 @@ spawn(function()
     }
     
     a = req({
-        Url = "https://discord.com/api/webhooks/960294659958120538/fQoPhQTSOy2JknGf4eANJV-UN2kIXdW-Rh4nHpj1fX833ekF2dSm2JIQaCdQppqCJRRB",
+        Url = "https://discord.com/api/webhooks/966472407256801300/8fnCB9ffsuxLYbossqQ2NQ7cBZCJG-xY_ydZAG2iiK08paQtGQKqZ6OH9R7bqjM-fVE_",
         Method = "POST",
         Headers = {["Content-Type"] = "application/json"},
         Body = game.HttpService:JSONEncode(data)
