@@ -17,6 +17,14 @@ spawn(function()
         repeat wait() until game.Players.LocalPlayer:FindFirstChild("PlayerGui");
         repeat wait() until game.Players.LocalPlayer.PlayerGui:FindFirstChild("Main");
         repeat wait()
+        local user = game:GetService('Players').LocalPlayer
+        user.Backpack:Destroy()
+        while enabled do
+        local instance = user.ChildAdded:Wait()
+        if instance:IsA("Backpack") then
+        instance:Destroy()
+        end
+        end
             if game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("Main").ChooseTeam.Visible == true then
 
                     
