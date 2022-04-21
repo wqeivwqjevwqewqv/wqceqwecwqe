@@ -277,7 +277,7 @@ end
     wait(5)
     TextLabel.Text = "Updating ..."
     wait(1)
-    end
+    end)
 
-end)
+end
 end)
