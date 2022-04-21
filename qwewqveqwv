@@ -112,7 +112,7 @@ spawn(function()
     wait(10)
     while _G.Activate do
 
-        
+        pcall(function()
     game:GetService("Players").LocalPlayer.PlayerGui.Main.Fragments.Position = UDim2.new(0,350,0,695)
     game:GetService("Players").LocalPlayer.PlayerGui.Main.Fragments.Text = "ƒ"..tostring(reformatint(game.Players.LocalPlayer.Data.Fragments.Value))
     
@@ -279,5 +279,5 @@ end
     wait(1)
     end
 
-
+end)
 end)
