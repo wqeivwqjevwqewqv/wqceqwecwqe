@@ -30,7 +30,17 @@ spawn(function()
                            end
                         until game.Players.LocalPlayer.Team ~= nil and game:IsLoaded()
                         warn('Script Running')
-                        wait(10)
+                        spawn(function()
+                           local uis = game:GetService("UserInputService")
+                           local size = workspace.CurrentCamera.ViewportSize
+                           uis.WindowFocused:Connect(function() 
+                           game:GetService("RunService"):Set3dRenderingEnabled(true)
+                           end)
+                           uis.WindowFocusReleased:Connect(function() 
+                           game:GetService("RunService"):Set3dRenderingEnabled(false)
+                           end)
+                            end)
+                        wait(3)
                         if game.CoreGui:FindFirstChild("Kiwwylib") then
                            game.CoreGui:FindFirstChild("Kiwwylib"):Destroy()
                         end
@@ -114,7 +124,7 @@ spawn(function()
                         while _G.Activate do
    
                            pcall(function()
-                           game:GetService("Players").LocalPlayer.PlayerGui.Main.Fragments.Position = UDim2.new(0,350,0,695)
+                           game:GetService("Players").LocalPlayer.PlayerGui.Main.Fragments.Position = UDim2.new(0,200,0,400)
                            game:GetService("Players").LocalPlayer.PlayerGui.Main.Fragments.Text = "ƒ"..tostring(reformatint(game.Players.LocalPlayer.Data.Fragments.Value))
    
                            if game:GetService("Players").LocalPlayer.Data.DevilFruit.Value ~= "" then
@@ -390,7 +400,7 @@ spawn(function()
                         while _G.Activate do
    
                            pcall(function()
-                           game:GetService("Players").LocalPlayer.PlayerGui.Main.Fragments.Position = UDim2.new(0,350,0,695)
+                           game:GetService("Players").LocalPlayer.PlayerGui.Main.Fragments.Position = UDim2.new(0,200,0,400)
                            game:GetService("Players").LocalPlayer.PlayerGui.Main.Fragments.Text = "ƒ"..tostring(reformatint(game.Players.LocalPlayer.Data.Fragments.Value))
    
                            if game:GetService("Players").LocalPlayer.Data.DevilFruit.Value ~= "" then
