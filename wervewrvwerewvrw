@@ -558,7 +558,7 @@ spawn(function()
                                     print(time() .. " -> " .. "Created Succes File")
                                  end
    
-                                 wait(10)
+
                                  game:Shutdown()
                               elseif game.Players.LocalPlayer.Data.Level.Value == 2300 and V then
                                                           print('SUCCES LA I SUS')
