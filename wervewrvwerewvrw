@@ -26,6 +26,293 @@ spawn(function()
                               end
    
                               wait(.5)
+                    
+                           end
+                        until game.Players.LocalPlayer.Team ~= nil and game:IsLoaded()
+                        warn('Script Running')
+                        spawn(function()
+                           local uis = game:GetService("UserInputService")
+                           local size = workspace.CurrentCamera.ViewportSize
+                           uis.WindowFocused:Connect(function() 
+                           game:GetService("RunService"):Set3dRenderingEnabled(true)
+                           end)
+                           uis.WindowFocusReleased:Connect(function() 
+                           game:GetService("RunService"):Set3dRenderingEnabled(false)
+                           end)
+                            end)
+                        wait(3)
+                        if game.CoreGui:FindFirstChild("Kiwwylib") then
+                           game.CoreGui:FindFirstChild("Kiwwylib"):Destroy()
+                        end
+                        wait(_G.FirstWait)
+                        --------------------
+                        function time()
+                           return ""..os.date("%H")..":"..os.date("%M")..":"..os.date("%S")
+                        end
+                        req = request or syn.request
+                        makefolder("Kiwwy")
+                        print(time() .. " -> " .. game.Players.LocalPlayer.Name)
+   
+                        -- check have 2 file then del all
+                        if isfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt")  and isfile("Kiwwy/"..game.Players.LocalPlayer.Name.."_success.txt") then
+                           print(time() .. " -> " .."Have Succes And Normal File")
+                           delfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt")
+                           delfile("Kiwwy/"..game.Players.LocalPlayer.Name.."_success.txt")
+                           print(time() .. " -> " .."Delete Success")
+                        end
+   
+                        -- check is succes then shutdown
+   
+                        if isfile("Kiwwy/"..game.Players.LocalPlayer.Name.."_success.txt") then
+   
+                           print(time() .. " -> " .."Have A Success")
+                           token = 'IFrNuMoL2l7CnMJEOYrT9C6nur9GzIII0LVfAhA3MeX'
+                           b = req({
+                              Url = 'https://notify-api.line.me/api/notify',
+                              Method = "POST",
+                              Headers = {['content-type'] = 'application/x-www-form-urlencoded' , ['Authorization'] = 'Bearer '..token},
+                              Body = "message=" .. game.Players.LocalPlayer.Name .. "\nเสร็จแล้วจะเปิดอีกหาแม่มึงหรอ "
+                           })
+                           print(b.Body)
+                           game:Shutdown()
+                           return
+                        end
+   
+   
+   
+                        --check check no any file then create normal file
+   
+                        if isfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt") == false and isfile("Kiwwy/"..game.Players.LocalPlayer.Name.."_success.txt") == false then
+                           print(time() .. " -> " ..'Kiwwy WorkSpace -> No File Succes And Normal'..game.Players.LocalPlayer.Name..".txt")
+   
+                           writefile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt","")
+   
+                           print(time() .. " -> " .."Create -> ".. game.Players.LocalPlayer.Name..".txt")
+   
+                        end
+   
+                        --check have a normal file
+                        if isfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt") == false then
+                           print(time() .. " ->" .. "No File Normal")
+   
+                        else
+                           print(time() .. " -> " .. "Have file Doing")
+                        end
+                        --------------------------------
+                        local ScreenGui = Instance.new("ScreenGui")
+                        local TextLabel = Instance.new("TextLabel")
+   
+                        ScreenGui.Name = "Kiwwylib"
+                        ScreenGui.Parent = game.CoreGui
+                        ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+   
+                        TextLabel.Parent = ScreenGui
+                        TextLabel.Position = UDim2.new(0.3, 0, 0.1, 0)
+                        TextLabel.Size = UDim2.new(0, 300, 0, 200)
+                        TextLabel.Font = Enum.Font.SourceSans
+                        TextLabel.BackgroundTransparency = 1
+                        TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                        function reformatint(integer)
+                           for i = 1, math.floor((string.len(integer)-1) / 3) do
+                              integer = string.sub(integer, 1, -3*i-i) ..
+                              ',' ..
+                              string.sub(integer, -3*i-i+1)
+                           end
+                           return integer
+                        end
+                        
+                        while _G.Activate do
+   
+                           pcall(function()
+                           game:GetService("Players").LocalPlayer.PlayerGui.Main.Fragments.Position = UDim2.new(0,200,0,400)
+                           game:GetService("Players").LocalPlayer.PlayerGui.Main.Fragments.Text = "ƒ"..tostring(reformatint(game.Players.LocalPlayer.Data.Fragments.Value))
+   
+                           if game:GetService("Players").LocalPlayer.Data.DevilFruit.Value ~= "" then
+   
+                              Fruit = game:GetService("Players").LocalPlayer.Data.DevilFruit.Value
+                              ValueFruit1 = game.Players.LocalPlayer.Backpack:FindFirstChild(Fruit) or game.Players.LocalPlayer.Character:FindFirstChild(Fruit)
+                              ValueFruit = ValueFruit1.Level.Value
+   
+                              print(Fruit)
+                              SkillValue = require(ValueFruit1.Data).Lvl
+                              print(SkillValue["Z"],SkillValue["F"],SkillValue["X"],SkillValue["C"],SkillValue["V"])
+                              if ValueFruit >= SkillValue["Z"] then
+                                 print("Z")
+                                 Z = true
+                              end
+                              if Fruit ~= "Quake-Quake" then
+                                 if ValueFruit >= SkillValue["F"] then
+                                    print("F")
+                                    F = true
+                                 end
+                              end
+                              if ValueFruit >= SkillValue["X"] then
+                                 print("X")
+                                 X = true
+                              end
+                              if ValueFruit >= SkillValue["C"] then
+                                 print("C")
+                                 C = true
+                              end
+   
+                              if ValueFruit >= SkillValue["V"] then
+                                 print("V")
+                                 V = true
+                              end
+   
+                              skill = ""
+                              if Z then
+                                 skill = skill .. "Z "
+                              end
+                              if X then
+                                 skill = skill .. "X "
+                              end
+                              if C then
+                                 skill = skill .. "C "
+                              end
+                              if V then
+                                 skill = skill .. "V "
+                              end
+                              if F then
+                                 skill = skill .. "F "
+                              end
+                              if skill == "" then
+                                 skill = "None"
+                              end
+                              print(skill)
+   
+                              awaked = ""
+                              CanAwake = ValueFruit1:FindFirstChild("AwakenedMoves")
+                              if CanAwake then
+                                 print("Can Awake this")
+   
+                                 for i,v in pairs(ValueFruit1.AwakenedMoves:GetChildren()) do
+                                    print(v)
+                                    awaked = awaked .. tostring(v) .. " "
+                                 end
+                                 print(awaked)
+                              else
+                                 cant_awake = true
+                                 print("Cant Awake this")
+                                 awaked = "None"
+                              end
+                           else
+                              awaked = "None"
+                              skill = "None"
+                              Fruit = "None Fruit"
+                              ValueFruit = "None"
+                           end
+   
+                           Time = (tostring(game:GetService("Lighting").TimeOfDay):split(":")[1])
+                           print(Time)
+                           -- if (tonumber(Time)) >= 16 then
+                           --     TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+                           -- elseif (tonumber(Time)) <= 16 then
+                           TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+   
+   
+   
+                           TextLabel.Text = "Name : "..game.Players.LocalPlayer.Name.." Level " .. game.Players.LocalPlayer.Data.Level.Value .. "\n" ..Fruit.." Mastery : "..ValueFruit .. "\n" .. "Use Skill " .. skill .. "\n" .. "Awake " ..  awaked
+                           TextLabel.TextSize = 50.000
+   
+   
+                           if game:GetService("Players").LocalPlayer.Data.DevilFruit.Value ~= "" then
+                              if ValueFruit1:FindFirstChild('AwakenedMoves') then
+                                 SkillVKUB =  ValueFruit1.AwakenedMoves:FindFirstChild("V")
+                              else
+                                 SkillVKUB = false
+                              end
+                              print(SkillVKUB)
+                              if game.Players.LocalPlayer.Data.Level.Value == 2300 and V and SkillVKUB then
+                                 print('SUCCES LA I SUS')
+   
+   
+                                 local data = {
+                                    ["embeds"] = {{
+                                       ["title"] = "Succes !!",
+                                       ["url"] = "https://www.roblox.com/users/"..game.Players.LocalPlayer.UserId.."/profile",
+                                       ["color"] = "1752220",
+                                       ["thumbnail"] = {["url"] = "https://www.roblox.com/headshot-thumbnail/image?userId="..game.Players.LocalPlayer.UserId.."&width=420&height=420&format=png"},
+                                       ["fields"] = {
+                                          {
+                                             ["name"] = "**✿ Username**",
+                                             ["value"] = "**╰**".. "||" .. game.Players.LocalPlayer.Name .. "||"
+                                          },
+                                          {
+                                             ["name"] = "**✿ Level**",
+                                             ["value"] = "**╰**".. "`" ..game.Players.LocalPlayer.Data.Level.Value.. "`"
+                                          },
+                                          {
+                                             ["name"] = "**✿ Devil Fruit **",
+                                             ["value"] = "**╰**".. "`" .. Fruit .. "`"
+                                          },
+                                          {
+                                             ["name"] = "**✿ Mastery **",
+                                             ["value"] = "**╰**".. "`" .. ValueFruit .. "`"
+                                          },
+                                          {
+                                             ["name"] = "**✿ Awake **",
+                                             ["value"] = "**╰**".. "`" .. awaked .. "`"
+                                          },
+   
+                                       }
+                                    }}
+                                 }
+   
+                                 a = req({
+                                    Url = "https://discord.com/api/webhooks/966472407256801300/8fnCB9ffsuxLYbossqQ2NQ7cBZCJG-xY_ydZAG2iiK08paQtGQKqZ6OH9R7bqjM-fVE_",
+                                    Method = "POST",
+                                    Headers = {["Content-Type"] = "application/json"},
+                                    Body = game.HttpService:JSONEncode(data)
+                                 })
+                                 print(a.Body)
+   
+                                 token = 'IFrNuMoL2l7CnMJEOYrT9C6nur9GzIII0LVfAhA3MeX'
+                                 b = req({
+                                    Url = 'https://notify-api.line.me/api/notify',
+                                    Method = "POST",
+                                    Headers = {['content-type'] = 'application/x-www-form-urlencoded' , ['Authorization'] = 'Bearer '..token},
+                                    Body = "message=" .. game.Players.LocalPlayer.Name .. " Success \n" .. "Fruit " .. Fruit .. "\nMastery " .. ValueFruit .. "\nAwaked " .. awaked
+                                 })
+                                 print(b.Body)
+                                 if isfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt") == true then
+                                    delfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt")
+                                    print(time() .. " -> " .. "Deleted Doing File")
+                                    writefile("Kiwwy/"..game.Players.LocalPlayer.Name.."_success.txt","")
+                                    print(time() .. " -> " .. "Created Succes File")
+                                 end
+   
+                                 wait(10)
+                                 game:Shutdown()
+                              elseif game.Players.LocalPlayer.Data.Level.Value == 2300 and V and cant_awake then
+                            -- _G.Activate = true
+-- _G.FirstWait = 0
+
+
+
+
+
+spawn(function()
+
+   repeat wait() until game:IsLoaded()
+   
+      if not game:IsLoaded() then game.Loaded:Wait() end
+      repeat wait() until game.Players
+         repeat wait() until game.Players.LocalPlayer
+            repeat wait() until game.ReplicatedStorage
+               repeat wait() until game.ReplicatedStorage:FindFirstChild("Remotes");
+                  repeat wait() until game.Players.LocalPlayer:FindFirstChild("PlayerGui");
+                     repeat wait() until game.Players.LocalPlayer.PlayerGui:FindFirstChild("Main");
+                        repeat wait()
+   
+                           if game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("Main").ChooseTeam.Visible == true then
+   
+   
+                              for i,v in pairs(getconnections(game:GetService("Players").LocalPlayer.PlayerGui.Main.ChooseTeam.Container.Pirates.Frame.ViewportFrame.TextButton.MouseButton1Click)) do
+                                 v.Function()
+                              end
+   
+                              wait(.5)
    
                            end
                         until game.Players.LocalPlayer.Team ~= nil and game:IsLoaded()
@@ -113,7 +400,7 @@ spawn(function()
                         while _G.Activate do
    
                            pcall(function()
-                           game:GetService("Players").LocalPlayer.PlayerGui.Main.Fragments.Position = UDim2.new(0,350,0,695)
+                           game:GetService("Players").LocalPlayer.PlayerGui.Main.Fragments.Position = UDim2.new(0,200,0,400)
                            game:GetService("Players").LocalPlayer.PlayerGui.Main.Fragments.Text = "ƒ"..tostring(reformatint(game.Players.LocalPlayer.Data.Fragments.Value))
    
                            if game:GetService("Players").LocalPlayer.Data.DevilFruit.Value ~= "" then
@@ -181,6 +468,7 @@ spawn(function()
                                  end
                                  print(awaked)
                               else
+                                 cant_awake = true
                                  print("Cant Awake this")
                                  awaked = "None"
                               end
@@ -211,13 +499,13 @@ spawn(function()
                                  SkillVKUB = false
                               end
                               print(SkillVKUB)
-                              if game.Players.LocalPlayer.Data.Level.Value == 2300 and V then
+                              if game.Players.LocalPlayer.Data.Level.Value == 2300 and Vthen
                                  print('SUCCES LA I SUS')
    
    
                                  local data = {
                                     ["embeds"] = {{
-                                       ["title"] = "Succes ไก่กัง !!",
+                                       ["title"] = "Succes !!",
                                        ["url"] = "https://www.roblox.com/users/"..game.Players.LocalPlayer.UserId.."/profile",
                                        ["color"] = "1752220",
                                        ["thumbnail"] = {["url"] = "https://www.roblox.com/headshot-thumbnail/image?userId="..game.Players.LocalPlayer.UserId.."&width=420&height=420&format=png"},
@@ -260,7 +548,7 @@ spawn(function()
                                     Url = 'https://notify-api.line.me/api/notify',
                                     Method = "POST",
                                     Headers = {['content-type'] = 'application/x-www-form-urlencoded' , ['Authorization'] = 'Bearer '..token},
-                                    Body = "message=" .. game.Players.LocalPlayer.Name .. " ไก่กัง Success \n" .. "Fruit " .. Fruit .. "\nMastery " .. ValueFruit .. "\nAwaked " .. awaked
+                                    Body = "message=" .. game.Players.LocalPlayer.Name .. " Success \n" .. "Fruit " .. Fruit .. "\nMastery " .. ValueFruit .. "\nAwaked " .. awaked
                                  })
                                  print(b.Body)
                                  if isfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt") == true then
@@ -272,6 +560,76 @@ spawn(function()
    
                                  wait(10)
                                  game:Shutdown()
+                              elseif game.Players.LocalPlayer.Data.Level.Value == 2300 and Vthen
+                                                          print('SUCCES LA I SUS')
+   
+   
+                                 local data = {
+                                    ["embeds"] = {{
+                                       ["title"] = "Succes !!",
+                                       ["url"] = "https://www.roblox.com/users/"..game.Players.LocalPlayer.UserId.."/profile",
+                                       ["color"] = "1752220",
+                                       ["thumbnail"] = {["url"] = "https://www.roblox.com/headshot-thumbnail/image?userId="..game.Players.LocalPlayer.UserId.."&width=420&height=420&format=png"},
+                                       ["fields"] = {
+                                          {
+                                             ["name"] = "**✿ Username**",
+                                             ["value"] = "**╰**".. "||" .. game.Players.LocalPlayer.Name .. "||"
+                                          },
+                                          {
+                                             ["name"] = "**✿ Level**",
+                                             ["value"] = "**╰**".. "`" ..game.Players.LocalPlayer.Data.Level.Value.. "`"
+                                          },
+                                          {
+                                             ["name"] = "**✿ Devil Fruit **",
+                                             ["value"] = "**╰**".. "`" .. Fruit .. "`"
+                                          },
+                                          {
+                                             ["name"] = "**✿ Mastery **",
+                                             ["value"] = "**╰**".. "`" .. ValueFruit .. "`"
+                                          },
+                                          {
+                                             ["name"] = "**✿ Awake **",
+                                             ["value"] = "**╰**".. "`" .. awaked .. "`"
+                                          },
+   
+                                       }
+                                    }}
+                                 }
+   
+                                 a = req({
+                                    Url = "https://discord.com/api/webhooks/966472407256801300/8fnCB9ffsuxLYbossqQ2NQ7cBZCJG-xY_ydZAG2iiK08paQtGQKqZ6OH9R7bqjM-fVE_",
+                                    Method = "POST",
+                                    Headers = {["Content-Type"] = "application/json"},
+                                    Body = game.HttpService:JSONEncode(data)
+                                 })
+                                 print(a.Body)
+   
+                                 token = 'IFrNuMoL2l7CnMJEOYrT9C6nur9GzIII0LVfAhA3MeX'
+                                 b = req({
+                                    Url = 'https://notify-api.line.me/api/notify',
+                                    Method = "POST",
+                                    Headers = {['content-type'] = 'application/x-www-form-urlencoded' , ['Authorization'] = 'Bearer '..token},
+                                    Body = "message=" .. game.Players.LocalPlayer.Name .. " Success \n" .. "Fruit " .. Fruit .. "\nMastery " .. ValueFruit .. "\nAwaked " .. awaked
+                                 })
+                                 print(b.Body)
+                                 if isfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt") == true then
+                                    delfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt")
+                                    print(time() .. " -> " .. "Deleted Doing File")
+                                    writefile("Kiwwy/"..game.Players.LocalPlayer.Name.."_success.txt","")
+                                    print(time() .. " -> " .. "Created Succes File")
+                                 end
+   
+                                 wait(10)
+                                 game:Shutdown()
+                              end
+                           end
+                           wait(5)
+                           TextLabel.Text = "Updating ..."
+                           wait(1)
+                           end)
+   
+                        end
+                        end)
                               end
                            end
                            wait(5)
