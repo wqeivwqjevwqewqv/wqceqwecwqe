@@ -103,61 +103,61 @@ end
 
 -- Start Loop
 while _G.Activate do
-    
-    List = {}
-    MyLevel = game.Players.LocalPlayer.Data.Level.Value
-    Fruit = game:GetService("Players").LocalPlayer.Data.DevilFruit.Value
-    ValueFruit1 = game.Players.LocalPlayer.Backpack:FindFirstChild(Fruit) or game.Players.LocalPlayer.Character:FindFirstChild(Fruit)
-    ValueFruit = ValueFruit1.Level.Value
-    SkillValue = require(ValueFruit1.Data).Lvl
-    -------------------
-    
-    -- check all skill
-    print(Fruit,ValueFruit1,ValueFruit)
-    for i,v in pairs(SkillValue) do
-        if i == "Z" then
-            Z = true
-        end
-        if i == "X" then
-            X = true
-        end
-        if i == "C" then
-            C = true
-        end
-        if i == "V" then
-            V = true
-        end
-        if i == "F" then
-            F = true
+    pcall(function()
+        List = {}
+        MyLevel = game.Players.LocalPlayer.Data.Level.Value
+        Fruit = game:GetService("Players").LocalPlayer.Data.DevilFruit.Value
+        ValueFruit1 = game.Players.LocalPlayer.Backpack:FindFirstChild(Fruit) or game.Players.LocalPlayer.Character:FindFirstChild(Fruit)
+        ValueFruit = ValueFruit1.Level.Value
+        SkillValue = require(ValueFruit1.Data).Lvl
+        -------------------
+        
+        -- check all skill
+        print(Fruit,ValueFruit1,ValueFruit)
+        for i,v in pairs(SkillValue) do
+            if i == "Z" then
+                Z = true
+            end
+            if i == "X" then
+                X = true
+            end
+            if i == "C" then
+                C = true
+            end
+            if i == "V" then
+                V = true
+            end
+            if i == "F" then
+                F = true
+            end
+            
         end
         
-    end
-    
-    
-    -- check if have no V (trash fruit)
-    
-    if V == nil then
-    V = "NO V FUCK HOLY"
-        if ValueFruit >= SkillValue["C"] then
-            V = true
-        end
-    end
-    print(V)
-    print(Z , X , C , V , F)
-    
-    -- Check if success
-    if MyLevel == 2300 and V then
-        line(game.Players.LocalPlayer.Name .. " kaikang Success \n" .. "Fruit " .. Fruit .. "\nMastery " .. ValueFruit)
         
-        -- create file success
-        if isfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt") then
-            delfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt")
-            print(time() .. " -> " .. "Deleted Doing File")
-            writefile("Kiwwy/"..game.Players.LocalPlayer.Name.."_success.txt","")
-            print(time() .. " -> " .. "Created Succes File")
-            game:Shutdown()
+        -- check if have no V (trash fruit)
+        
+        if V == nil then
+        V = "NO V FUCK HOLY"
+            if ValueFruit >= SkillValue["C"] then
+                V = true
+            end
         end
-    end
-    wait(10)
-    
+        print(V)
+        print(Z , X , C , V , F)
+        
+        -- Check if success
+        if MyLevel == 2300 and V then
+            line(game.Players.LocalPlayer.Name .. " kaikang Success \n" .. "Fruit " .. Fruit .. "\nMastery " .. ValueFruit)
+            
+            -- create file success
+            if isfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt") then
+                delfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt")
+                print(time() .. " -> " .. "Deleted Doing File")
+                writefile("Kiwwy/"..game.Players.LocalPlayer.Name.."_success.txt","")
+                print(time() .. " -> " .. "Created Succes File")
+                game:Shutdown()
+            end
+        end
+        wait(10)
+    end)
 end
