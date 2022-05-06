@@ -1,5 +1,5 @@
 -- check game loaded
- repeat wait() until game:IsLoaded()
+repeat wait() until game:IsLoaded()
    
 if not game:IsLoaded() then game.Loaded:Wait() end
 repeat wait() until game.Players
@@ -103,7 +103,7 @@ end
 
 -- Start Loop
 while _G.Activate do
-    pcall(function()
+
         List = {}
         MyLevel = game.Players.LocalPlayer.Data.Level.Value
         Fruit = game:GetService("Players").LocalPlayer.Data.DevilFruit.Value
@@ -159,5 +159,5 @@ while _G.Activate do
             end
         end
         wait(10)
-    end)
+
 end
