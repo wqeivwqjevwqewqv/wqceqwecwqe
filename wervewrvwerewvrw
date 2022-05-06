@@ -23,7 +23,7 @@ end
 
 until game.Players.LocalPlayer.Team ~= nil and game:IsLoaded()
 warn('Script Running')
-wait(3)
+wait(10)
 -- white screen
 spawn(function()
     local uis = game:GetService("UserInputService")
