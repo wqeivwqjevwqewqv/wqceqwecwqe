@@ -1,5 +1,5 @@
 -- check game loaded
-repeat wait() until game:IsLoaded()
+ repeat wait() until game:IsLoaded()
    
 if not game:IsLoaded() then game.Loaded:Wait() end
 repeat wait() until game.Players
@@ -8,6 +8,7 @@ repeat wait() until game.ReplicatedStorage
 repeat wait() until game.ReplicatedStorage:FindFirstChild("Remotes");
 repeat wait() until game.Players.LocalPlayer:FindFirstChild("PlayerGui");
 repeat wait() until game.Players.LocalPlayer.PlayerGui:FindFirstChild("Main");
+repeat wait()
 
 if game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("Main").ChooseTeam.Visible == true then
 
@@ -20,7 +21,7 @@ if game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("Main").ChooseT
 
 end
 
-
+until game.Players.LocalPlayer.Team ~= nil and game:IsLoaded()
 warn('Script Running')
 
 -- white screen
@@ -101,64 +102,62 @@ else
 end
 
 -- Start Loop
-spawn(function()
-    while _G.Activate do
-        pcall(function()
-            List = {}
-            MyLevel = game.Players.LocalPlayer.Data.Level.Value
-            Fruit = game:GetService("Players").LocalPlayer.Data.DevilFruit.Value
-            ValueFruit1 = game.Players.LocalPlayer.Backpack:FindFirstChild(Fruit) or game.Players.LocalPlayer.Character:FindFirstChild(Fruit)
-            ValueFruit = ValueFruit1.Level.Value
-            SkillValue = require(ValueFruit1.Data).Lvl
-            -------------------
-            
-            -- check all skill
-            print(Fruit,ValueFruit1,ValueFruit)
-            for i,v in pairs(SkillValue) do
-                if i == "Z" then
-                    Z = true
-                end
-                if i == "X" then
-                    X = true
-                end
-                if i == "C" then
-                    C = true
-                end
-                if i == "V" then
-                    V = true
-                end
-                if i == "F" then
-                    F = true
-                end
-                
+while _G.Activate do
+    pcall(function()
+        List = {}
+        MyLevel = game.Players.LocalPlayer.Data.Level.Value
+        Fruit = game:GetService("Players").LocalPlayer.Data.DevilFruit.Value
+        ValueFruit1 = game.Players.LocalPlayer.Backpack:FindFirstChild(Fruit) or game.Players.LocalPlayer.Character:FindFirstChild(Fruit)
+        ValueFruit = ValueFruit1.Level.Value
+        SkillValue = require(ValueFruit1.Data).Lvl
+        -------------------
+        
+        -- check all skill
+        print(Fruit,ValueFruit1,ValueFruit)
+        for i,v in pairs(SkillValue) do
+            if i == "Z" then
+                Z = true
+            end
+            if i == "X" then
+                X = true
+            end
+            if i == "C" then
+                C = true
+            end
+            if i == "V" then
+                V = true
+            end
+            if i == "F" then
+                F = true
             end
             
-            
-            -- check if have no V (trash fruit)
-            
-            if V == nil then
-            V = "NO V FUCK HOLY"
-                if ValueFruit >= SkillValue["C"] then
-                    V = true
-                end
+        end
+        
+        
+        -- check if have no V (trash fruit)
+        
+        if V == nil then
+        V = "NO V FUCK HOLY"
+            if ValueFruit >= SkillValue["C"] then
+                V = true
             end
-            print(V)
-            print(Z , X , C , V , F)
+        end
+        print(V)
+        print(Z , X , C , V , F)
+        
+        -- Check if success
+        if MyLevel == 2300 and V then
+            line(game.Players.LocalPlayer.Name .. " kaikang Success \n" .. "Fruit " .. Fruit .. "\nMastery " .. ValueFruit)
             
-            -- Check if success
-            if MyLevel == 2300 and V then
-                line(game.Players.LocalPlayer.Name .. " kaikang Success \n" .. "Fruit " .. Fruit .. "\nMastery " .. ValueFruit)
-                
-                -- create file success
-                if isfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt") then
-                    delfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt")
-                    print(time() .. " -> " .. "Deleted Doing File")
-                    writefile("Kiwwy/"..game.Players.LocalPlayer.Name.."_success.txt","")
-                    print(time() .. " -> " .. "Created Succes File")
-                    game:Shutdown()
-                end
+            -- create file success
+            if isfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt") then
+                delfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt")
+                print(time() .. " -> " .. "Deleted Doing File")
+                writefile("Kiwwy/"..game.Players.LocalPlayer.Name.."_success.txt","")
+                print(time() .. " -> " .. "Created Succes File")
+                game:Shutdown()
             end
-            wait(10)
-        end)
-    end
-end)
+        end
+        wait(10)
+    end)
+end
