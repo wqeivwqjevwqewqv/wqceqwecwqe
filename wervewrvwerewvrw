@@ -20,7 +20,7 @@ if game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("Main").ChooseT
 
 end
 
-until game.Players.LocalPlayer.Team ~= nil and game:IsLoaded()
+
 warn('Script Running')
 
 -- white screen
