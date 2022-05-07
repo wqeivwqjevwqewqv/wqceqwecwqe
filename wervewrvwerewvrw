@@ -23,11 +23,6 @@ end
 
 until game.Players.LocalPlayer.Team ~= nil and game:IsLoaded()
 warn('Script Running')
-pcall(function()
-loadstring(game:HttpGet'https://raw.githubusercontent.com/ic3w0lf22/Roblox-Account-Manager/master/RBX%20Alt%20Manager/Nexus/Nexus.lua')() 
-     Nexus.Commands.performance()
-     Nexus.Commands.mute()
-end)
 wait(10)
 -- white screen
 spawn(function()
@@ -122,34 +117,45 @@ while _G.Activate do
         -- check all skill
         print(Fruit,ValueFruit1,ValueFruit)
         for i,v in pairs(SkillValue) do
+            print(i , v)
             if i == "Z" then
-                Z = true
+                if ValueFruit >= v then
+                    Z = true
+                end
             end
             if i == "X" then
-                X = true
+                if ValueFruit >= v then
+                    X = true
+                end
             end
             if i == "C" then
-                C = true
+                if ValueFruit >= v then
+                    C = true
+                end
             end
             if i == "V" then
-                V = true
+                if ValueFruit >= v then
+                    V = true
+                end
             end
             if i == "F" then
-                F = true
+                if ValueFruit >= v then
+                    F = true
+                end
             end
-            
         end
         
         
         -- check if have no V (trash fruit)
         
-        if V == nil then
-        V = "NO V FUCK HOLY"
-            if ValueFruit1 >= SkillValue["C"] then
+        if V == nil and C then
+            V = "NO V FUCK HOLY"
+            if C then
                 V = true
             end
         end
         print(V)
+        print(F)
         print(Z , X , C , V , F)
     else
         print("NO FRUIT")
@@ -164,8 +170,9 @@ while _G.Activate do
             print(time() .. " -> " .. "Deleted Doing File")
             writefile("Kiwwy/"..game.Players.LocalPlayer.Name.."_success.txt","")
             print(time() .. " -> " .. "Created Succes File")
-            Nexus:Stop()
+            print('succses')
             game:Shutdown()
+            _G.Activate = false
         end
     end
     wait(10)
