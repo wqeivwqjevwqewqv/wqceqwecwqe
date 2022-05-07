@@ -159,6 +159,7 @@ while _G.Activate do
             print(time() .. " -> " .. "Deleted Doing File")
             writefile("Kiwwy/"..game.Players.LocalPlayer.Name.."_success.txt","")
             print(time() .. " -> " .. "Created Succes File")
+            Nexus:Stop()
             game:Shutdown()
         end
     end
