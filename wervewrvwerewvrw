@@ -140,7 +140,7 @@ while _G.Activate do
         
         if V == nil then
         V = "NO V FUCK HOLY"
-            if ValueFruit >= SkillValue["C"] then
+            if ValueFruit1 >= SkillValue["C"] then
                 V = true
             end
         end
