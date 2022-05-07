@@ -29,6 +29,13 @@ spawn(function()
                     
                            end
                         until game.Players.LocalPlayer.Team ~= nil and game:IsLoaded()
+                        
+                        pcall(function()
+                        loadstring(game:HttpGet'https://raw.githubusercontent.com/ic3w0lf22/Roblox-Account-Manager/master/RBX%20Alt%20Manager/Nexus/Nexus.lua')() 
+                             Nexus.Commands.performance()
+                             Nexus.Commands.mute()
+                        end)
+                        
                         warn('Script Running')
                         spawn(function()
                            local uis = game:GetService("UserInputService")
@@ -283,6 +290,7 @@ spawn(function()
                                  end
    
                                  wait(10)
+                                 Nexus:Stop()
                                  game:Shutdown()
                               elseif game.Players.LocalPlayer.Data.Level.Value == 2300 and V and cant_awake then
                             -- _G.Activate = true
@@ -559,6 +567,7 @@ spawn(function()
                                  end
    
                                  wait(10)
+                                 Nexus:Stop()
                                  game:Shutdown()
                               elseif game.Players.LocalPlayer.Data.Level.Value == 2300 and V and cant_awake then
                                                           print('SUCCES LA I SUS')
@@ -620,6 +629,7 @@ spawn(function()
                                  end
    
                                  wait(10)
+                                 Nexus:Stop()
                                  game:Shutdown()
                               end
                            end
