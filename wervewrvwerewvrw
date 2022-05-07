@@ -62,7 +62,12 @@ function line(message)
     end
 end
 
-
+-- got script
+pcall(function()
+    loadstring(game:HttpGet'https://raw.githubusercontent.com/ic3w0lf22/Roblox-Account-Manager/master/RBX%20Alt%20Manager/Nexus/Nexus.lua')() 
+         Nexus.Commands.performance()
+         Nexus.Commands.mute()
+end)
 -- make folder 
 makefolder("Kiwwy")
 
