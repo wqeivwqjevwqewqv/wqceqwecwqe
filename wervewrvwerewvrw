@@ -23,7 +23,7 @@ end
 
 until game.Players.LocalPlayer.Team ~= nil and game:IsLoaded()
 warn('Script Running')
-wait(10)
+wait(5)
 -- white screen
 spawn(function()
     local uis = game:GetService("UserInputService")
@@ -62,12 +62,7 @@ function line(message)
     end
 end
 
--- got script
-pcall(function()
-    loadstring(game:HttpGet'https://raw.githubusercontent.com/ic3w0lf22/Roblox-Account-Manager/master/RBX%20Alt%20Manager/Nexus/Nexus.lua')() 
-         Nexus.Commands.performance()
-         Nexus.Commands.mute()
-end)
+
 -- make folder 
 makefolder("Kiwwy")
 
@@ -82,9 +77,10 @@ end
 -- check is succes 
 if isfile("Kiwwy/"..game.Players.LocalPlayer.Name.."_success.txt") then
 
-   line(game.Players.LocalPlayer.Name .. "มันเสร็จแล้วจะเปิดอีกทำไม")
-   game:Shutdown()
-   return
+--    line(game.Players.LocalPlayer.Name .. "มันเสร็จแล้วจะเปิดอีกทำไม")
+--    game:Shutdown()
+--    return
+    print('eiei')
 end
 
 --check check no any file then create normal file
@@ -110,7 +106,7 @@ end
 while _G.Activate do
 
     -- check have fruit
-    if game:GetService("Players").LocalPlayer.Data.DevilFruit.Value ~= "" then
+    if game:GetService("Players").LocalPlayer.Data.DevilFruit.Value ~= nil then
         List = {}
         MyLevel = game.Players.LocalPlayer.Data.Level.Value
         Fruit = game:GetService("Players").LocalPlayer.Data.DevilFruit.Value
@@ -176,9 +172,10 @@ while _G.Activate do
             writefile("Kiwwy/"..game.Players.LocalPlayer.Name.."_success.txt","")
             print(time() .. " -> " .. "Created Succes File")
             print('succses')
-            game:Shutdown()
-            _G.Activate = false
+
         end
+        game:Shutdown()
+        _G.Activate = false
     end
     wait(10)
 
