@@ -43,7 +43,11 @@ if game.CoreGui:FindFirstChild("Kiwwylib") then
    game.CoreGui:FindFirstChild("Kiwwylib"):Destroy()
 end
 
-wait(_G.FirstWait)
+if _G.FirstWait ~= nil then
+   wait(_G.FirstWait)
+else
+   wait(10)
+end
 --------------------
 function time()
    return ""..os.date("%H")..":"..os.date("%M")..":"..os.date("%S")
@@ -109,13 +113,18 @@ ScreenGui.Parent = game.CoreGui
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 TextLabel.Parent = ScreenGui
-TextLabel.Position = UDim2.new(0.3, 0, 0.1, 0)
+TextLabel.Position = UDim2.new(0.1, 0, 0.1, 0)
 TextLabel.Size = UDim2.new(0, 300, 0, 200)
-TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Font = Enum.Font.Cartoon
 TextLabel.BackgroundTransparency = 1
+TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel.TextSize = 50.000
-TextLabel.Text = "Starting ... "
+if _G.Activate then
+   TextLabel.Text = "Starting ... "
+else
+   TextLabel.Text = "No Config ?"
+end
 
 
 function reformatint(integer)
@@ -128,7 +137,7 @@ function reformatint(integer)
 end
 
 while _G.Activate do
-   wait(3)
+   wait(10)
    pcall(function()
       game:GetService("Players").LocalPlayer.PlayerGui.Main.Fragments.Position = UDim2.new(0,200,0,400)
       game:GetService("Players").LocalPlayer.PlayerGui.Main.Fragments.Text = "ƒ"..tostring(reformatint(game.Players.LocalPlayer.Data.Fragments.Value))
@@ -265,8 +274,8 @@ while _G.Activate do
             game:Shutdown()
          end
       end
-      wait(5)
+      wait(10)
       TextLabel.Text = "Updating ..."
-      wait(1)
+      wait(.5)
    end)
 end
