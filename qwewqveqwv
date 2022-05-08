@@ -1,10 +1,5 @@
---_G.Activate = true
---_G.FirstWait = 0
-
-
-
-
-
+-- _G.Activate = true
+-- _G.FirstWait = 0
 
 repeat wait() until game:IsLoaded()
 if not game:IsLoaded() then game.Loaded:Wait() end
@@ -134,7 +129,7 @@ end
 
 while _G.Activate do
    wait(3)
-   -- pcall(function()
+   pcall(function()
       game:GetService("Players").LocalPlayer.PlayerGui.Main.Fragments.Position = UDim2.new(0,200,0,400)
       game:GetService("Players").LocalPlayer.PlayerGui.Main.Fragments.Text = "ƒ"..tostring(reformatint(game.Players.LocalPlayer.Data.Fragments.Value))
 
@@ -273,6 +268,5 @@ while _G.Activate do
       wait(5)
       TextLabel.Text = "Updating ..."
       wait(1)
-
-   -- end)
+   end)
 end
