@@ -1,7 +1,7 @@
-_G.Activate = true
-_G.FirstWait = 0
-_G.Linetoken = ""
-_G.SheetBest = ""
+-- _G.Activate = true
+-- _G.FirstWait = 0
+-- _G.Linetoken = "IFrNuMoL2l7CnMJEOYrT9C6nur9GzIII0LVfAhA3MeX"
+-- _G.SheetBest = "https://sheet.best/api/sheets/73a4ee8c-5c7c-47b8-8bd5-5823762bd9b0"
 
 repeat wait() until game:IsLoaded()
 if not game:IsLoaded() then game.Loaded:Wait() end
@@ -153,7 +153,83 @@ function reformatint(integer)
    end
    return integer
 end
+function reformatmoney(n)
+      if n >= 10^6 then
+          return string.format("%.2f M", n / 10^6)
+      elseif n >= 10^3 then
+          return string.format("%.2f K", n / 10^3)
+      else
+          return tostring(n)
+      end
+end
+function World()
+      local world
+  
+      if game.PlaceId == 2753915549 then
+          world = 1
+      elseif game.PlaceId == 4442272183 then
+          world = 2
+      elseif game.PlaceId == 7449423635 then
+          world = 3
+      end
+  
+      return world
+  
+  end
+function sheetbest()
 
+  function inventory()
+  nah = {}
+  
+  for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
+      if v.ToolTip == "Sword" or v.ToolTip == "Wear" or v.ToolTip == "Gun" then
+          table.insert(nah,v.Name)
+          print(v.Name)
+          end
+      end
+      
+  for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do pcall(function()
+      
+      if v.ToolTip == "Sword" or v.ToolTip == "Wear" or v.ToolTip == "Gun" then
+          table.insert(nah,v.Name)
+          print(v.Name)
+      end
+  end)
+  end
+  
+  for i,v in pairs (game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventoryWeapons")) do
+  -- print(v.Name)
+  table.insert(nah,v.Name)
+  end
+  
+  
+      
+  
+  allweapon = table.concat(nah,", ")
+  print(allweapon)
+  return allweapon
+  end
+  
+  local data = {
+      ["Name"] = game.Players.LocalPlayer.Name,
+      ["Level"] = game.Players.LocalPlayer.Data.Level.Value,
+      ["World"] = World(),
+      ["Inventory"] = inventory(),
+      ["Beli"] = tostring(reformatmoney(game:GetService("Players").LocalPlayer.Data.Beli.Value)),
+      ["Fragment"] = tostring(reformatmoney(game:GetService("Players").LocalPlayer.Data.Fragments.Value)),
+      ["Race"] = game:GetService("Players").LocalPlayer.Data.Race.Value,
+      
+  }
+  qwevwqv = req({
+      Url = _G.SheetBest,
+      Method = "POST",
+      Headers = {["Content-Type"] = "application/json"},
+      Body = game.HttpService:JSONEncode(data)
+  })
+  
+  print(qwevwqv.Body)
+
+end
 while _G.Activate do
    wait(10)
    pcall(function()
@@ -263,6 +339,7 @@ while _G.Activate do
                Body = "message=" .. game.Players.LocalPlayer.Name .. " Success \n" .. "Fruit " .. Fruit .. "\nMastery " .. ValueFruit .. "\nAwaked " .. awaked
             })
             print(b.Body)
+            sheetbest()
             if isfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt") == true then
                delfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt")
                print(time() .. " -> " .. "Deleted Doing File")
@@ -282,6 +359,7 @@ while _G.Activate do
                Body = "message=" .. game.Players.LocalPlayer.Name .. " Success \n" .. "Fruit " .. Fruit .. "\nMastery " .. ValueFruit .. "\nAwaked " .. awaked
             })
             print(b.Body)
+            sheetbest()
             if isfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt") == true then
                delfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt")
                print(time() .. " -> " .. "Deleted Doing File")
