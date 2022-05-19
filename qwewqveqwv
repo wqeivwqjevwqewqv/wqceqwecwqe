@@ -212,13 +212,15 @@ function sheetbest()
   
   local data = {
       ["Name"] = game.Players.LocalPlayer.Name,
-      ["Level"] = game.Players.LocalPlayer.Data.Level.Value,
+      ["Level"] = reformatint(game.Players.LocalPlayer.Data.Level.Value),
       ["World"] = World(),
       ["Inventory"] = inventory(),
       ["Beli"] = tostring(reformatmoney(game:GetService("Players").LocalPlayer.Data.Beli.Value)),
       ["Fragment"] = tostring(reformatmoney(game:GetService("Players").LocalPlayer.Data.Fragments.Value)),
       ["Race"] = game:GetService("Players").LocalPlayer.Data.Race.Value,
-      ["Fruit"] = tostring(Fruit:split('-')[1] .. "( " .. ValueFruit .. " Mas. )")
+      ["Fruit"] = tostring(Fruit:split('-')[1] .. " (" .. ValueFruit .. " Mas.)"),
+      ["Awake"] = tostring(awaked),
+      ["Skill"] = tostring(skill),
       
   }
   qwevwqv = req({
