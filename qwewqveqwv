@@ -1,5 +1,7 @@
--- _G.Activate = true
--- _G.FirstWait = 0
+_G.Activate = true
+_G.FirstWait = 0
+_G.Linetoken = ""
+_G.SheetBest = ""
 
 repeat wait() until game:IsLoaded()
 if not game:IsLoaded() then game.Loaded:Wait() end
@@ -25,7 +27,23 @@ end
 until game.Players.LocalPlayer.Team ~= nil and game:IsLoaded()
 
 warn('Script Running')
+
+-- whitelist
+ts = game:GetService("TeleportService")
+local HWID = {
+    "ABE22B3C-8DA6-4E43-856B-0E3564A47C2C",
+}
+
+if HWID[table.find(HWID,game:GetService("RbxAnalyticsService"):GetClientId())] == game:GetService("RbxAnalyticsService"):GetClientId() then
+print("Success")
+else
+    setclipboard(game:GetService("RbxAnalyticsService"):GetClientId())
+    game.Players.LocalPlayer:Kick("COPY HWID SUCCES")
+    wait(2)
+    ts:Teleport(game.PlaceId, p)
+end
 spawn(function()
+
    local uis = game:GetService("UserInputService")
    local size = workspace.CurrentCamera.ViewportSize
 
@@ -237,7 +255,7 @@ while _G.Activate do
          if game.Players.LocalPlayer.Data.Level.Value == 2300 and V and SkillVKUB then
             print('SUCCES LA I SUS')
 
-            token = 'IFrNuMoL2l7CnMJEOYrT9C6nur9GzIII0LVfAhA3MeX'
+            token = _G.Linetoken
             b = req({
                Url = 'https://notify-api.line.me/api/notify',
                Method = "POST",
@@ -256,7 +274,7 @@ while _G.Activate do
          elseif game.Players.LocalPlayer.Data.Level.Value == 2300 and V and cant_awake then
             print('SUCCES LA I SUS')
 
-            token = 'IFrNuMoL2l7CnMJEOYrT9C6nur9GzIII0LVfAhA3MeX'
+            token = _G.Linetoken
             b = req({
                Url = 'https://notify-api.line.me/api/notify',
                Method = "POST",
