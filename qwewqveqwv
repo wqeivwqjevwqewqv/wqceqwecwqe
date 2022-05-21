@@ -212,6 +212,49 @@ function sheetbest()
   return allweapon
   end
   
+  
+
+   function checkmelee()
+      listcheckmelee = {["Superhuman"] = 0,["DragonTalon"] = 0,["ElectricClaw"] = 0,["SharkmanKarate"] = 0 , ["DeathStep"] = 0}
+      checksup = game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySuperhuman",true)
+      if checksup == 1 then
+         print("Super")
+         listcheckmelee['Superhuman'] = 1
+      end
+
+      checktalon = game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon",true)
+      if checktalon == 1 then
+         print("Talon")
+         listcheckmelee['DragonTalon'] = 1
+      end
+
+      checkelec = game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectricClaw",true)
+      if checkelec == 1 then
+         print("Electric")
+         listcheckmelee['ElectricClaw'] = 1
+      end
+      Shark = game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate",true)
+      if Shark == 1 then
+         print("Sharkman")
+         listcheckmelee['SharkmanKarate'] = 1
+      end
+      Death = game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDeathStep",true)
+      if Death == 1 then
+         print("DeathStep")
+         listcheckmelee['DeathStep'] = 1
+      end
+
+      realmelee = {}
+      for i,v in pairs (listcheckmelee) do
+         if v == 1 then
+            print(i)
+            table.insert(realmelee,tostring(i))
+         end
+      end
+
+      print(table.concat(realmelee,", "))
+      return (table.concat(realmelee,", "))
+   end
   local data = {
       ["Name"] = game.Players.LocalPlayer.Name,
       ["Level"] = reformatint(game.Players.LocalPlayer.Data.Level.Value),
@@ -223,6 +266,7 @@ function sheetbest()
       ["Fruit"] = tostring(Fruit:split('-')[1] .. " (" .. ValueFruit .. " Mas.)"),
       ["Awake"] = tostring(awaked),
       ["Skill"] = tostring(skill),
+      ["Melee"] = checkmelee(),
       
   }
   qwevwqv = req({
