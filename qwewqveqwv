@@ -33,7 +33,7 @@ ts = game:GetService("TeleportService")
 local HWID = {
     "ABE22B3C-8DA6-4E43-856B-0E3564A47C2C",
     "5CAE8E3E-3018-4054-A2C1-4AAB39BA13E9",
-    "192063A6-7BEC-48CC-8432-A04ABD21CE35"
+    "192063A6-7BEC-48CC-8432-A04ABD21CE35",
 }
 
 if HWID[table.find(HWID,game:GetService("RbxAnalyticsService"):GetClientId())] == game:GetService("RbxAnalyticsService"):GetClientId() then
@@ -375,7 +375,7 @@ while _G.Activate do
             game:Shutdown()
          end
       end
-      wait(10)
+      wait(3)
       TextLabel.Text = "Updating ..."
       wait(.5)
    end)
