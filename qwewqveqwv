@@ -1,8 +1,8 @@
--- _G.Activate = true
--- _G.CheckSheet = true
--- _G.FirstWait = 0
--- _G.Linetoken = "IFrNuMoL2l7CnMJEOYrT9C6nur9GzIII0LVfAhA3MeX"
--- _G.SheetBest = "https://sheet.best/api/sheets/bef8b0ee-e57a-40d6-acdb-0caa5fbe8e71"
+_G.Activate = true
+_G.CheckSheet = true
+_G.FirstWait = 0
+_G.Linetoken = "IFrNuMoL2l7CnMJEOYrT9C6nur9GzIII0LVfAhA3MeX"
+_G.SheetBest = "https://sheet.best/api/sheets/bef8b0ee-e57a-40d6-acdb-0caa5fbe8e71"
 
 
 repeat wait() until game:IsLoaded()
@@ -303,8 +303,11 @@ function sheetbest()
       return get.Body
       end
       checksheet = httpget(_G.SheetBest)
-      if (string.find(checksheet , game.Players.LocalPlayer.Name)) then
-         logsheet()
+        if (string.find(checksheet , game.Players.LocalPlayer.Name)) == false then
+            print("NOT HAVE LOG")
+            logsheet()
+        else
+            print("HAVE LOG")
          end
    else
       logsheet()
