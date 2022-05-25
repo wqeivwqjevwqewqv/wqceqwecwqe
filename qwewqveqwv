@@ -1,8 +1,8 @@
 -- _G.Activate = true
 -- _G.FirstWait = 0
 -- _G.Linetoken = "IFrNuMoL2l7CnMJEOYrT9C6nur9GzIII0LVfAhA3MeX"
--- _G.SheetBest = "https://sheet.best/api/sheets/73a4ee8c-5c7c-47b8-8bd5-5823762bd9b0"
-
+-- _G.SheetBest = "https://sheet.best/api/sheets/bef8b0ee-e57a-40d6-acdb-0caa5fbe8e71"
+-- _G.LockBeli = 10000000
 repeat wait() until game:IsLoaded()
 if not game:IsLoaded() then game.Loaded:Wait() end
 repeat wait() until game.Players
@@ -279,6 +279,16 @@ function sheetbest()
   print(qwevwqv.Body)
 
 end
+function checkmoney()
+   if game:GetService("Players").LocalPlayer.Data.Beli.Value >= _G.LockBeli then
+      print("NOW BELI = ".. game:GetService("Players").LocalPlayer.Data.Beli.Value)
+      return true
+   else
+      print("nah no money")
+      return false
+   end
+end
+
 while _G.Activate do
    wait(10)
    pcall(function()
@@ -378,6 +388,9 @@ while _G.Activate do
          end
          print(SkillVKUB)
          if game.Players.LocalPlayer.Data.Level.Value == 2300 and V and SkillVKUB then
+            while checkmoney() == false do
+               wait(3)
+            end
             print('SUCCES LA I SUS')
 
             token = _G.Linetoken
@@ -398,6 +411,9 @@ while _G.Activate do
             _G.Activate = false
             game:Shutdown()
          elseif game.Players.LocalPlayer.Data.Level.Value == 2300 and V and cant_awake then
+            while checkmoney() == false do
+               wait(1)
+            end
             print('SUCCES LA I SUS')
 
             token = _G.Linetoken
