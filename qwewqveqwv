@@ -1,8 +1,9 @@
 -- _G.Activate = true
 -- _G.FirstWait = 0
 -- _G.Linetoken = "IFrNuMoL2l7CnMJEOYrT9C6nur9GzIII0LVfAhA3MeX"
--- _G.SheetBest = "https://sheet.best/api/sheets/bef8b0ee-e57a-40d6-acdb-0caa5fbe8e71"
 -- _G.LockBeli = 10000000
+-- _G.SheetBest = "https://sheet.best/api/sheets/bef8b0ee-e57a-40d6-acdb-0caa5fbe8e71"
+
 repeat wait() until game:IsLoaded()
 if not game:IsLoaded() then game.Loaded:Wait() end
 repeat wait() until game.Players
@@ -290,7 +291,7 @@ function checkmoney()
 end
 
 while _G.Activate do
-   wait(10)
+   wait(3)
    pcall(function()
       game:GetService("Players").LocalPlayer.PlayerGui.Main.Fragments.Position = UDim2.new(0,200,0,400)
       game:GetService("Players").LocalPlayer.PlayerGui.Main.Fragments.Text = "ƒ"..tostring(reformatint(game.Players.LocalPlayer.Data.Fragments.Value))
@@ -389,7 +390,7 @@ while _G.Activate do
          print(SkillVKUB)
          if game.Players.LocalPlayer.Data.Level.Value == 2300 and V and SkillVKUB then
             while checkmoney() == false do
-               wait(3)
+               wait(5)
             end
             print('SUCCES LA I SUS')
 
@@ -412,7 +413,7 @@ while _G.Activate do
             game:Shutdown()
          elseif game.Players.LocalPlayer.Data.Level.Value == 2300 and V and cant_awake then
             while checkmoney() == false do
-               wait(1)
+               wait(5)
             end
             print('SUCCES LA I SUS')
 
