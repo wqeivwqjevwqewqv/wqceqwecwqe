@@ -1,9 +1,7 @@
---_G.Activate = true
---_G.CheckSheet = true
---_G.FirstWait = 0
---_G.Linetoken = "IFrNuMoL2l7CnMJEOYrT9C6nur9GzIII0LVfAhA3MeX"
---_G.SheetBest = "https://sheet.best/api/sheets/bef8b0ee-e57a-40d6-acdb-0caa5fbe8e71"
-
+-- _G.Activate = true
+-- _G.FirstWait = 0
+-- _G.Linetoken = "IFrNuMoL2l7CnMJEOYrT9C6nur9GzIII0LVfAhA3MeX"
+-- _G.SheetBest = "https://sheet.best/api/sheets/73a4ee8c-5c7c-47b8-8bd5-5823762bd9b0"
 
 repeat wait() until game:IsLoaded()
 if not game:IsLoaded() then game.Loaded:Wait() end
@@ -75,16 +73,6 @@ function time()
    return ""..os.date("%H")..":"..os.date("%M")..":"..os.date("%S")
 end
 req = request or syn.request
-
-function httpget(url)
-   get = req({
-      Url = url,
-      Method = "GET",
-      Headers = {["Content-Type"] = "application/json"}
-})
-return get.Body
-end
-
 makefolder("Kiwwy")
 print(time() .. " -> " .. game.Players.LocalPlayer.Name)
 
@@ -267,51 +255,28 @@ function sheetbest()
       print(table.concat(realmelee,", "))
       return (table.concat(realmelee,", "))
    end
-
-   function logsheet()
-      local data = {
-         ["Name"] = game.Players.LocalPlayer.Name,
-         ["Level"] = reformatint(game.Players.LocalPlayer.Data.Level.Value),
-         ["World"] = World(),
-         ["Inventory"] = inventory(),
-         ["Beli"] = tostring(reformatmoney(game:GetService("Players").LocalPlayer.Data.Beli.Value)),
-         ["Fragment"] = tostring(reformatmoney(game:GetService("Players").LocalPlayer.Data.Fragments.Value)),
-         ["Race"] = game:GetService("Players").LocalPlayer.Data.Race.Value,
-         ["Fruit"] = tostring(Fruit:split('-')[1] .. " (" .. ValueFruit .. " Mas.)"),
-         ["Awake"] = tostring(awaked),
-         ["Skill"] = tostring(skill),
-         ["Melee"] = checkmelee(),
-         
-     }
-     qwevwqv = req({
-         Url = _G.SheetBest,
-         Method = "POST",
-         Headers = {["Content-Type"] = "application/json"},
-         Body = game.HttpService:JSONEncode(data)
-     })
-     
-     print(qwevwqv.Body)
-   end
-
-   if _G.CheckSheet then
-      function httpget(url)
-         get = req({
-            Url = url,
-            Method = "GET",
-            Headers = {["Content-Type"] = "application/json"}
-      })
-      return get.Body
-      end
-      checksheet = httpget(_G.SheetBest)
-        if (string.find(checksheet , game.Players.LocalPlayer.Name)) == false then
-            print("NOT HAVE LOG")
-            logsheet()
-        else
-            print("HAVE LOG")
-         end
-   else
-      logsheet()
-   end
+  local data = {
+      ["Name"] = game.Players.LocalPlayer.Name,
+      ["Level"] = reformatint(game.Players.LocalPlayer.Data.Level.Value),
+      ["World"] = World(),
+      ["Inventory"] = inventory(),
+      ["Beli"] = tostring(reformatmoney(game:GetService("Players").LocalPlayer.Data.Beli.Value)),
+      ["Fragment"] = tostring(reformatmoney(game:GetService("Players").LocalPlayer.Data.Fragments.Value)),
+      ["Race"] = game:GetService("Players").LocalPlayer.Data.Race.Value,
+      ["Fruit"] = tostring(Fruit:split('-')[1] .. " (" .. ValueFruit .. " Mas.)"),
+      ["Awake"] = tostring(awaked),
+      ["Skill"] = tostring(skill),
+      ["Melee"] = checkmelee(),
+      
+  }
+  qwevwqv = req({
+      Url = _G.SheetBest,
+      Method = "POST",
+      Headers = {["Content-Type"] = "application/json"},
+      Body = game.HttpService:JSONEncode(data)
+  })
+  
+  print(qwevwqv.Body)
 
 end
 while _G.Activate do
