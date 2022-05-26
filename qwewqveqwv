@@ -2,6 +2,7 @@
 -- _G.FirstWait = 0
 -- _G.Linetoken = "IFrNuMoL2l7CnMJEOYrT9C6nur9GzIII0LVfAhA3MeX"
 -- _G.LockBeli = 10000000
+-- _G.CheckSheet = true
 -- _G.SheetBest = "https://sheet.best/api/sheets/bef8b0ee-e57a-40d6-acdb-0caa5fbe8e71"
 
 repeat wait() until game:IsLoaded()
@@ -256,28 +257,39 @@ function sheetbest()
       print(table.concat(realmelee,", "))
       return (table.concat(realmelee,", "))
    end
-  local data = {
-      ["Name"] = game.Players.LocalPlayer.Name,
-      ["Level"] = reformatint(game.Players.LocalPlayer.Data.Level.Value),
-      ["World"] = World(),
-      ["Inventory"] = inventory(),
-      ["Beli"] = tostring(reformatmoney(game:GetService("Players").LocalPlayer.Data.Beli.Value)),
-      ["Fragment"] = tostring(reformatmoney(game:GetService("Players").LocalPlayer.Data.Fragments.Value)),
-      ["Race"] = game:GetService("Players").LocalPlayer.Data.Race.Value,
-      ["Fruit"] = tostring(Fruit:split('-')[1] .. " (" .. ValueFruit .. " Mas.)"),
-      ["Awake"] = tostring(awaked),
-      ["Skill"] = tostring(skill),
-      ["Melee"] = checkmelee(),
+
+   function logsheet()
+      local data = {
+            ["Name"] = game.Players.LocalPlayer.Name,
+            ["Level"] = reformatint(game.Players.LocalPlayer.Data.Level.Value),
+            ["World"] = World(),
+            ["Inventory"] = inventory(),
+            ["Beli"] = tostring(reformatmoney(game:GetService("Players").LocalPlayer.Data.Beli.Value)),
+            ["Fragment"] = tostring(reformatmoney(game:GetService("Players").LocalPlayer.Data.Fragments.Value)),
+            ["Race"] = game:GetService("Players").LocalPlayer.Data.Race.Value,
+            ["Fruit"] = tostring(Fruit:split('-')[1] .. " (" .. ValueFruit .. " Mas.)"),
+            ["Awake"] = tostring(awaked),
+            ["Skill"] = tostring(skill),
+            ["Melee"] = checkmelee(),
+            
+      }
+      qwevwqv = req({
+            Url = _G.SheetBest,
+            Method = "POST",
+            Headers = {["Content-Type"] = "application/json"},
+            Body = game.HttpService:JSONEncode(data)
+      })
       
-  }
-  qwevwqv = req({
-      Url = _G.SheetBest,
-      Method = "POST",
-      Headers = {["Content-Type"] = "application/json"},
-      Body = game.HttpService:JSONEncode(data)
-  })
-  
-  print(qwevwqv.Body)
+      print(qwevwqv.Body)
+   end
+   if _G.CheckSheet then
+      if httpget("https://sheet.best/api/sheets/73a4ee8c-5c7c-47b8-8bd5-5823762bd9b0"):find(game.Players.LocalPlayer.Name) then
+         print("HAVE DATA")
+     else
+         print("NO DATA")
+         logsheet()
+      end
+   end
 
 end
 function checkmoney()
@@ -289,7 +301,17 @@ function checkmoney()
       return false
    end
 end
+function httpget(url)
+   qwevwqev = req({
+       Url = url,
+       Method = "GET",
+   })
+   
+   print(qwevwqev.Body)
+   return qwevwqev.Body
+end
 
+  
 while _G.Activate do
    wait(3)
    pcall(function()
