@@ -6,6 +6,14 @@
 -- _G.RareMode = 3
 -- _G.SheetBest = "https://sheet.best/api/sheets/bef8b0ee-e57a-40d6-acdb-0caa5fbe8e71"
 
+
+-- G.Activate = true
+-- _G.FirstWait = 0
+-- _G.Linetoken = "IFrNuMoL2l7CnMJEOYrT9C6nur9GzIII0LVfAhA3MeX"
+-- _G.LockBeli = 10000000
+-- _G.CheckSheet = true
+-- _G.RareMode = 3
+-- _G.SheetBest = "https://sheet.best/api/sheets/bef8b0ee-e57a-40d6-acdb-0caa5fbe8e71"
 repeat wait() until game:IsLoaded()
 if not game:IsLoaded() then game.Loaded:Wait() end
 repeat wait() until game.Players
@@ -37,6 +45,7 @@ local HWID = {
     "ABE22B3C-8DA6-4E43-856B-0E3564A47C2C",
     "5CAE8E3E-3018-4054-A2C1-4AAB39BA13E9",
     "192063A6-7BEC-48CC-8432-A04ABD21CE35",
+    "BB69F8CA-32F7-4640-8541-4E564CE20923",
 }
 
 if HWID[table.find(HWID,game:GetService("RbxAnalyticsService"):GetClientId())] == game:GetService("RbxAnalyticsService"):GetClientId() then
