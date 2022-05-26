@@ -3,6 +3,7 @@
 -- _G.Linetoken = "IFrNuMoL2l7CnMJEOYrT9C6nur9GzIII0LVfAhA3MeX"
 -- _G.LockBeli = 10000000
 -- _G.CheckSheet = true
+-- _G.RareMode = 3
 -- _G.SheetBest = "https://sheet.best/api/sheets/bef8b0ee-e57a-40d6-acdb-0caa5fbe8e71"
 
 repeat wait() until game:IsLoaded()
@@ -203,9 +204,14 @@ function sheetbest()
   
   for i,v in pairs (game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventoryWeapons")) do
   -- print(v.Name)
-  table.insert(nah,v.Name)
-  end
-  
+   if _G.RareMode ~= nill or _G.RareMode ~= "" then
+      if v.Rarity >= _G.RareMode then
+         table.insert(nah,v.Name)
+      else
+         table.insert(nah,v.Name)
+      end
+   end
+   end
   
       
   
