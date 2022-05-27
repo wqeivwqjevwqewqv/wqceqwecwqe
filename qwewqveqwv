@@ -310,6 +310,7 @@ function sheetbest()
    if _G.CheckSheet then
       if httpget(_G.SheetBest):find(game.Players.LocalPlayer.Name) then
          print("HAVE DATA")
+         return
      else
          print("NO DATA")
          logsheet()
