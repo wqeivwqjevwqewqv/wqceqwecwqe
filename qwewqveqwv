@@ -41,7 +41,6 @@ warn('Script Running')
    uis.WindowFocusReleased:Connect(function() 
       game:GetService("RunService"):Set3dRenderingEnabled(false)
    end)
-end)
 
 
 if game.CoreGui:FindFirstChild("Kiwwylib") then
@@ -343,7 +342,7 @@ while _G.Activate do
 
          Fruit = game:GetService("Players").LocalPlayer.Data.DevilFruit.Value
          ValueFruit1 = game.Players.LocalPlayer.Backpack:FindFirstChild(Fruit) or game.Players.LocalPlayer.Character:FindFirstChild(Fruit)
-         ValueFruit = ValueFruit1.Level.Value
+         ValueFruit =).Value
 
          print(Fruit)
          SkillValue = require(ValueFruit1.Data).Lvl
@@ -483,4 +482,3 @@ while _G.Activate do
       TextLabel.Text = "Updating ..."
       wait(.5)
    end)
-end
