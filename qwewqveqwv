@@ -3,17 +3,8 @@
 -- _G.Linetoken = "IFrNuMoL2l7CnMJEOYrT9C6nur9GzIII0LVfAhA3MeX"
 -- _G.LockBeli = 10000000
 -- _G.CheckSheet = true
--- _G.RareMode = 3
 -- _G.SheetBest = "https://sheet.best/api/sheets/bef8b0ee-e57a-40d6-acdb-0caa5fbe8e71"
 
-
--- G.Activate = true
--- _G.FirstWait = 0
--- _G.Linetoken = "IFrNuMoL2l7CnMJEOYrT9C6nur9GzIII0LVfAhA3MeX"
--- _G.LockBeli = 10000000
--- _G.CheckSheet = true
--- _G.RareMode = 3
--- _G.SheetBest = "https://sheet.best/api/sheets/bef8b0ee-e57a-40d6-acdb-0caa5fbe8e71"
 repeat wait() until game:IsLoaded()
 if not game:IsLoaded() then game.Loaded:Wait() end
 repeat wait() until game.Players
@@ -40,23 +31,42 @@ until game.Players.LocalPlayer.Team ~= nil and game:IsLoaded()
 warn('Script Running')
 
 -- whitelist
--- ts = game:GetService("TeleportService")
--- local HWID = {
---     "ABE22B3C-8DA6-4E43-856B-0E3564A47C2C",
---     "5CAE8E3E-3018-4054-A2C1-4AAB39BA13E9",
---     "192063A6-7BEC-48CC-8432-A04ABD21CE35",
---     "BB69F8CA-32F7-4640-8541-4E564CE20923",
---     "DD5F6449-B50D-4A51-AC41-0E1E54204334",
--- }
+   local uis = game:GetService("UserInputService")
+   local size = workspace.CurrentCamera.ViewportSize
 
--- if HWID[table.find(HWID,game:GetService("RbxAnalyticsService"):GetClientId())] == game:GetService("RbxAnalyticsService"):GetClientId() then
--- print("Success")
--- else
---     setclipboard(game:GetService("RbxAnalyticsService"):GetClientId())
---     game.Players.LocalPlayer:Kick("COPY HWID SUCCES")
---     wait(2)
---     ts:Teleport(game.PlaceId, p)
--- end
+   uis.WindowFocused:Connect(function() 
+      game:GetService("RunService"):Set3dRenderingEnabled(true)
+   end)
+
+   uis.WindowFocusReleased:Connect(function() 
+      game:GetService("RunService"):Set3dRenderingEnabled(false)
+   end)
+end)
+
+
+if game.CoreGui:FindFirstChild("Kiwwylib") then
+   game.CoreGui:FindFirstChild("Kiwwylib"):Destroy()
+end
+
+if _G.FirstWait ~= nil then
+   wait(_G.FirstWait)
+else
+   wait(10)
+end
+--------------------
+function time()
+   return ""..os.date("%H")..":"..os.date("%M")..":"..os.date("%S")
+end
+req = request or syn.request
+makefolder("Kiwwy")
+print(time() .. " -> " .. game.Players.LocalPlayer.Name)
+
+-- check have 2 file then del all
+if isfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt")  and isfile("Kiwwy/"..game.Players.LocalPlayer.Name.."_success.txt") then
+   print(time(
+
+
+
 spawn(function()
 
    local uis = game:GetService("UserInputService")
@@ -214,14 +224,9 @@ function sheetbest()
   
   for i,v in pairs (game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventoryWeapons")) do
   -- print(v.Name)
-   if _G.RareMode ~= nill or _G.RareMode ~= "" then
-      if v.Rarity >= _G.RareMode then
-         table.insert(nah,v.Name)
-      else
-         table.insert(nah,v.Name)
-      end
-   end
-   end
+  table.insert(nah,v.Name)
+  end
+  
   
       
   
@@ -299,7 +304,7 @@ function sheetbest()
       print(qwevwqv.Body)
    end
    if _G.CheckSheet then
-      if httpget(_G.SheetBest):find(game.Players.LocalPlayer.Name) then
+      if httpget("https://sheet.best/api/sheets/73a4ee8c-5c7c-47b8-8bd5-5823762bd9b0"):find(game.Players.LocalPlayer.Name) then
          print("HAVE DATA")
      else
          print("NO DATA")
