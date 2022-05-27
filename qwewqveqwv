@@ -14,7 +14,7 @@
 -- _G.CheckSheet = t rue
 -- _G.RareMode = 3
 -- _G.SheetBest = "https://sheet.best/api/sheets/bef8b0ee-e57a-40d6-acdb-0caa5fbe8e71"
-repeat wait() until game:IsLoaded()
+repeat print('WAITING GAME LAOD') wait(1) until game:IsLoaded()
 if not game:IsLoaded() then game.Loaded:Wait() end
 repeat wait() until game.Players
 repeat wait() until game.Players.LocalPlayer
@@ -38,7 +38,7 @@ end
 until game.Players.LocalPlayer.Team ~= nil and game:IsLoaded()
 
 warn('Script Running')
-print('LAST UPDATE ON 27/05 19:54')
+print('LAST UPDATE ON 27/05 20:07')
 -- whitelist
 -- ts = game:GetService("TeleportService")
 -- local HWID = {
