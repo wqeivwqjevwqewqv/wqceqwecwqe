@@ -237,9 +237,13 @@ function sheetbest()
       --  print(v.Name:split("-")[1])
          table.insert(fruitlist, tostring(v.Name:split("-")[1]))
       end
-      allfruit = table.concat(fruitlist , ", ")
-      print(allfruit)
-      return tostring(allfruit)
+      if unpack(fruitlist) ~= nil then
+         allfruit = table.concat(fruitlist , ", ")
+         print(allfruit)
+         return tostring(allfruit)
+      else
+         return "None"
+      end
    end
    
    function checkmelee()
