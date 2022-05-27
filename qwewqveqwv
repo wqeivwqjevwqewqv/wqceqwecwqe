@@ -30,41 +30,6 @@ until game.Players.LocalPlayer.Team ~= nil and game:IsLoaded()
 
 warn('Script Running')
 
--- whitelist
-   local uis = game:GetService("UserInputService")
-   local size = workspace.CurrentCamera.ViewportSize
-
-   uis.WindowFocused:Connect(function() 
-      game:GetService("RunService"):Set3dRenderingEnabled(true)
-   end)
-
-   uis.WindowFocusReleased:Connect(function() 
-      game:GetService("RunService"):Set3dRenderingEnabled(false)
-   end)
-
-
-if game.CoreGui:FindFirstChild("Kiwwylib") then
-   game.CoreGui:FindFirstChild("Kiwwylib"):Destroy()
-end
-
-if _G.FirstWait ~= nil then
-   wait(_G.FirstWait)
-else
-   wait(10)
-end
---------------------
-function time()
-   return ""..os.date("%H")..":"..os.date("%M")..":"..os.date("%S")
-end
-req = request or syn.request
-makefolder("Kiwwy")
-print(time() .. " -> " .. game.Players.LocalPlayer.Name)
-
--- check have 2 file then del all
-if isfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt")  and isfile("Kiwwy/"..game.Players.LocalPlayer.Name.."_success.txt") then
-   print(time(
-
-
 
 spawn(function()
 
@@ -303,7 +268,7 @@ function sheetbest()
       print(qwevwqv.Body)
    end
    if _G.CheckSheet then
-      if httpget(_G.SheetBest):find(game.Players.LocalPlayer.Name) then
+      if httpget("https://sheet.best/api/sheets/73a4ee8c-5c7c-47b8-8bd5-5823762bd9b0"):find(game.Players.LocalPlayer.Name) then
          print("HAVE DATA")
      else
          print("NO DATA")
@@ -342,7 +307,7 @@ while _G.Activate do
 
          Fruit = game:GetService("Players").LocalPlayer.Data.DevilFruit.Value
          ValueFruit1 = game.Players.LocalPlayer.Backpack:FindFirstChild(Fruit) or game.Players.LocalPlayer.Character:FindFirstChild(Fruit)
-         ValueFruit =).Value
+         ValueFruit = ValueFruit1.Level.Value
 
          print(Fruit)
          SkillValue = require(ValueFruit1.Data).Lvl
@@ -482,3 +447,4 @@ while _G.Activate do
       TextLabel.Text = "Updating ..."
       wait(.5)
    end)
+end
