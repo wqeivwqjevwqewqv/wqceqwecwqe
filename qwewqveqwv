@@ -38,7 +38,7 @@ end
 until game.Players.LocalPlayer.Team ~= nil and game:IsLoaded()
 
 warn('Script Running')
-
+print('LAST UPDATE ON 27/05 19:37')
 -- whitelist
 -- ts = game:GetService("TeleportService")
 -- local HWID = {
