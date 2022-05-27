@@ -11,7 +11,7 @@
 -- _G.FirstWait = 0
 -- _G.Linetoken = "IFrNuMoL2l7CnMJEOYrT9C6nur9GzIII0LVfAhA3MeX"
 -- _G.LockBeli = 10000000
--- _G.CheckSheet = true
+-- _G.CheckSheet = t rue
 -- _G.RareMode = 3
 -- _G.SheetBest = "https://sheet.best/api/sheets/bef8b0ee-e57a-40d6-acdb-0caa5fbe8e71"
 repeat wait() until game:IsLoaded()
@@ -38,7 +38,7 @@ end
 until game.Players.LocalPlayer.Team ~= nil and game:IsLoaded()
 
 warn('Script Running')
-print('LAST UPDATE ON 27/05 19:37')
+print('LAST UPDATE ON 27/05 19:54')
 -- whitelist
 -- ts = game:GetService("TeleportService")
 -- local HWID = {
@@ -214,8 +214,8 @@ function sheetbest()
   
   for i,v in pairs (game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventoryWeapons")) do
   -- print(v.Name)
-   if _G.RareMode ~= nill or _G.RareMode ~= "" then
-      if v.Rarity >= _G.RareMode then
+   if _G.RareMode ~= nil or _G.RareMode ~= "" then
+      if v.Rarity >= _G.RareMode and v.Type ~= "Wear" then
          table.insert(nah,v.Name)
       else
          table.insert(nah,v.Name)
