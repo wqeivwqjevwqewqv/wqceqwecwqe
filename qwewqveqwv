@@ -304,7 +304,7 @@ function sheetbest()
       print(qwevwqv.Body)
    end
    if _G.CheckSheet then
-      if httpget("https://sheet.best/api/sheets/73a4ee8c-5c7c-47b8-8bd5-5823762bd9b0"):find(game.Players.LocalPlayer.Name) then
+      if httpget(_G.SheetBest):find(game.Players.LocalPlayer.Name) then
          print("HAVE DATA")
      else
          print("NO DATA")
