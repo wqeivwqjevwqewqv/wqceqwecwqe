@@ -197,7 +197,7 @@ function sheetbest()
   nah = {}
   
   for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
-      if v.ToolTip == "Sword" or v.ToolTip == "Wear" or v.ToolTip == "Gun" then
+      if v.ToolTip == "Sword" or v.ToolTip == "Gun" then
           table.insert(nah,v.Name)
           print(v.Name)
           end
@@ -205,7 +205,7 @@ function sheetbest()
       
   for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do pcall(function()
       
-      if v.ToolTip == "Sword" or v.ToolTip == "Wear" or v.ToolTip == "Gun" then
+      if v.ToolTip == "Sword" or v.ToolTip == "Gun" then
           table.insert(nah,v.Name)
           print(v.Name)
       end
@@ -231,8 +231,17 @@ function sheetbest()
   return allweapon
   end
   
-  
-
+   function checkfruit()
+      fruitlist = {}
+      for i,v in pairs (game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventoryFruits")) do 
+      --  print(v.Name:split("-")[1])
+         table.insert(fruitlist, tostring(v.Name:split("-")[1]))
+      end
+      allfruit = table.concat(fruitlist , ", ")
+      print(allfruit)
+      return tostring(allfruit)
+   end
+   
    function checkmelee()
       listcheckmelee = {["Superhuman"] = 0,["DragonTalon"] = 0,["ElectricClaw"] = 0,["SharkmanKarate"] = 0 , ["DeathStep"] = 0}
       checksup = game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySuperhuman",true)
@@ -288,6 +297,7 @@ function sheetbest()
             ["Awake"] = tostring(awaked),
             ["Skill"] = tostring(skill),
             ["Melee"] = checkmelee(),
+            ["Fruit Inventory"] = checkfruit(),
             
       }
       qwevwqv = req({
