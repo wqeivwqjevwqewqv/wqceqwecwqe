@@ -213,14 +213,15 @@ function sheetbest()
   end
   
   for i,v in pairs (game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventoryWeapons")) do
-  -- print(v.Name)
-   if _G.RareMode ~= nil or _G.RareMode ~= "" then
-      if v.Rarity >= _G.RareMode and v.Type ~= "Wear" then
-         table.insert(nah,v.Name)
+   -- print(v.Name)
+      if _G.RareMode ~= nil or _G.RareMode ~= "" then
+         if v.Rarity >= _G.RareMode and v.Type ~= "Wear" then
+            print(v.Name , v.Type)
+            table.insert(nah,v.Name)
+         end
       else
          table.insert(nah,v.Name)
       end
-   end
    end
   
       
