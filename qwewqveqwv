@@ -38,7 +38,7 @@ end
 until game.Players.LocalPlayer.Team ~= nil and game:IsLoaded()
 
 warn('Script Running')
-print('LAST UPDATE ON 27/05 20:07')
+print('LAST UPDATE ON 28/05 13:01')
 -- whitelist
 -- ts = game:GetService("TeleportService")
 -- local HWID = {
@@ -383,11 +383,12 @@ while _G.Activate do
             C = true
          end
 
-         if ValueFruit >= SkillValue["V"] then
-            print("V")
-            V = true
+         if SkillValue["V"]  then
+            if ValueFruit >= SkillValue["V"] then
+               print("V")
+               V = true
+            end
          end
-
          skill = ""
          if Z then
             skill = skill .. "Z "
