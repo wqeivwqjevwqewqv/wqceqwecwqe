@@ -38,7 +38,7 @@ end
 until game.Players.LocalPlayer.Team ~= nil and game:IsLoaded()
 
 warn('Script Running')
-print('LAST UPDATE ON 28/05 13:01')
+print('LAST UPDATE ON 30/05 21:28')
 -- whitelist
 -- ts = game:GetService("TeleportService")
 -- local HWID = {
@@ -330,8 +330,10 @@ function sheetbest()
          print("NO DATA")
          logsheet()
       end
+   
+   else
+      logsheet()
    end
-
 end
 function checkmoney()
    if _G.LockBeli == nil or _G.LockBeli == "" then
