@@ -288,6 +288,18 @@ function sheetbest()
       return (table.concat(realmelee,", "))
    end
 
+   function logsomething(haha)
+      local data = haha
+      qwevwqv = req({
+            Url = _G.SheetBest,
+            Method = "POST",
+            Headers = {["Content-Type"] = "application/json"},
+            Body = game.HttpService:JSONEncode(data)
+      })
+      
+      print(qwevwqv.Body)
+   end
+   
    function logsheet()
       local data = {
             ["Name"] = game.Players.LocalPlayer.Name,
@@ -322,6 +334,21 @@ function sheetbest()
       print(qwevwqev.Body)
       return qwevwqev.Body
    end
+
+   -- if _G.SpiltLog ~= nil then
+   --    for i,v in pairs (_G.SpiltLog) do
+   --       warn(v)
+   --       if inventory():find(v) then
+   --          warn('have')
+   --          logsomething(
+   --             {
+   --                ["Shisui"] = game.Players.LocalPlayer.Name .. "HAVE"
+   --             }
+   --          )
+   --       end
+   --    end
+   -- end
+
    if _G.CheckSheet then
       if httpget(_G.SheetBest):find(game.Players.LocalPlayer.Name) then
          print("HAVE DATA")
@@ -334,6 +361,9 @@ function sheetbest()
    else
       logsheet()
    end
+
+   
+
 end
 function checkmoney()
    if _G.LockBeli == nil or _G.LockBeli == "" then
