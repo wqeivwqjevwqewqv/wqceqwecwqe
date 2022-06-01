@@ -23,7 +23,7 @@ end
 
 until game.Players.LocalPlayer.Team ~= nil and game:IsLoaded()
 warn('Script Running')
-wait(5)
+wait(3)
 -- white screen
 spawn(function()
     local uis = game:GetService("UserInputService")
@@ -104,10 +104,10 @@ end
 
 -- Start Loop
 while _G.Activate do
-        MyLevel = game.Players.LocalPlayer.Data.Level.Value
-
+    wait(.1)
+    MyLevel = game.Players.LocalPlayer.Data.Level.Value
     if MyLevel == 2300 then
-        line(game.Players.LocalPlayer.Name .. " kaikang Success \n" .. "Fruit " .. Fruit .. "\nMastery " .. ValueFruit)
+        line(game.Players.LocalPlayer.Name .. " kaikang Success " )
         
         -- create file success
         if isfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt") then
