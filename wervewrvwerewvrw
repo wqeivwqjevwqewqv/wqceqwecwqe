@@ -162,7 +162,8 @@ while _G.Activate do
         print("NO FRUIT")
     end
     -- Check if success
-    if MyLevel == 2300 and V then
+    -- if MyLevel == 2300 and V then
+    if MyLevel == 2300 then
         line(game.Players.LocalPlayer.Name .. " kaikang Success \n" .. "Fruit " .. Fruit .. "\nMastery " .. ValueFruit)
         
         -- create file success
