@@ -104,9 +104,9 @@ end
 
 -- Start Loop
 while _G.Activate do
-
+    pcall(function()
     -- check have fruit
-    if game:GetService("Players").LocalPlayer.Data.DevilFruit.Value ~= nil then
+    if game:GetService("Players").LocalPlayer.Data.DevilFruit.Value ~= nil or game:GetService("Players").LocalPlayer.Data.DevilFruit.Value ~= "" then
         List = {}
         MyLevel = game.Players.LocalPlayer.Data.Level.Value
         Fruit = game:GetService("Players").LocalPlayer.Data.DevilFruit.Value
@@ -179,5 +179,5 @@ while _G.Activate do
         _G.Activate = false
     end
     wait(10)
-
+end)
 end
