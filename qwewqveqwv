@@ -248,7 +248,7 @@ function sheetbest()
   end
   
 
-  if _G.RareModeActivate and _G.LogInventoryActivate == false then
+  if _G.RareModeActivate then
    for i,v in pairs (game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventoryWeapons")) do
       -- print(v.Name)
          if _G.RareMode ~= nil or _G.RareMode ~= "" then
@@ -260,12 +260,9 @@ function sheetbest()
             table.insert(nah,v.Name)
          end
       end
-   else
-      TextLabel.TextColor3 = Color3.fromRGB(255, 0, 0)
-      TextLabel.Text = "DONT OPEN LOGINV WITH RARE MODE !!!"
    end
 
-   if _G.LogInventoryActivate and _G.RareModeActivate == false then
+   if _G.LogInventoryActivate then
       for i,v in pairs (game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventoryWeapons")) do
          for w,e in pairs (_G.LogInventory) do
                if v.Name == tostring(e) then
@@ -273,9 +270,6 @@ function sheetbest()
                end
          end
       end
-   else
-      TextLabel.TextColor3 = Color3.fromRGB(255, 0, 0)
-      TextLabel.Text = "DONT OPEN LOGINV WITH RARE MODE !!!"
    end
 
   
