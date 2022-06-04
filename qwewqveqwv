@@ -502,7 +502,7 @@ while _G.Activate do
                print(time() .. " -> " .. "Created Succes File")
             end
             _G.Activate = false
-            game:Shutdown()
+            -- game:Shutdown()
          elseif game.Players.LocalPlayer.Data.Level.Value == 2300 and V and cant_awake then
             while checkmoney() == false do
                wait(5)
@@ -525,7 +525,7 @@ while _G.Activate do
                print(time() .. " -> " .. "Created Succes File")
             end
             _G.Activate = false
-            game:Shutdown()
+            -- game:Shutdown()
          end
       end
       wait(3)
@@ -533,3 +533,20 @@ while _G.Activate do
       wait(.5)
    end)
 end
+TextLabel.TextSize = 100.000
+spawn(function()
+   local uis = game:GetService("UserInputService")
+   uis.InputBegan:Connect(function(asd)
+      if asd.KeyCode == Enum.KeyCode.G then -- any key here (could be insert or delete whatever u want)
+      print("SHUTDOWN")
+      game:Shutdown()
+      end
+   end)
+   while wait(1) do
+      TextLabel.Text = "ALL SUCCES PRESS G TO CLOSE ."
+      wait(1)
+      TextLabel.Text = "ALL SUCCES PRESS G TO CLOSE .."
+      wait(1)
+      TextLabel.Text = "ALL SUCCES PRESS G TO CLOSE ..."
+      end
+end)
