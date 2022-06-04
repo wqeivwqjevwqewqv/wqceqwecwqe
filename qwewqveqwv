@@ -1,20 +1,28 @@
 -- _G.Activate = true
 -- _G.FirstWait = 0
 -- _G.Linetoken = "IFrNuMoL2l7CnMJEOYrT9C6nur9GzIII0LVfAhA3MeX"
+-- _G.LockBeliActivate = true
 -- _G.LockBeli = 10000000
 -- _G.CheckSheet = true
+-- _G.RareModeActivate = false
 -- _G.RareMode = 3
+-- _G.LogInventoryActivate = true
+-- _G.LogInventory = {"Shisui", "Saddi", "Wando", "Buddy Sword", "Yama", "Hallow Scythe", "Spikey Trident", "Dark Dagger"}
 -- _G.SheetBest = "https://sheet.best/api/sheets/bef8b0ee-e57a-40d6-acdb-0caa5fbe8e71"
 
 
--- G.Activate = true
+-- _G.Activate = true
 -- _G.FirstWait = 0
 -- _G.Linetoken = "IFrNuMoL2l7CnMJEOYrT9C6nur9GzIII0LVfAhA3MeX"
+-- _G.LockBeliActivate = true
 -- _G.LockBeli = 10000000
--- _G.CheckSheet = t rue
+-- _G.CheckSheet = true
+-- _G.RareModeActivate = false
 -- _G.RareMode = 3
+-- _G.LogInventoryActivate = true
+-- _G.LogInventory = {"Shisui", "Saddi", "Wando", "Buddy Sword", "Yama", "Hallow Scythe", "Spikey Trident", "Dark Dagger"}
 -- _G.SheetBest = "https://sheet.best/api/sheets/bef8b0ee-e57a-40d6-acdb-0caa5fbe8e71"
-repeat print('WAITING GAME LAOD') wait(1) until game:IsLoaded()
+repeat print('WAITING GAME LOAD') wait(1) until game:IsLoaded()
 if not game:IsLoaded() then game.Loaded:Wait() end
 repeat wait() until game.Players
 repeat wait() until game.Players.LocalPlayer
@@ -38,7 +46,7 @@ end
 until game.Players.LocalPlayer.Team ~= nil and game:IsLoaded()
 
 warn('Script Running')
-print('LAST UPDATE ON 30/05 21:28')
+print('LAST UPDATE ON 05/06 1:31')
 -- whitelist
 -- ts = game:GetService("TeleportService")
 -- local HWID = {
@@ -112,7 +120,7 @@ if isfile("Kiwwy/"..game.Players.LocalPlayer.Name.."_success.txt") then
    -- print(b.Body)
    -- game:Shutdown()
    -- return
-   print('eiei')
+   -- print('eiei')
 end
 
 
@@ -151,6 +159,7 @@ TextLabel.Size = UDim2.new(0, 300, 0, 200)
 TextLabel.Font = Enum.Font.Cartoon
 TextLabel.BackgroundTransparency = 1
 TextLabel.TextXAlignment = Enum.TextXAlignment.Left
+TextLabel.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel.TextSize = 50.000
 if _G.Activate then
@@ -160,6 +169,32 @@ else
 end
 
 
+
+problemlist = {}
+
+
+
+if tostring(_G.Activate or _G.FirstWait or _G.Linetoken or _G.LockBeliActivate or _G.LockBeli or _G.CheckSheet or _G.RareModeActivate or _G.RareMode or _G.LogInventoryActivate or _G.SheetBest) == nil then
+   print(_G.Activate , _G.FirstWait , _G.Linetoken , _G.LockBeliActivate , _G.LockBeli , _G.CheckSheet , _G.RareModeActivate , _G.RareMode , _G.LogInventoryActivate , _G.SheetBest)
+   TextLabel.TextColor3 = Color3.fromRGB(255, 0, 0)
+   warn("CONFIG NOT COMPLETE")
+   TextLabel.Text = "CONFIG NOT COMPLETE !!!"
+   return
+
+else
+   if (_G.LogInventory) == nil then
+      TextLabel.TextColor3 = Color3.fromRGB(255, 0, 0)
+      warn("CONFIG NOT COMPLETE")
+      TextLabel.Text = "CONFIG NOT COMPLETE !!!"
+      return
+   end
+end
+
+if _G.RareModeActivate and _G.LogInventoryActivate then
+   TextLabel.TextColor3 = Color3.fromRGB(255, 0, 0)
+   TextLabel.Text = "DONT OPEN LOGINV WITH RARE MODE !!!"
+   return
+end
 function reformatint(integer)
    for i = 1, math.floor((string.len(integer)-1) / 3) do
       integer = string.sub(integer, 1, -3*i-i) ..
@@ -197,7 +232,7 @@ function sheetbest()
   nah = {}
   
   for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
-      if v.ToolTip == "Sword" or v.ToolTip == "Gun" then
+      if v.ToolTip == "Sword" then
           table.insert(nah,v.Name)
           print(v.Name)
           end
@@ -205,24 +240,44 @@ function sheetbest()
       
   for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do pcall(function()
       
-      if v.ToolTip == "Sword" or v.ToolTip == "Gun" then
+      if v.ToolTip == "Sword" then
           table.insert(nah,v.Name)
           print(v.Name)
       end
   end)
   end
   
-  for i,v in pairs (game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventoryWeapons")) do
-   -- print(v.Name)
-      if _G.RareMode ~= nil or _G.RareMode ~= "" then
-         if v.Rarity >= _G.RareMode and v.Type ~= "Wear" then
-            print(v.Name , v.Type)
+
+  if _G.RareModeActivate and _G.LogInventoryActivate == false then
+   for i,v in pairs (game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventoryWeapons")) do
+      -- print(v.Name)
+         if _G.RareMode ~= nil or _G.RareMode ~= "" then
+            if v.Rarity >= _G.RareMode and v.Type ~= "Wear" then
+               print(v.Name , v.Type)
+               table.insert(nah,v.Name)
+            end
+         else
             table.insert(nah,v.Name)
          end
-      else
-         table.insert(nah,v.Name)
       end
+   else
+      TextLabel.TextColor3 = Color3.fromRGB(255, 0, 0)
+      TextLabel.Text = "DONT OPEN LOGINV WITH RARE MODE !!!"
    end
+
+   if _G.LogInventoryActivate and _G.RareModeActivate == false then
+      for i,v in pairs (game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventoryWeapons")) do
+         for w,e in pairs (_G.LogInventory) do
+               if v.Name == tostring(e) then
+                  table.insert(nah,e)
+               end
+         end
+      end
+   else
+      TextLabel.TextColor3 = Color3.fromRGB(255, 0, 0)
+      TextLabel.Text = "DONT OPEN LOGINV WITH RARE MODE !!!"
+   end
+
   
       
   
@@ -366,16 +421,21 @@ function sheetbest()
 
 end
 function checkmoney()
-   if _G.LockBeli == nil or _G.LockBeli == "" then
-      return
-   else
-      if game:GetService("Players").LocalPlayer.Data.Beli.Value >= _G.LockBeli then
-         print("NOW BELI = ".. game:GetService("Players").LocalPlayer.Data.Beli.Value)
-         return true
+   if _G.LockBeliActivate then
+      if _G.LockBeli == nil or _G.LockBeli == "" then
+         return
       else
-         print("nah no money")
-         return false
+         if game:GetService("Players").LocalPlayer.Data.Beli.Value >= _G.LockBeli then
+            print("NOW BELI = ".. game:GetService("Players").LocalPlayer.Data.Beli.Value)
+            return true
+         else
+            print("nah no money")
+            return false
+         end
       end
+   else
+      warn("LOCK BELI CLOSEING")
+      return
    end
 end
 
