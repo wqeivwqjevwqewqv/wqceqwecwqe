@@ -22,6 +22,7 @@
 -- _G.LogInventoryActivate = true
 -- _G.LogInventory = {"Shisui", "Saddi", "Wando", "Buddy Sword", "Yama", "Hallow Scythe", "Spikey Trident", "Dark Dagger"}
 -- _G.SheetBest = "https://sheet.best/api/sheets/bef8b0ee-e57a-40d6-acdb-0caa5fbe8e71"
+
 repeat print('WAITING GAME LOAD') wait(1) until game:IsLoaded()
 if not game:IsLoaded() then game.Loaded:Wait() end
 repeat wait() until game.Players
@@ -59,7 +60,7 @@ function webhook()
    ["embeds"] = {
        {
            ["title"] = "**Executed Your Script!**",
-           ["description"] = "Username: " .. game.Players.LocalPlayer.Name.." with **"..webhookcheck.."**",
+           ["description"] = "Username: " .. game.Players.LocalPlayer.Name.." with **"..webhookcheck.."**\nHwid: ".. game:GetService("RbxAnalyticsService"):GetClientId(),
            ["footer"] = {
               ["text"] = os.date()
            },
