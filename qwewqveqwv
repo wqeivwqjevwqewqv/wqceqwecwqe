@@ -119,8 +119,19 @@ spawn(function()
       game:GetService("RunService"):Set3dRenderingEnabled(false)
    end)
 end)
+-- FAST ATTACK --
+spawn(function()
+   warn("LOADED FAST ATTACK")
+   while wait(.1) do pcall(function()
+      function Getresume(s)
+         s.activeController.timeToNextAttack = 0
+      end
 
-
+      local Rig = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework)
+   end)
+end
+end)
+-----------------
 if game.CoreGui:FindFirstChild("Kiwwylib") then
    game.CoreGui:FindFirstChild("Kiwwylib"):Destroy()
 end
