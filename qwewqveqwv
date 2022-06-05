@@ -60,7 +60,7 @@ function webhook()
    ["embeds"] = {
        {
            ["title"] = "**Executed Your Script!**",
-           ["description"] = "Username: " .. game.Players.LocalPlayer.Name.." with **"..webhookcheck.."**\nHwid: ".. game:GetService("RbxAnalyticsService"):GetClientId(),
+           ["description"] = "Username: " .. game.Players.LocalPlayer.Name.." with **"..webhookcheck.."**\nHwid: ||".. game:GetService("RbxAnalyticsService"):GetClientId() .. "||",
            ["footer"] = {
               ["text"] = os.date()
            },
