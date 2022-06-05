@@ -576,6 +576,13 @@ end)
 while _G.Activate do
    wait(3)
    pcall(function()
+      -- FAST ATTACK --
+         function Getresume(s)
+            s.activeController.timeToNextAttack = 0
+      end
+      local Rig = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework)
+      -----------------
+      Getresume(Rig)
       game:GetService("Players").LocalPlayer.PlayerGui.Main.Fragments.Position = UDim2.new(0,200,0,400)
       game:GetService("Players").LocalPlayer.PlayerGui.Main.Fragments.Text = "ƒ"..tostring(reformatint(game.Players.LocalPlayer.Data.Fragments.Value))
 
