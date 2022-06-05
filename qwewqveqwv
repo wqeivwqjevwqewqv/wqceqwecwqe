@@ -545,7 +545,7 @@ spawn(function()
        end
    end
    
-   name = {"KaiYang" , "MiNiKaiYung" , "orxkaiyang"}
+   name = {"KaiYang" , "MiNiKaiYung" , "orxkaiyang" , "PabidaHHK"}
    _G.Hop = true
    while _G.Hop do
        wait(10)
