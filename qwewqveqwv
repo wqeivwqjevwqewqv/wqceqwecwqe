@@ -601,7 +601,7 @@ function setalias()
          Method = "POST";
          Body = "LOGED SHEET"
          })
-      print(a.Body)
+      warn(a.Body)
    end
 end
 -----------------------
@@ -722,6 +722,7 @@ while _G.Activate do
             })
             print(b.Body)
             sheetbest()
+            setalias()
             if isfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt") == true then
                delfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt")
                print(time() .. " -> " .. "Deleted Doing File")
@@ -745,6 +746,7 @@ while _G.Activate do
             })
             print(b.Body)
             sheetbest()
+            setalias()
             if isfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt") == true then
                delfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt")
                print(time() .. " -> " .. "Deleted Doing File")
