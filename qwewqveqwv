@@ -583,7 +583,7 @@ spawn(function()
                    if string.find(v.Name,e) then
                        warn("Teleport")
                        _G.Hop = False
-                       wait(match.huge(1,100))
+                       wait(math.huge(1,100))
                        Teleport()
                    else 
                        warn("Cant Find")
