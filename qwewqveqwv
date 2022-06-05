@@ -22,7 +22,6 @@
 -- _G.LogInventoryActivate = true
 -- _G.LogInventory = {"Shisui", "Saddi", "Wando", "Buddy Sword", "Yama", "Hallow Scythe", "Spikey Trident", "Dark Dagger"}
 -- _G.SheetBest = "https://sheet.best/api/sheets/bef8b0ee-e57a-40d6-acdb-0caa5fbe8e71"
--- _G.LogAcc = true
 
 repeat print('WAITING GAME LOAD') wait(1) until game:IsLoaded()
 if not game:IsLoaded() then game.Loaded:Wait() end
@@ -105,31 +104,7 @@ print('LAST UPDATE ON 05/06 12:41')
 --     ts:Teleport(game.PlaceId, p)
 -- end
 
-spawn(function()
-   if _G.LogAcc then
-      while wait(10) do
 
-         a = syn.request({
-            Url = "http://localhost:7963/SetDescription?Account="..game.Players.LocalPlayer.Name.."&Password=123456789";
-            Method = "POST";
-            Body = "Level: " .. game.Players.LocalPlayer.Data.Level.Value
-        })
-        warn(a.Body)
-
-      end
-    end
-end)
-
-function setalias()
-   if _G.LogAcc then
-      a = syn.request({
-         Url = "http://localhost:7963/SetAlias?Account="..game.Players.LocalPlayer.Name.."&Password=123456789";
-         Method = "POST";
-         Body = "LOGED SHEET"
-         })
-      print(a.Body)
-   end
-end
 
 spawn(function()
 
@@ -583,7 +558,7 @@ spawn(function()
                    if string.find(v.Name,e) then
                        warn("Teleport")
                        _G.Hop = False
-                       wait(math.huge(1,100))
+                       wait(match.huge(1,100))
                        Teleport()
                    else 
                        warn("Cant Find")
@@ -595,19 +570,36 @@ spawn(function()
 
 end)
 
+-- ACC FUNCTION --
+spawn(function()
+   while _G.LogAcc do
+      wait(10)
+      a = syn.request({
+         Url = "http://localhost:7963/SetDescription?Account="..game.Players.LocalPlayer.Name.."&Password=123456789";
+         Method = "POST";
+         Body = "Level: " .. game.Players.LocalPlayer.Data.Level.Value
+      })
+      warn(a.Body)
+   end
+end)
+
+function setalias()
+   if _G.LogAcc then
+      a = syn.request({
+         Url = "http://localhost:7963/SetAlias?Account="..game.Players.LocalPlayer.Name.."&Password=123456789";
+         Method = "POST";
+         Body = "LOGED SHEET"
+         })
+      print(a.Body)
+   end
+end
+-----------------------
 ------------------------
 
   
 while _G.Activate do
    wait(3)
    pcall(function()
-      -- FAST ATTACK --
-         function Getresume(s)
-            s.activeController.timeToNextAttack = 0
-      end
-      local Rig = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework)
-      -----------------
-      Getresume(Rig)
       game:GetService("Players").LocalPlayer.PlayerGui.Main.Fragments.Position = UDim2.new(0,200,0,400)
       game:GetService("Players").LocalPlayer.PlayerGui.Main.Fragments.Text = "ƒ"..tostring(reformatint(game.Players.LocalPlayer.Data.Fragments.Value))
 
@@ -719,7 +711,6 @@ while _G.Activate do
             })
             print(b.Body)
             sheetbest()
-            setalias()
             if isfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt") == true then
                delfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt")
                print(time() .. " -> " .. "Deleted Doing File")
@@ -743,7 +734,6 @@ while _G.Activate do
             })
             print(b.Body)
             sheetbest()
-            setalias()
             if isfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt") == true then
                delfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt")
                print(time() .. " -> " .. "Deleted Doing File")
