@@ -764,6 +764,7 @@ while _G.Activate do
 end
 TextLabel.TextSize = 75.000
 spawn(function()
+   game:Shutdown()
    local uis = game:GetService("UserInputService")
    uis.InputBegan:Connect(function(asd)
       if asd.KeyCode == Enum.KeyCode.G then -- any key here (could be insert or delete whatever u want)
