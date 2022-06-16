@@ -26,6 +26,7 @@ if not game:IsLoaded() then
     end)
     
     game.Loaded:Wait()
+    warn("Nexus Loaded")
 end
 
 local Nexus = {}
