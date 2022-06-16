@@ -6,7 +6,6 @@ repeat wait() until game.ReplicatedStorage
 repeat wait() until game.ReplicatedStorage:FindFirstChild("Remotes");
 repeat wait() until game.Players.LocalPlayer:FindFirstChild("PlayerGui");
 repeat wait() until game.Players.LocalPlayer.PlayerGui:FindFirstChild("Main");
-repeat wait()
 
 
 if Nexus then Nexus:Stop() end
