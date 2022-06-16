@@ -26,7 +26,7 @@ if not game:IsLoaded() then
     end)
     
     game.Loaded:Wait()
-    warn("Nexus Loaded")
+    
 end
 
 local Nexus = {}
@@ -41,7 +41,7 @@ local LocalPlayer = Players.LocalPlayer if not LocalPlayer then repeat LocalPlay
 
 local UGS = UserSettings():GetService'UserGameSettings'
 local OldVolume = UGS.MasterVolume
-
+warn("Nexus Loaded")
 LocalPlayer.OnTeleport:Connect(function(State)
     if State == Enum.TeleportState.Started and Nexus.IsConnected then
         Nexus:Stop() -- Apparently doesn't disconnect websockets on teleport so this has to be here
