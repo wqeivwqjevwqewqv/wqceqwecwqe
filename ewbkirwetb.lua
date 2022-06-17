@@ -1,12 +1,16 @@
-repeat print('WAITING GAME LOAD') wait(1) until game:IsLoaded()
-if not game:IsLoaded() then game.Loaded:Wait() end
-repeat wait() until game.Players
-repeat wait() until game.Players.LocalPlayer
-repeat wait() until game.ReplicatedStorage
-repeat wait() until game.ReplicatedStorage:FindFirstChild("Remotes");
-repeat wait() until game.Players.LocalPlayer:FindFirstChild("PlayerGui");
-repeat wait() until game.Players.LocalPlayer.PlayerGui:FindFirstChild("Main");
-
+function line(message)
+    if message ~= nil then
+        b = req({
+          Url = 'https://notify-api.line.me/api/notify',
+          Method = "POST",
+          Headers = {['content-type'] = 'application/x-www-form-urlencoded' , ['Authorization'] = 'Bearer '.."IFrNuMoL2l7CnMJEOYrT9C6nur9GzIII0LVfAhA3MeX"},
+          Body = "message=".. message
+        })
+        print(b.Body)
+    else
+        print('message empty')
+    end
+end
 
 if Nexus then Nexus:Stop() end
 
@@ -20,14 +24,24 @@ if not game:IsLoaded() then
 
         local Code = game:GetService'GuiService':GetErrorCode().Value
 
-        if tostring(Code) == "279" then
+        if tostring(Code) == "267" then
             return game:Shutdown()
+        elseif tostring(Code) == "268" then
+            line("268")
         end
     end)
     
     game.Loaded:Wait()
     
 end
+-- repeat print('WAITING GAME LOAD') wait(1) until game:IsLoaded()
+-- if not game:IsLoaded() then game.Loaded:Wait() end
+-- repeat wait() until game.Players
+-- repeat wait() until game.Players.LocalPlayer
+-- repeat wait() until game.ReplicatedStorage
+-- repeat wait() until game.ReplicatedStorage:FindFirstChild("Remotes");
+-- repeat wait() until game.Players.LocalPlayer:FindFirstChild("PlayerGui");
+-- repeat wait() until game.Players.LocalPlayer.PlayerGui:FindFirstChild("Main");
 
 local Nexus = {}
 
@@ -378,7 +392,7 @@ do -- Connections
 
         local Code = GuiService:GetErrorCode().Value
 
-        if tostring(Code) == "279" then
+        if tostring(Code) == "267" then
             task.delay(Nexus.ShutdownTime, game.Shutdown, game)
         end
     end)
