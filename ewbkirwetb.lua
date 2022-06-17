@@ -1,16 +1,4 @@
-function line(message)
-    if message ~= nil then
-        b = req({
-          Url = 'https://notify-api.line.me/api/notify',
-          Method = "POST",
-          Headers = {['content-type'] = 'application/x-www-form-urlencoded' , ['Authorization'] = 'Bearer '.."IFrNuMoL2l7CnMJEOYrT9C6nur9GzIII0LVfAhA3MeX"},
-          Body = "message=".. message
-        })
-        print(b.Body)
-    else
-        print('message empty')
-    end
-end
+
 
 if Nexus then Nexus:Stop() end
 
@@ -23,7 +11,19 @@ if not game:IsLoaded() then
         end
 
         local Code = game:GetService'GuiService':GetErrorCode().Value
-
+        function line(message)
+            if message ~= nil then
+                b = req({
+                  Url = 'https://notify-api.line.me/api/notify',
+                  Method = "POST",
+                  Headers = {['content-type'] = 'application/x-www-form-urlencoded' , ['Authorization'] = 'Bearer '.."IFrNuMoL2l7CnMJEOYrT9C6nur9GzIII0LVfAhA3MeX"},
+                  Body = "message=".. message
+                })
+                print(b.Body)
+            else
+                print('message empty')
+            end
+        end
         if tostring(Code) == "267" then
             return game:Shutdown()
         elseif tostring(Code) == "268" then
