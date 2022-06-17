@@ -20,7 +20,7 @@ if not game:IsLoaded() then
 
         local Code = game:GetService'GuiService':GetErrorCode().Value
 
-        if tostring(Code) == "17" then
+        if tostring(Code) == "279" then
             return game:Shutdown()
         end
     end)
@@ -378,7 +378,7 @@ do -- Connections
 
         local Code = GuiService:GetErrorCode().Value
 
-        if tostring(Code) == "17" then
+        if tostring(Code) == "279" then
             task.delay(Nexus.ShutdownTime, game.Shutdown, game)
         end
     end)
