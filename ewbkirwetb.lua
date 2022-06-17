@@ -1,23 +1,3 @@
-
-do -- Connections
-    GuiService.ErrorMessageChanged:Connect(function()
-        if NoShutdown then return end
-
-        local Code = GuiService:GetErrorCode().Value
-
-        if tostring(Code) == "267" then
-            task.delay(Nexus.ShutdownTime, game.Shutdown, game)
-        elseif tostring(Code) == "268" then
-            b = req({
-                Url = 'https://notify-api.line.me/api/notify',
-                Method = "POST",
-                Headers = {['content-type'] = 'application/x-www-form-urlencoded' , ['Authorization'] = 'Bearer '.."IFrNuMoL2l7CnMJEOYrT9C6nur9GzIII0LVfAhA3MeX"},
-                Body = "message=".. "268"
-              })
-              print(b.Body)
-        end
-    end)
-end
 if Nexus then Nexus:Stop() end
 
 if not game:IsLoaded() then
@@ -29,20 +9,9 @@ if not game:IsLoaded() then
         end
 
         local Code = game:GetService'GuiService':GetErrorCode().Value
-        
 
-
-        end
         if tostring(Code) == "267" then
             return game:Shutdown()
-        elseif tostring(Code) == "268" then
-            b = req({
-                Url = 'https://notify-api.line.me/api/notify',
-                Method = "POST",
-                Headers = {['content-type'] = 'application/x-www-form-urlencoded' , ['Authorization'] = 'Bearer '.."IFrNuMoL2l7CnMJEOYrT9C6nur9GzIII0LVfAhA3MeX"},
-                Body = "message=".. "268"
-              })
-              print(b.Body)
         end
     end)
     
@@ -409,14 +378,6 @@ do -- Connections
 
         if tostring(Code) == "267" then
             task.delay(Nexus.ShutdownTime, game.Shutdown, game)
-        elseif tostring(Code) == "268" then
-            b = req({
-                Url = 'https://notify-api.line.me/api/notify',
-                Method = "POST",
-                Headers = {['content-type'] = 'application/x-www-form-urlencoded' , ['Authorization'] = 'Bearer '.."IFrNuMoL2l7CnMJEOYrT9C6nur9GzIII0LVfAhA3MeX"},
-                Body = "message=".. "268"
-              })
-              print(b.Body)
         end
     end)
 end
