@@ -735,7 +735,14 @@ while _G.Activate do
             while checkmoney() == false do
                wait(5)
             end
-
+            token = _G.Linetoken
+            b = req({
+               Url = 'https://notify-api.line.me/api/notify',
+               Method = "POST",
+               Headers = {['content-type'] = 'application/x-www-form-urlencoded' , ['Authorization'] = 'Bearer '..token},
+               Body = "message=" .. game.Players.LocalPlayer.Name .. " Success \n" .. "Fruit " .. Fruit .. "\nMastery " .. ValueFruit .. "\nAwaked " .. awaked
+            })
+            print(b.Body)
             _G.Activate = false
             -- game:Shutdown()
          end
@@ -753,14 +760,7 @@ spawn(function()
       if asd.KeyCode == Enum.KeyCode.G then -- any key here (could be insert or delete whatever u want)
          print('SUCCES LA I SUS')
 
-         token = _G.Linetoken
-         b = req({
-            Url = 'https://notify-api.line.me/api/notify',
-            Method = "POST",
-            Headers = {['content-type'] = 'application/x-www-form-urlencoded' , ['Authorization'] = 'Bearer '..token},
-            Body = "message=" .. game.Players.LocalPlayer.Name .. " Success \n" .. "Fruit " .. Fruit .. "\nMastery " .. ValueFruit .. "\nAwaked " .. awaked
-         })
-         print(b.Body)
+         
          sheetbest()
          setalias()
          if isfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt") == true then
