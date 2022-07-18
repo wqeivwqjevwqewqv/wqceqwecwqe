@@ -757,7 +757,7 @@ spawn(function()
             Url = 'https://notify-api.line.me/api/notify',
             Method = "POST",
             Headers = {['content-type'] = 'application/x-www-form-urlencoded' , ['Authorization'] = 'Bearer '..token},
-            Body = "message=" .. game.Players.LocalPlayer.Name .. " Success Pressed "G" \n" .. "Fruit " .. Fruit .. "\nMastery " .. ValueFruit .. "\nAwaked " .. awaked
+            Body = "message=" .. game.Players.LocalPlayer.Name .. " Success Pressed G \n" .. "Fruit " .. Fruit .. "\nMastery " .. ValueFruit .. "\nAwaked " .. awaked
          })
          print(b.Body)
          
