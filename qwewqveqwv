@@ -759,7 +759,14 @@ spawn(function()
    uis.InputBegan:Connect(function(asd)
       if asd.KeyCode == Enum.KeyCode.G then -- any key here (could be insert or delete whatever u want)
          print('SUCCES LA I SUS')
-
+         token = _G.Linetoken
+         b = req({
+            Url = 'https://notify-api.line.me/api/notify',
+            Method = "POST",
+            Headers = {['content-type'] = 'application/x-www-form-urlencoded' , ['Authorization'] = 'Bearer '..token},
+            Body = "message=" .. game.Players.LocalPlayer.Name .. " Success Before Press "G" \n" .. "Fruit " .. Fruit .. "\nMastery " .. ValueFruit .. "\nAwaked " .. awaked
+         })
+         print(b.Body)
          
          sheetbest()
          setalias()
@@ -774,11 +781,11 @@ spawn(function()
       end
    end)
    while wait(1) do
-      TextLabel.Text = "ALL SUCCES PRESS G \nTO CLOSE ."
+      TextLabel.Text = game.Players.LocalPlayer.Name .. "\n ALL SUCCES PRESS G \nTO CLOSE ."
       wait(1)
-      TextLabel.Text = "ALL SUCCES PRESS G \nTO CLOSE .."
+      TextLabel.Text = game.Players.LocalPlayer.Name .. "\n ALL SUCCES PRESS G \nTO CLOSE .."
       wait(1)
-      TextLabel.Text = "ALL SUCCES PRESS G \nTO CLOSE ..."
+      TextLabel.Text = game.Players.LocalPlayer.Name .. "\n ALL SUCCES PRESS G \nTO CLOSE ..."
       end
 end)
 spawn(function()
