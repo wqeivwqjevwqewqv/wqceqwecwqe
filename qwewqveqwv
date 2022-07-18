@@ -721,14 +721,7 @@ while _G.Activate do
                Body = "message=" .. game.Players.LocalPlayer.Name .. " Success \n" .. "Fruit " .. Fruit .. "\nMastery " .. ValueFruit .. "\nAwaked " .. awaked
             })
             print(b.Body)
-            sheetbest()
-            setalias()
-            if isfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt") == true then
-               delfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt")
-               print(time() .. " -> " .. "Deleted Doing File")
-               writefile("Kiwwy/"..game.Players.LocalPlayer.Name.."_success.txt","")
-               print(time() .. " -> " .. "Created Succes File")
-            end
+
             _G.Activate = false
             -- game:Shutdown()
          elseif game.Players.LocalPlayer.Data.Level.Value == 2300 and V and cant_awake then
@@ -740,7 +733,7 @@ while _G.Activate do
                Url = 'https://notify-api.line.me/api/notify',
                Method = "POST",
                Headers = {['content-type'] = 'application/x-www-form-urlencoded' , ['Authorization'] = 'Bearer '..token},
-               Body = "message=" .. game.Players.LocalPlayer.Name .. " Success \n" .. "Fruit " .. Fruit .. "\nMastery " .. ValueFruit .. "\nAwaked " .. awaked
+               Body = "message=" .. game.Players.LocalPlayer.Name .. " Success Not Close Pls Press "G" \n" .. "Fruit " .. Fruit .. "\nMastery " .. ValueFruit .. "\nAwaked " .. awaked
             })
             print(b.Body)
             _G.Activate = false
@@ -764,7 +757,7 @@ spawn(function()
             Url = 'https://notify-api.line.me/api/notify',
             Method = "POST",
             Headers = {['content-type'] = 'application/x-www-form-urlencoded' , ['Authorization'] = 'Bearer '..token},
-            Body = "message=" .. game.Players.LocalPlayer.Name .. " Success Before Press "G" \n" .. "Fruit " .. Fruit .. "\nMastery " .. ValueFruit .. "\nAwaked " .. awaked
+            Body = "message=" .. game.Players.LocalPlayer.Name .. " Success Pressed "G" \n" .. "Fruit " .. Fruit .. "\nMastery " .. ValueFruit .. "\nAwaked " .. awaked
          })
          print(b.Body)
          
