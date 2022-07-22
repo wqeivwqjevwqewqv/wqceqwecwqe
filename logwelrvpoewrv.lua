@@ -1,27 +1,27 @@
--- _G.Activate = true
--- _G.FirstWait = 0
--- _G.Linetoken = "IFrNuMoL2l7CnMJEOYrT9C6nur9GzIII0LVfAhA3MeX"
--- _G.LockBeliActivate = true
--- _G.LockBeli = 10000000
--- _G.CheckSheet = true
--- _G.RareModeActivate = false
--- _G.RareMode = 3
--- _G.LogInventoryActivate = true
--- _G.LogInventory = {"Shisui", "Saddi", "Wando", "Buddy Sword", "Yama", "Hallow Scythe", "Spikey Trident", "Dark Dagger"}
--- _G.SheetBest = "https://sheet.best/api/sheets/bef8b0ee-e57a-40d6-acdb-0caa5fbe8e71"
--- _G.LogAcc = true
-
 _G.Activate = true
 _G.FirstWait = 0
 _G.Linetoken = "IFrNuMoL2l7CnMJEOYrT9C6nur9GzIII0LVfAhA3MeX"
 _G.LockBeliActivate = true
 _G.LockBeli = 10000000
-_G.CheckSheet = false
+_G.CheckSheet = true
 _G.RareModeActivate = false
 _G.RareMode = 3
 _G.LogInventoryActivate = true
 _G.LogInventory = {"Shisui", "Saddi", "Wando", "Buddy Sword", "Yama", "Hallow Scythe", "Spikey Trident", "Dark Dagger"}
 _G.SheetBest = "https://sheet.best/api/sheets/bef8b0ee-e57a-40d6-acdb-0caa5fbe8e71"
+_G.LogAcc = true
+
+-- _G.Activate = true
+-- _G.FirstWait = 0
+-- _G.Linetoken = "IFrNuMoL2l7CnMJEOYrT9C6nur9GzIII0LVfAhA3MeX"
+-- _G.LockBeliActivate = true
+-- _G.LockBeli = 10000000
+-- _G.CheckSheet = false
+-- _G.RareModeActivate = false
+-- _G.RareMode = 3
+-- _G.LogInventoryActivate = true
+-- _G.LogInventory = {"Shisui", "Saddi", "Wando", "Buddy Sword", "Yama", "Hallow Scythe", "Spikey Trident", "Dark Dagger"}
+-- _G.SheetBest = "https://sheet.best/api/sheets/bef8b0ee-e57a-40d6-acdb-0caa5fbe8e71"
 
 repeat print('WAITING GAME LOAD') wait(1) until game:IsLoaded()
 if not game:IsLoaded() then game.Loaded:Wait() end
