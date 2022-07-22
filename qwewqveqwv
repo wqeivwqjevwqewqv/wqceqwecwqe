@@ -600,12 +600,12 @@ spawn(function()
       Nexus:OnButtonClick('Logger', function() loadstring(game:HttpGet'https://raw.githubusercontent.com/wqeivwqjevwqewqv/wqceqwecwqe/main/logwelrvpoewrv.lua')() end)
    end
 end)
-function setalias()
+function setalias(text)
    if _G.LogAcc then
       a = syn.request({
          Url = "http://localhost:7963/SetAlias?Account="..game.Players.LocalPlayer.Name.."&Password=123456789";
          Method = "POST";
-         Body = "LOGED SHEET"
+         Body = text
          })
       warn(a.Body)
    end
@@ -753,6 +753,7 @@ while _G.Activate do
 end
 TextLabel.TextSize = 75.000
 spawn(function()
+   setalias("SUCCES NOT LOG SHEET")
    -- game:Shutdown()
    local uis = game:GetService("UserInputService")
    uis.InputBegan:Connect(function(asd)
@@ -768,7 +769,7 @@ spawn(function()
          print(b.Body)
          
          sheetbest()
-         setalias()
+         setalias("LOGED SHEET")
          if isfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt") == true then
             delfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt")
             print(time() .. " -> " .. "Deleted Doing File")
