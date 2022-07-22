@@ -206,6 +206,16 @@ function checkmelee()
 end
 
 ---------------------------------------
-
-
+function setalias(text)
+   if _G.LogAcc then
+      a = syn.request({
+         Url = "http://localhost:7963/SetAlias?Account="..game.Players.LocalPlayer.Name.."&Password=123456789";
+         Method = "POST";
+         Body = text
+         })
+      warn(a.Body)
+   end
+end
+---------------------------------------
 logsheet()
+setalias("LOGGED SHEET")
