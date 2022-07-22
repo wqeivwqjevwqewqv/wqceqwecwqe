@@ -103,6 +103,70 @@ if game:GetService("Players").LocalPlayer.Data.DevilFruit.Value ~= "" then
    Fruit = game:GetService("Players").LocalPlayer.Data.DevilFruit.Value
    ValueFruit1 = game.Players.LocalPlayer.Backpack:FindFirstChild(Fruit) or game.Players.LocalPlayer.Character:FindFirstChild(Fruit)
    ValueFruit = ValueFruit1.Level.Value
+   print(Fruit)
+   SkillValue = require(ValueFruit1.Data).Lvl
+   print(SkillValue["Z"],SkillValue["F"],SkillValue["X"],SkillValue["C"],SkillValue["V"])
+   if ValueFruit >= SkillValue["Z"] then
+      print("Z")
+      Z = true
+   end
+   if Fruit ~= "Quake-Quake" then
+      if ValueFruit >= SkillValue["F"] then
+         print("F")
+         F = true
+      end
+   end
+   if ValueFruit >= SkillValue["X"] then
+      print("X")
+      X = true
+   end
+   if ValueFruit >= SkillValue["C"] then
+      print("C")
+      C = true
+   end
+
+   if SkillValue["V"]  then
+      if ValueFruit >= SkillValue["V"] then
+         print("V")
+         V = true
+      end
+   end
+   skill = ""
+   if Z then
+      skill = skill .. "Z "
+   end
+   if X then
+      skill = skill .. "X "
+   end
+   if C then
+      skill = skill .. "C "
+   end
+   if V then
+      skill = skill .. "V "
+   end
+   if F then
+      skill = skill .. "F "
+   end
+   if skill == "" then
+      skill = "None"
+   end
+   print(skill)
+
+   awaked = ""
+   CanAwake = ValueFruit1:FindFirstChild("AwakenedMoves")
+   if CanAwake then
+      print("Can Awake this")
+
+      for i,v in pairs(ValueFruit1.AwakenedMoves:GetChildren()) do
+         print(v)
+         awaked = awaked .. tostring(v) .. " "
+      end
+      print(awaked)
+   else
+      cant_awake = true
+      print("Cant Awake this")
+      awaked = "None"
+   end
 else
    awaked = "None"
    skill = "None"
@@ -219,3 +283,4 @@ end
 ---------------------------------------
 logsheet()
 setalias("LOGGED SHEET")
+game:shutdown()
