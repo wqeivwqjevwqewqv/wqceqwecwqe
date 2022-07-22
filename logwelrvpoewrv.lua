@@ -185,7 +185,7 @@ function logsheet()
          ["Beli"] = tostring(reformatmoney(game:GetService("Players").LocalPlayer.Data.Beli.Value)),
          ["Fragment"] = tostring(reformatmoney(game:GetService("Players").LocalPlayer.Data.Fragments.Value)),
          ["Race"] = game:GetService("Players").LocalPlayer.Data.Race.Value,
-         ["Fruit"] = tostring(Fruit:split('-')[1] .. " (" .. ValueFruit .. " Mas.)"),
+         ["Fruit"] = tostring(Fruit .. " (" .. ValueFruit .. " Mas.)"),
          ["Awake"] = tostring(awaked),
          ["Skill"] = tostring(skill),
          ["Melee"] = checkmelee(),
