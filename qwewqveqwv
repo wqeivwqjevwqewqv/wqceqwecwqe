@@ -708,7 +708,7 @@ while _G.Activate do
          end
          print(SkillVKUB)
          if game.Players.LocalPlayer.Data.Level.Value == 2300 and SkillVKUB then
-            setalias("NOT CLOSE")
+            setalias("NOT LOG")
             _G.Activate = false
             -- game:Shutdown()
          end
