@@ -179,22 +179,22 @@ end
 
 --check check no any file then create normal file
 
-if isfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt") == false and isfile("Kiwwy/"..game.Players.LocalPlayer.Name.."_success.txt") == false then
-   print(time() .. " -> " ..'Kiwwy WorkSpace -> No File Succes And Normal'..game.Players.LocalPlayer.Name..".txt")
+-- if isfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt") == false and isfile("Kiwwy/"..game.Players.LocalPlayer.Name.."_success.txt") == false then
+--    print(time() .. " -> " ..'Kiwwy WorkSpace -> No File Succes And Normal'..game.Players.LocalPlayer.Name..".txt")
 
-   writefile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt","")
+--    writefile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt","")
 
-   print(time() .. " -> " .."Create -> ".. game.Players.LocalPlayer.Name..".txt")
+--    print(time() .. " -> " .."Create -> ".. game.Players.LocalPlayer.Name..".txt")
 
-end
+-- end
 
---check have a normal file
-if isfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt") == false then
-   print(time() .. " ->" .. "No File Normal")
+-- --check have a normal file
+-- if isfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt") == false then
+--    print(time() .. " ->" .. "No File Normal")
 
-else
-   print(time() .. " -> " .. "Have file Doing")
-end
+-- else
+--    print(time() .. " -> " .. "Have file Doing")
+-- end
 --------------------------------
 
 
@@ -594,18 +594,12 @@ spawn(function()
    end
 end)
 
-spawn(function()
-   if _G.LogAcc then
-      Nexus:CreateButton('Logger', 'SheetBest', { 100, 20 }, { 10, 10, 10, 10 })
-      Nexus:OnButtonClick('Logger', function() loadstring(game:HttpGet'https://raw.githubusercontent.com/wqeivwqjevwqewqv/wqceqwecwqe/main/logwelrvpoewrv.lua')() end)
-   end
-end)
-function setalias(text)
+function setalias()
    if _G.LogAcc then
       a = syn.request({
          Url = "http://localhost:7963/SetAlias?Account="..game.Players.LocalPlayer.Name.."&Password=123456789";
          Method = "POST";
-         Body = text
+         Body = "LOGED SHEET"
          })
       warn(a.Body)
    end
@@ -713,7 +707,7 @@ while _G.Activate do
             SkillVKUB = false
          end
          print(SkillVKUB)
-         if game.Players.LocalPlayer.Data.Level.Value == 2300 and V then
+         if game.Players.LocalPlayer.Data.Level.Value == 2300 and SkillVKUB then
             while checkmoney() == false do
                wait(5)
             end
@@ -724,42 +718,32 @@ while _G.Activate do
                Url = 'https://notify-api.line.me/api/notify',
                Method = "POST",
                Headers = {['content-type'] = 'application/x-www-form-urlencoded' , ['Authorization'] = 'Bearer '..token},
-               Body = "message=" .. game.Players.LocalPlayer.Name .. " Success Not Close Pls Press G \n" .. "Fruit " .. Fruit .. "\nMastery " .. ValueFruit .. "\nAwaked " .. awaked
+               Body = "message=" .. game.Players.LocalPlayer.Name .. " Success \n" .. "Fruit " .. Fruit .. "\nMastery " .. ValueFruit .. "\nAwaked " .. awaked
             })
             print(b.Body)
-
+            sheetbest()
+            setalias()
+            if isfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt") == true then
+               delfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt")
+               print(time() .. " -> " .. "Deleted Doing File")
+               writefile("Kiwwy/"..game.Players.LocalPlayer.Name.."_success.txt","")
+               print(time() .. " -> " .. "Created Succes File")
+            end
             _G.Activate = false
             -- game:Shutdown()
+         end
       end
       wait(1)
       TextLabel.Text = "Updating ..."
       wait(.5)
+   end)
 end
 TextLabel.TextSize = 75.000
 spawn(function()
-   setalias("SUCCES NOT LOG SHEET")
    -- game:Shutdown()
    local uis = game:GetService("UserInputService")
    uis.InputBegan:Connect(function(asd)
       if asd.KeyCode == Enum.KeyCode.G then -- any key here (could be insert or delete whatever u want)
-         print('SUCCES LA I SUS')
-         token = _G.Linetoken
-         b = req({
-            Url = 'https://notify-api.line.me/api/notify',
-            Method = "POST",
-            Headers = {['content-type'] = 'application/x-www-form-urlencoded' , ['Authorization'] = 'Bearer '..token},
-            Body = "message=" .. game.Players.LocalPlayer.Name .. " Success Pressed G \n" .. "Fruit " .. Fruit .. "\nMastery " .. ValueFruit .. "\nAwaked " .. awaked
-         })
-         print(b.Body)
-         
-         sheetbest()
-         setalias("LOGED SHEET")
-         if isfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt") == true then
-            delfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt")
-            print(time() .. " -> " .. "Deleted Doing File")
-            writefile("Kiwwy/"..game.Players.LocalPlayer.Name.."_success.txt","")
-            print(time() .. " -> " .. "Created Succes File")
-         end
       print("SHUTDOWN")
       game:Shutdown()
       end
