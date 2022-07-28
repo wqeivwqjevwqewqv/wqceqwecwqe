@@ -602,6 +602,7 @@ spawn(function()
    local uis = game:GetService("UserInputService")
    uis.InputBegan:Connect(function(asd)
       if asd.KeyCode == Enum.KeyCode.G then -- any key here (could be insert or delete whatever u want)
+      sheetbest()
       print("SHUTDOWN")
       game:Shutdown()
       end
