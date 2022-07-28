@@ -730,26 +730,10 @@ while _G.Activate do
 
             _G.Activate = false
             -- game:Shutdown()
-         elseif game.Players.LocalPlayer.Data.Level.Value == 2300 and V then
-            while checkmoney() == false do
-               wait(5)
-            end
-            token = _G.Linetoken
-            b = req({
-               Url = 'https://notify-api.line.me/api/notify',
-               Method = "POST",
-               Headers = {['content-type'] = 'application/x-www-form-urlencoded' , ['Authorization'] = 'Bearer '..token},
-               Body = "message=" .. game.Players.LocalPlayer.Name .. " Success Not Close Pls Press G \n" .. "Fruit " .. Fruit .. "\nMastery " .. ValueFruit .. "\nAwaked " .. awaked
-            })
-            print(b.Body)
-            _G.Activate = false
-            -- game:Shutdown()
-         end
       end
       wait(1)
       TextLabel.Text = "Updating ..."
       wait(.5)
-   end)
 end
 TextLabel.TextSize = 75.000
 spawn(function()
