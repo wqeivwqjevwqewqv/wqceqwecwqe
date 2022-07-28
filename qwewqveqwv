@@ -713,7 +713,7 @@ while _G.Activate do
             SkillVKUB = false
          end
          print(SkillVKUB)
-         if game.Players.LocalPlayer.Data.Level.Value == 2300 and V and SkillVKUB then
+         if game.Players.LocalPlayer.Data.Level.Value == 2300 and V then
             while checkmoney() == false do
                wait(5)
             end
@@ -730,7 +730,7 @@ while _G.Activate do
 
             _G.Activate = false
             -- game:Shutdown()
-         elseif game.Players.LocalPlayer.Data.Level.Value == 2300 and V and cant_awake then
+         elseif game.Players.LocalPlayer.Data.Level.Value == 2300 and V then
             while checkmoney() == false do
                wait(5)
             end
