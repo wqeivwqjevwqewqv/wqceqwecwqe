@@ -455,13 +455,22 @@ end
 
 
 -- ACC FUNCTION --
+
+function GETFPS()
+   FPS = workspace:GetRealPhysicsFPS()
+   if FPS < 15 then
+       return("Fps Low " .. math.floor(FPS))
+   else
+       return("Normal " .. math.floor(FPS))
+   end
+   end
 spawn(function()
    while _G.LogAcc do
       wait(10)
       a = syn.request({
          Url = "http://localhost:7963/SetDescription?Account="..game.Players.LocalPlayer.Name.."&Password=123456789";
          Method = "POST";
-         Body = "Level: " .. game.Players.LocalPlayer.Data.Level.Value
+         Body = "Level: " .. game.Players.LocalPlayer.Data.Level.Value .. " " .. tostring(GETFPS())
       })
       warn(a.Body)
    end
@@ -575,6 +584,7 @@ while _G.Activate do
       --     TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
       -- elseif (tonumber(Time)) <= 16 then
       TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+
       TextLabel.Text = "Name : "..game.Players.LocalPlayer.Name.." Level " .. game.Players.LocalPlayer.Data.Level.Value .. "\n" ..Fruit.." Mastery : "..ValueFruit .. "\n" .. "Use Skill " .. skill .. "\n" .. "Awake " ..  awaked
       
 
