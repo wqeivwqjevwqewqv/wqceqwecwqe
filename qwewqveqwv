@@ -630,6 +630,7 @@ spawn(function()
    uis.InputBegan:Connect(function(asd) 
       if asd.KeyCode == Enum.KeyCode.G then -- any key here (could be insert or delete whatever u want)
       sheetbest()
+      setalias("LOGGED SHEET")
       print("SHUTDOWN")
       game:Shutdown()
       end
