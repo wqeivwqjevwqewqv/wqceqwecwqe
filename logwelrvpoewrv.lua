@@ -1,4 +1,4 @@
-_G.SheetBest = "https://sheet.best/api/sheets/bef8b0ee-e57a-40d6-acdb-0caa5fbe8e71"
+_G.SheetBest = "https://sheet.best/api/sheets/b876f915-9db3-4126-ba1e-b40c5b2f6d3b"
 
 repeat print('WAITING GAME LOAD') wait(1) until game:IsLoaded()
 if not game:IsLoaded() then game.Loaded:Wait() end
