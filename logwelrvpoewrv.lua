@@ -78,9 +78,13 @@ function inventory()
     for i,v in pairs (game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventoryWeapons")) do
 
             _G.RareMode = 3
-             if v.Rarity >= _G.RareMode and v.Type ~= "Wear" then
+            if v.Rarity >= _G.RareMode and v.Type ~= "Wear" then
                 print(v.Name , v.Type)
                 table.insert(nah,v.Name)
+             elseif v.Type == "Wear" and v.Rarity >= 4 then
+               print(v.Name , v.Type)
+               table.insert(nah,v.Name)
+
          end
       end
 
@@ -270,6 +274,7 @@ function checkmelee()
 end
 
 ---------------------------------------
+_G.LogAcc = true
 function setalias(text)
    if _G.LogAcc then
       a = syn.request({
@@ -283,4 +288,10 @@ end
 ---------------------------------------
 logsheet()
 setalias("LOGGED SHEET")
+if qwevwqv.Success then
+   print('Success')
+else
+   logscripteiei()
+end
 game:shutdown()
+
