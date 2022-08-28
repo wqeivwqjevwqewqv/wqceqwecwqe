@@ -291,7 +291,7 @@ setalias("LOGGED SHEET")
 if qwevwqv.Success then
    print('Success')
 else
-   logscripteiei()
+   logsheet()
 end
 game:shutdown()
 
