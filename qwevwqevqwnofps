@@ -456,7 +456,7 @@ end
 
 -- ACC FUNCTION --
 
--- fpslower = 0
+fpslower = 0
 -- function GETFPS()
 --    FPS = workspace:GetRealPhysicsFPS()
 --    if FPS < 25 then
@@ -471,7 +471,6 @@ end
 -- end
 spawn(function()
    while _G.LogAcc do
-      wait(10)
       a = syn.request({
          Url = "http://localhost:7963/SetDescription?Account="..game.Players.LocalPlayer.Name.."&Password=123456789";
          Method = "POST";
@@ -488,6 +487,7 @@ spawn(function()
          local TeleportService = game:GetService'TeleportService'
          TeleportService:TeleportToPlaceInstance(game.PlaceId, game.JobId)
       end
+      wait(10)
    end
 end)
 spawn(function()
