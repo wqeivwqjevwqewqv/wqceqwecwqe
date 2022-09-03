@@ -1,4 +1,6 @@
 _G.SheetBest = "https://sheet.best/api/sheets/b876f915-9db3-4126-ba1e-b40c5b2f6d3b"
+_G.LogInventoryActivate = true
+_G.LogInventory = {"Tushita", "Dark Dagger", "Hallow Scythe", "Dark Coat", "True Triple Katana"}
 
 repeat print('WAITING GAME LOAD') wait(1) until game:IsLoaded()
 if not game:IsLoaded() then game.Loaded:Wait() end
@@ -74,20 +76,27 @@ function inventory()
    end
    
  
-
-    for i,v in pairs (game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventoryWeapons")) do
-
-            _G.RareMode = 3
-            if v.Rarity >= _G.RareMode and v.Type ~= "Wear" then
-                print(v.Name , v.Type)
-                table.insert(nah,v.Name)
-             elseif v.Type == "Wear" and v.Rarity >= 4 then
-               print(v.Name , v.Type)
-               table.insert(nah,v.Name)
-
+   if _G.LogInventoryActivate then
+      for i,v in pairs (game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventoryWeapons")) do
+         for w,e in pairs (_G.LogInventory) do
+               if v.Name == tostring(e) then
+                  table.insert(nah,e)
+               end
          end
       end
-
+   else
+      for i,v in pairs (game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventoryWeapons")) do
+         _G.RareMode = 3
+         if v.Rarity >= _G.RareMode and v.Type ~= "Wear" then
+               print(v.Name , v.Type)
+               table.insert(nah,v.Name)
+            elseif v.Type == "Wear" and v.Rarity >= 4 then
+            print(v.Name , v.Type)
+            table.insert(nah,v.Name)
+         end
+      end
+   end
+    
  
 
    
