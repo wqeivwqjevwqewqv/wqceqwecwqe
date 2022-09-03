@@ -10,7 +10,7 @@
 -- _G.LogInventory = {"Shisui", "Saddi", "Wando", "Buddy Sword", "Yama", "Hallow Scythe", "Spikey Trident", "Dark Dagger"}
 -- _G.SheetBest = "https://sheet.best/api/sheets/bef8b0ee-e57a-40d6-acdb-0caa5fbe8e71"
 -- _G.LogAcc = true
-
+-- _G.LOGFPS = true
 
 repeat print('WAITING GAME LOAD') wait(1) until game:IsLoaded()
 if not game:IsLoaded() then game.Loaded:Wait() end
@@ -100,7 +100,7 @@ spawn(function()
    end)
 end
 end)
------------------
+-----------------------
 if game.CoreGui:FindFirstChild("Kiwwylib") then
    game.CoreGui:FindFirstChild("Kiwwylib"):Destroy()
 end
@@ -110,7 +110,7 @@ if _G.FirstWait ~= nil then
 else
    wait(10)
 end
---------------------
+-----------------------
 function time()
    return ""..os.date("%H")..":"..os.date("%M")..":"..os.date("%S")
 end
@@ -128,42 +128,6 @@ end
 
 -- check is succes then shutdown
 
-if isfile("Kiwwy/"..game.Players.LocalPlayer.Name.."_success.txt") then
-
-   -- print(time() .. " -> " .."Have A Success")
-   -- token = 'IFrNuMoL2l7CnMJEOYrT9C6nur9GzIII0LVfAhA3MeX'
-   -- b = req({
-   --    Url = 'https://notify-api.line.me/api/notify',
-   --    Method = "POST",
-   --    Headers = {['content-type'] = 'application/x-www-form-urlencoded' , ['Authorization'] = 'Bearer '..token},
-   --    Body = "message=" .. game.Players.LocalPlayer.Name .. "\nเสร็จแล้วจะเปิดอีกหาแม่มึงหรอ "
-   -- })
-   -- print(b.Body)
-   -- game:Shutdown()
-   -- return
-   -- print('eiei')
-end
-
-
-
---check check no any file then create normal file
-
--- if isfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt") == false and isfile("Kiwwy/"..game.Players.LocalPlayer.Name.."_success.txt") == false then
---    print(time() .. " -> " ..'Kiwwy WorkSpace -> No File Succes And Normal'..game.Players.LocalPlayer.Name..".txt")
-
---    writefile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt","")
-
---    print(time() .. " -> " .."Create -> ".. game.Players.LocalPlayer.Name..".txt")
-
--- end
-
--- --check have a normal file
--- if isfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt") == false then
---    print(time() .. " ->" .. "No File Normal")
-
--- else
---    print(time() .. " -> " .. "Have file Doing")
--- end
 --------------------------------
 
 
@@ -405,20 +369,6 @@ function sheetbest()
       return qwevwqev.Body
    end
 
-   -- if _G.SpiltLog ~= nil then
-   --    for i,v in pairs (_G.SpiltLog) do
-   --       warn(v)
-   --       if inventory():find(v) then
-   --          warn('have')
-   --          logsomething(
-   --             {
-   --                ["Shisui"] = game.Players.LocalPlayer.Name .. "HAVE"
-   --             }
-   --          )
-   --       end
-   --    end
-   -- end
-
    if _G.CheckSheet then
       if httpget(_G.SheetBest):find(game.Players.LocalPlayer.Name) then
          print("HAVE DATA")
@@ -458,46 +408,22 @@ end
 
 fpslower = 0
 function GETFPS()
-   FPS = workspace:GetRealPhysicsFPS()
-   if FPS < 15 then
-       fpslower = fpslower + 1
-       print("Fps Low " .. fpslower)
-       return("Fps Low")
-   else
-       fpslower = 0
-       print("Normal " .. fpslower)
-       return("Normal")
-   end
+    if _G.LOGFPS then
+        FPS = workspace:GetRealPhysicsFPS()
+        if FPS < 15 then
+            fpslower = fpslower + 1
+            print("Fps Low " .. fpslower)
+            return("Fps Low " .. fpslower)
+        else
+            fpslower = 0
+            print("Normal " .. fpslower)
+            return("Normal")
+        end
+    else
+        return ''
+    end
 end
-spawn(function()
-   while _G.LogAcc do
-      wait(10)
-      a = syn.request({
-         Url = "http://localhost:7963/SetDescription?Account="..game.Players.LocalPlayer.Name.."&Password=123456789";
-         Method = "POST";
-         Body = "Level: " .. game.Players.LocalPlayer.Data.Level.Value .. " " .. tostring(GETFPS())
-      })
-      warn(a.Body)
-      if fpslower >= 6 then
-         a = syn.request({
-            Url = "http://localhost:7963/SetDescription?Account="..game.Players.LocalPlayer.Name.."&Password=123456789";
-            Method = "POST";
-            Body = "FPS LOW REJOIN..."
-         })
-         warn(a.Body)
-         local TeleportService = game:GetService'TeleportService'
-         TeleportService:TeleportToPlaceInstance(game.PlaceId, game.JobId)
-      end
-   end
-end)
-spawn(function()
-   if _G.LogAcc then
-      pcall(function()
-      Nexus:CreateButton('Logger', 'SheetBest', { 100, 20 }, { 10, 10, 10, 10 })
-      Nexus:OnButtonClick('Logger', function() loadstring(game:HttpGet'https://raw.githubusercontent.com/wqeivwqjevwqewqv/wqceqwecwqe/main/logwelrvpoewrv.lua')() end)
-      end)
-   end
-end)
+
 function setalias(text)
    if _G.LogAcc then
       a = syn.request({
@@ -508,8 +434,75 @@ function setalias(text)
       warn(a.Body)
    end
 end
+
+function setdes(text)
+   if _G.LogAcc then
+      a = syn.request({
+         Url = "http://localhost:7963/SetDescription?Account="..game.Players.LocalPlayer.Name.."&Password=123456789";
+         Method = "POST";
+         Body = text
+         })
+      warn(a.Body)
+   end
+end
 -----------------------
-------------------------
+spawn(function()
+   while true do
+      oldpost = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position
+      oldlv = game.Players.LocalPlayer.Data.Level.Value
+      print(oldpost , oldlv)
+      warn("WAIT 300 SEC.")
+      wait(10)
+      newpost = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position
+      newlv = game.Players.LocalPlayer.Data.Level.Value
+      print(oldpost , oldlv)
+      print(newpost , newlv)
+      if oldpost == newpost and oldlv == newlv then
+         game.Players.LocalPlayer:Kick("KIWWY AFK CHECK")
+         local tpservice = game:GetService("TeleportService")
+         local plr = game.Players.LocalPlayer
+         tpservice:Teleport(game.PlaceId, plr)
+      else
+         print("NO AFK")
+      end
+   end
+end)
+-----------------------
+spawn(function()
+   while _G.LogAcc do
+      setdes("Level: " .. game.Players.LocalPlayer.Data.Level.Value .. tostring(GETFPS()))
+      wait(5)
+   end
+end)
+-----------------------
+spawn(function()
+   if _G.LogAcc then
+      pcall(function()
+      Nexus:CreateButton('Logger', 'SheetBest', { 100, 20 }, { 10, 10, 10, 10 })
+      Nexus:OnButtonClick('Logger', function() loadstring(game:HttpGet'https://raw.githubusercontent.com/wqeivwqjevwqewqv/wqceqwecwqe/main/logwelrvpoewrv.lua')() end)
+      end)
+   end
+end)
+
+-----------------------
+function HopServerKiwwy()
+   for timehop=100,1,-1 do
+      a = game:GetService("ReplicatedStorage").__ServerBrowser:InvokeServer(timehop)
+      -- print(timehop)
+      for i,v in pairs (a) do
+          print(i,v.Region,v.Count)
+          -- if v.Region:find("Singapore") and v.Count <= 7 then
+          if v.Count <= 7 then
+              warn(v.Region,v.Count)
+              game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, i, game.Players.LocalPlayer)
+              return
+          end
+      end
+  end
+  
+  print("CANT FIND")
+end
+-----------------------
 
   
 while _G.Activate do
