@@ -11,6 +11,7 @@
 -- _G.LogInventoryActivate = true
 -- _G.LogInventory = {"Tushita", "Dark Dagger", "Hallow Scythe", "Dark Coat", "True Triple Katana"}
 -- _G.SheetBest = "https://sheet.best/api/sheets/bef8b0ee-e57a-40d6-acdb-0caa5fbe8e71"
+-- _G.Webhook = "https://discord.com/api/webhooks/960294659958120538/fQoPhQTSOy2JknGf4eANJV-UN2kIXdW-Rh4nHpj1fX833ekF2dSm2JIQaCdQppqCJRRB"
 
 repeat print('WAITING GAME LOAD') wait(1) until game:IsLoaded()
 if not game:IsLoaded() then game.Loaded:Wait() end
@@ -233,24 +234,22 @@ function sheetbest()
   end
   
 
-  if _G.RareModeActivate then
-   for i,v in pairs (game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventoryWeapons")) do
-      -- print(v.Name)
-         if _G.RareMode ~= nil or _G.RareMode ~= "" then
-            if v.Rarity >= _G.RareMode then
-               print(v.Name , v.Type)
-               table.insert(nah,v.Name)
-            elseif v.Type == "Wear" and v.Rarity >= _G.RareMode then
-               print(v.Name , v.Type)
-               table.insert(nah,v.Name)
+   if _G.RareModeActivate then
+      for i,v in pairs (game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventoryWeapons")) do
+         -- print(v.Name)
+            if _G.RareMode ~= nil or _G.RareMode ~= "" then
+               if v.Rarity >= _G.RareMode then
+                  print(v.Name , v.Type)
+                  table.insert(nah,v.Name)
+               elseif v.Type == "Wear" and v.Rarity >= _G.RareMode then
+                  print(v.Name , v.Type)
+                  table.insert(nah,v.Name)
+               end
+            else
+               -- table.insert(nah,v.Name)
             end
-         else
-            -- table.insert(nah,v.Name)
          end
-      end
-   end
-
-   if _G.LogInventoryActivate then
+   elseif _G.LogInventoryActivate then
       for i,v in pairs (game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventoryWeapons")) do
          for w,e in pairs (_G.LogInventory) do
                if v.Name == tostring(e) then
@@ -272,7 +271,7 @@ function sheetbest()
       fruitlist = {}
       for i,v in pairs (game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventoryFruits")) do 
       --  print(v.Name:split("-")[1])
-         table.insert(fruitlist, tostring(v.Name:split("-")[1]))
+      table.insert(fruitlist,v.Name:match("%-(.+)"))
       end
       if unpack(fruitlist) ~= nil then
          allfruit = table.concat(fruitlist , ", ")
@@ -486,7 +485,52 @@ spawn(function()
       end)
    end
 end)
+-- disconnect webhook
+warn('loaded auto webhook')
+function dcwebhook()
+   if _G.Webhook ~= nil or _G.Webhook ~= "" then
+      local GuiService = game:GetService'GuiService'
+      local url = _G.Webhook
+      local data = {
+      ["content"] = "Disconnect",
+      ["embeds"] = {
+            {
+               ["title"] = "**Disconnected!**",
+               ["description"] = "Username: ```" .. game.Players.LocalPlayer.Name .. "``` Code: ```" .. GuiService:GetErrorCode().Value .. "``` Message: ```" .. GuiService:GetErrorMessage() .. "```",
+               ["type"] = "rich",
+               ["footer"] = {
+                  ["text"] = "LOG BY KIWWY. | " .. timestamp()
+               },
+               ["color"] = tonumber(0x7269da),
+            }
+      }
+      }
+      local newdata = game:GetService("HttpService"):JSONEncode(data)
 
+      local headers = {
+      ["content-type"] = "application/json"
+      }
+      request = http_request or request or HttpPost or syn.request
+      local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
+      request(abcdef)
+   end
+end
+
+do -- Connections
+   local GuiService = game:GetService'GuiService'
+   GuiService.ErrorMessageChanged:Connect(function()
+
+      local Code = GuiService:GetErrorCode().Value
+
+      if Code >= Enum.ConnectionError.DisconnectErrors.Value then
+            if Code > Enum.ConnectionError.PlacelaunchOtherError.Value then
+               return
+            end
+            
+            dcwebhook()
+      end
+   end)
+end
 -----------------------
 function HopServerKiwwy()
    for timehop=100,1,-1 do
