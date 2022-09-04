@@ -474,7 +474,7 @@ spawn(function()
    while _G.LogAcc do
       setdes("Level: " .. game.Players.LocalPlayer.Data.Level.Value .. " " .. tostring(GETFPS()))
       wait(5)
-      if fpslower => 6 then
+      if fpslower >= 6 then
          HopServerKiwwy()
       end
    end
