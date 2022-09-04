@@ -60,19 +60,22 @@ function inventory()
    nah = {}
    
    for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
-       if v.ToolTip == "Sword" then
+      for w,e in pairs (_G.LogInventory) do
+         if v.ToolTip == "Sword" and v.Name == e then
            table.insert(nah,v.Name)
            print(v.Name)
-           end
-       end
+         end
+      end
+   end
        
    for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do pcall(function()
-       
-       if v.ToolTip == "Sword" then
+      for w,e in pairs (_G.LogInventory) do
+         if v.ToolTip == "Sword" and v.Name == e then
            table.insert(nah,v.Name)
            print(v.Name)
-       end
-   end)
+         end
+      end
+      end)
    end
    
  
