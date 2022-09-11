@@ -1,27 +1,17 @@
 -- _G.Activate = true
 -- _G.FirstWait = 0
--- _G.Linetoken = "IFrNuMoL2l7CnMJEOYrT9C6nur9GzIII0LVfAhA3MeX"
--- _G.LockBeliActivate = true
--- _G.LockBeli = 10000000
--- _G.CheckSheet = true
--- _G.RareModeActivate = false
--- _G.RareMode = 3
--- _G.LogInventoryActivate = true
--- _G.LogInventory = {"Shisui", "Saddi", "Wando", "Buddy Sword", "Yama", "Hallow Scythe", "Spikey Trident", "Dark Dagger"}
--- _G.SheetBest = "https://sheet.best/api/sheets/bef8b0ee-e57a-40d6-acdb-0caa5fbe8e71"
 -- _G.LogAcc = true
-
--- _G.Activate = true
--- _G.FirstWait = 0
+-- _G.LOGFPS = true
 -- _G.Linetoken = "IFrNuMoL2l7CnMJEOYrT9C6nur9GzIII0LVfAhA3MeX"
 -- _G.LockBeliActivate = true
--- _G.LockBeli = 10000000
+-- _G.LockBeli = 1000000
 -- _G.CheckSheet = true
 -- _G.RareModeActivate = false
 -- _G.RareMode = 3
 -- _G.LogInventoryActivate = true
--- _G.LogInventory = {"Shisui", "Saddi", "Wando", "Buddy Sword", "Yama", "Hallow Scythe", "Spikey Trident", "Dark Dagger"}
+-- _G.LogInventory = {"Tushita", "Dark Dagger", "Hallow Scythe", "Dark Coat", "True Triple Katana"}
 -- _G.SheetBest = "https://sheet.best/api/sheets/bef8b0ee-e57a-40d6-acdb-0caa5fbe8e71"
+-- _G.Webhook = "https://discord.com/api/webhooks/960294659958120538/fQoPhQTSOy2JknGf4eANJV-UN2kIXdW-Rh4nHpj1fX833ekF2dSm2JIQaCdQppqCJRRB"
 
 repeat print('WAITING GAME LOAD') wait(1) until game:IsLoaded()
 if not game:IsLoaded() then game.Loaded:Wait() end
@@ -38,8 +28,8 @@ repeat wait()
    warn("WAITING CHOOSE TEAM EIEIEIEIEI")
    wait(.5)
    end
-   until game.Players.LocalPlayer.Team ~= nil and game:IsLoaded()
-   
+until game.Players.LocalPlayer.Team ~= nil and game:IsLoaded()
+
 function webhook()
    local webhookcheck =
   is_sirhurt_closure and "Sirhurt" or pebc_execute and "ProtoSmasher" or syn and "Synapse X" or
@@ -79,27 +69,7 @@ function webhook()
 end
 warn('Script Running')
 webhook()
-print('LAST UPDATE ON 05/06 12:41')
--- whitelist
--- ts = game:GetService("TeleportService")
--- local HWID = {
---     "ABE22B3C-8DA6-4E43-856B-0E3564A47C2C",
---     "5CAE8E3E-3018-4054-A2C1-4AAB39BA13E9",
---     "192063A6-7BEC-48CC-8432-A04ABD21CE35",
---     "BB69F8CA-32F7-4640-8541-4E564CE20923",
---     "DD5F6449-B50D-4A51-AC41-0E1E54204334",
--- }
-
--- if HWID[table.find(HWID,game:GetService("RbxAnalyticsService"):GetClientId())] == game:GetService("RbxAnalyticsService"):GetClientId() then
--- print("Success")
--- else
---     setclipboard(game:GetService("RbxAnalyticsService"):GetClientId())
---     game.Players.LocalPlayer:Kick("COPY HWID SUCCES")
---     wait(2)
---     ts:Teleport(game.PlaceId, p)
--- end
-
-
+print('LAST UPDATE ON 28/07 16:45')
 
 spawn(function()
 
@@ -126,7 +96,7 @@ spawn(function()
    end)
 end
 end)
------------------
+-----------------------
 if game.CoreGui:FindFirstChild("Kiwwylib") then
    game.CoreGui:FindFirstChild("Kiwwylib"):Destroy()
 end
@@ -136,7 +106,7 @@ if _G.FirstWait ~= nil then
 else
    wait(10)
 end
---------------------
+-----------------------
 function time()
    return ""..os.date("%H")..":"..os.date("%M")..":"..os.date("%S")
 end
@@ -154,42 +124,6 @@ end
 
 -- check is succes then shutdown
 
-if isfile("Kiwwy/"..game.Players.LocalPlayer.Name.."_success.txt") then
-
-   -- print(time() .. " -> " .."Have A Success")
-   -- token = 'IFrNuMoL2l7CnMJEOYrT9C6nur9GzIII0LVfAhA3MeX'
-   -- b = req({
-   --    Url = 'https://notify-api.line.me/api/notify',
-   --    Method = "POST",
-   --    Headers = {['content-type'] = 'application/x-www-form-urlencoded' , ['Authorization'] = 'Bearer '..token},
-   --    Body = "message=" .. game.Players.LocalPlayer.Name .. "\nเสร็จแล้วจะเปิดอีกหาแม่มึงหรอ "
-   -- })
-   -- print(b.Body)
-   -- game:Shutdown()
-   -- return
-   -- print('eiei')
-end
-
-
-
---check check no any file then create normal file
-
-if isfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt") == false and isfile("Kiwwy/"..game.Players.LocalPlayer.Name.."_success.txt") == false then
-   print(time() .. " -> " ..'Kiwwy WorkSpace -> No File Succes And Normal'..game.Players.LocalPlayer.Name..".txt")
-
-   writefile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt","")
-
-   print(time() .. " -> " .."Create -> ".. game.Players.LocalPlayer.Name..".txt")
-
-end
-
---check have a normal file
-if isfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt") == false then
-   print(time() .. " ->" .. "No File Normal")
-
-else
-   print(time() .. " -> " .. "Have file Doing")
-end
 --------------------------------
 
 
@@ -295,21 +229,22 @@ function sheetbest()
   end
   
 
-  if _G.RareModeActivate then
-   for i,v in pairs (game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventoryWeapons")) do
-      -- print(v.Name)
-         if _G.RareMode ~= nil or _G.RareMode ~= "" then
-            if v.Rarity >= _G.RareMode and v.Type ~= "Wear" then
-               print(v.Name , v.Type)
-               table.insert(nah,v.Name)
+   if _G.RareModeActivate then
+      for i,v in pairs (game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventoryWeapons")) do
+         -- print(v.Name)
+            if _G.RareMode ~= nil or _G.RareMode ~= "" then
+               if v.Rarity >= _G.RareMode then
+                  print(v.Name , v.Type)
+                  table.insert(nah,v.Name)
+               elseif v.Type == "Wear" and v.Rarity >= _G.RareMode then
+                  print(v.Name , v.Type)
+                  table.insert(nah,v.Name)
+               end
+            else
+               -- table.insert(nah,v.Name)
             end
-         else
-            table.insert(nah,v.Name)
          end
-      end
-   end
-
-   if _G.LogInventoryActivate then
+   elseif _G.LogInventoryActivate then
       for i,v in pairs (game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventoryWeapons")) do
          for w,e in pairs (_G.LogInventory) do
                if v.Name == tostring(e) then
@@ -331,7 +266,7 @@ function sheetbest()
       fruitlist = {}
       for i,v in pairs (game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventoryFruits")) do 
       --  print(v.Name:split("-")[1])
-         table.insert(fruitlist, tostring(v.Name:split("-")[1]))
+      table.insert(fruitlist,v.Name:match("%-(.+)"))
       end
       if unpack(fruitlist) ~= nil then
          allfruit = table.concat(fruitlist , ", ")
@@ -431,20 +366,6 @@ function sheetbest()
       return qwevwqev.Body
    end
 
-   -- if _G.SpiltLog ~= nil then
-   --    for i,v in pairs (_G.SpiltLog) do
-   --       warn(v)
-   --       if inventory():find(v) then
-   --          warn('have')
-   --          logsomething(
-   --             {
-   --                ["Shisui"] = game.Players.LocalPlayer.Name .. "HAVE"
-   --             }
-   --          )
-   --       end
-   --    end
-   -- end
-
    if _G.CheckSheet then
       if httpget(_G.SheetBest):find(game.Players.LocalPlayer.Name) then
          print("HAVE DATA")
@@ -479,128 +400,154 @@ function checkmoney()
    end
 end
 
--- AUTO HOP --
-
--- spawn(function()
---    warn("LOAD AUTO HOP SUCCESS")
---    local PlaceID = game.PlaceId
---    local AllIDs = {}
---    local foundAnything = ""
---    local actualHour = os.date("!*t").hour
---    local Deleted = false
---    local File = pcall(function()
---        AllIDs = game:GetService('HttpService'):JSONDecode(readfile("NotSameServers.json"))
---    end)
---    if not File then
---        table.insert(AllIDs, actualHour)
---        writefile("NotSameServers.json", game:GetService('HttpService'):JSONEncode(AllIDs))
---    end
---    function TPReturner()
---        local Site;
---        if foundAnything == "" then
---            Site = game.HttpService:JSONDecode(game:HttpGet('https://games.roblox.com/v1/games/' .. PlaceID .. '/servers/Public?sortOrder=Asc&limit=100'))
---        else
---            Site = game.HttpService:JSONDecode(game:HttpGet('https://games.roblox.com/v1/games/' .. PlaceID .. '/servers/Public?sortOrder=Asc&limit=100&cursor=' .. foundAnything))
---        end
---        local ID = ""
---        if Site.nextPageCursor and Site.nextPageCursor ~= "null" and Site.nextPageCursor ~= nil then
---            foundAnything = Site.nextPageCursor
---        end
---        local num = 0;
---        for i,v in pairs(Site.data) do
---            local Possible = true
---            ID = tostring(v.id)
---            if tonumber(v.maxPlayers) > tonumber(v.playing) then
---                for _,Existing in pairs(AllIDs) do
---                    if num ~= 0 then
---                        if ID == tostring(Existing) then
---                            Possible = false
---                        end
---                    else
---                        if tonumber(actualHour) ~= tonumber(Existing) then
---                            local delFile = pcall(function()
---                                delfile("NotSameServers.json")
---                                AllIDs = {}
---                                table.insert(AllIDs, actualHour)
---                            end)
---                        end
---                    end
---                    num = num + 1
---                end
---                if Possible == true then
---                    table.insert(AllIDs, ID)
---                    wait()
---                    pcall(function()
---                        writefile("NotSameServers.json", game:GetService('HttpService'):JSONEncode(AllIDs))
---                        wait()
---                        game:GetService("TeleportService"):TeleportToPlaceInstance(PlaceID, ID, game.Players.LocalPlayer)
---                    end)
---                    -- wait(4)
---                end
---            end
---        end
---    end
-   
---    function Teleport()
---        while wait() do
---            pcall(function()
---                TPReturner()
---                if foundAnything ~= "" then
---                    TPReturner()
---                end
---            end)
---        end
---    end
-   
---    name = {"KaiYang" , "MiNiKaiYung" , "orxkaiyang" , "PabidaHHK"}
---    _G.Hop = true
---    while _G.Hop do
---        wait(10)
---        for i,v in pairs (game.Players:GetChildren()) do
---            if v.Name ~= game.Players.LocalPlayer.Name then
---                print(v.Name)
---                for w , e in pairs(name) do
---                    warn("KeyWord : " .. e)
---                    if string.find(v.Name,e) then
---                        warn("Teleport")
---                        _G.Hop = False
---                        wait(match.huge(1,100))
---                        Teleport()
---                    else 
---                        warn("Cant Find")
---                    end
---                end
---            end
---        end
---        end
-
--- end)
 
 -- ACC FUNCTION --
-spawn(function()
-   while _G.LogAcc do
-      wait(10)
-      a = syn.request({
-         Url = "http://localhost:7963/SetDescription?Account="..game.Players.LocalPlayer.Name.."&Password=123456789";
-         Method = "POST";
-         Body = "Level: " .. game.Players.LocalPlayer.Data.Level.Value
-      })
-      warn(a.Body)
-   end
-end)
 
-function setalias()
+fpslower = 0
+function GETFPS()
+    if _G.LOGFPS then
+        FPS = workspace:GetRealPhysicsFPS()
+        if FPS < 15 then
+            fpslower = fpslower + 1
+            print("Fps Low " .. fpslower)
+            return("Fps Low " .. fpslower)
+        else
+            fpslower = 0
+            print("Normal " .. fpslower)
+            return("Normal")
+        end
+    else
+        return ''
+    end
+end
+
+function setalias(text)
    if _G.LogAcc then
       a = syn.request({
          Url = "http://localhost:7963/SetAlias?Account="..game.Players.LocalPlayer.Name.."&Password=123456789";
          Method = "POST";
-         Body = "LOGED SHEET"
+         Body = text
+         })
+      warn(a.Body)
+   end
+end
+
+function setdes(text)
+   if _G.LogAcc then
+      a = syn.request({
+         Url = "http://localhost:7963/SetDescription?Account="..game.Players.LocalPlayer.Name.."&Password=123456789";
+         Method = "POST";
+         Body = text
          })
       warn(a.Body)
    end
 end
 -----------------------
-------------------------
+spawn(function()
+   while true do
+      oldpost = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position
+      oldlv = game.Players.LocalPlayer.Data.Level.Value
+      print(oldpost , oldlv)
+      warn("WAIT 300 SEC.")
+      wait(300)
+      newpost = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position
+      newlv = game.Players.LocalPlayer.Data.Level.Value
+      print(oldpost , oldlv)
+      print(newpost , newlv)
+      if oldpost == newpost and oldlv == newlv then
+         game.Players.LocalPlayer:Kick("KIWWY AFK CHECK")
+         local tpservice = game:GetService("TeleportService")
+         local plr = game.Players.LocalPlayer
+         tpservice:Teleport(game.PlaceId, plr)
+      else
+         print("NO AFK")
+      end
+   end
+end)
+-----------------------
+spawn(function()
+   while _G.LogAcc do
+      setdes("Level: " .. game.Players.LocalPlayer.Data.Level.Value .. " " .. tostring(GETFPS()))
+      wait(5)
+      if fpslower >= 6 then
+         HopServerKiwwy()
+      end
+   end
+end)
+-----------------------
+spawn(function()
+   if _G.LogAcc then
+      pcall(function()
+      Nexus:CreateButton('Logger', 'SheetBest', { 100, 20 }, { 10, 10, 10, 10 })
+      Nexus:OnButtonClick('Logger', function() loadstring(game:HttpGet'https://raw.githubusercontent.com/wqeivwqjevwqewqv/wqceqwecwqe/main/logwelrvpoewrv.lua')() end)
+      end)
+   end
+end)
+-- disconnect webhook
+warn('loaded auto webhook')
+function dcwebhook()
+   if _G.Webhook ~= nil or _G.Webhook ~= "" then
+      local GuiService = game:GetService'GuiService'
+      local url = _G.Webhook
+      local data = {
+      ["content"] = "Disconnect",
+      ["embeds"] = {
+            {
+               ["title"] = "**Disconnected!**",
+               ["description"] = "Username: ```" .. game.Players.LocalPlayer.Name .. "``` Code: ```" .. GuiService:GetErrorCode().Value .. "``` Message: ```" .. GuiService:GetErrorMessage() .. "```",
+               ["type"] = "rich",
+               ["footer"] = {
+                  ["text"] = "LOG BY KIWWY. | " .. timestamp()
+               },
+               ["color"] = tonumber(0x7269da),
+            }
+      }
+      }
+      local newdata = game:GetService("HttpService"):JSONEncode(data)
+
+      local headers = {
+      ["content-type"] = "application/json"
+      }
+      request = http_request or request or HttpPost or syn.request
+      local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
+      request(abcdef)
+   end
+end
+
+do -- Connections
+   local GuiService = game:GetService'GuiService'
+   GuiService.ErrorMessageChanged:Connect(function()
+
+      local Code = GuiService:GetErrorCode().Value
+
+      if Code >= Enum.ConnectionError.DisconnectErrors.Value then
+            if Code > Enum.ConnectionError.PlacelaunchOtherError.Value then
+               return
+            end
+            
+            dcwebhook()
+      end
+   end)
+end
+-----------------------
+function HopServerKiwwy()
+   for timehop=100,1,-1 do
+      a = game:GetService("ReplicatedStorage").__ServerBrowser:InvokeServer(timehop)
+      -- print(timehop)
+      for i,v in pairs (a) do
+          print(i,v.Region,v.Count)
+          -- if v.Region:find("Singapore") and v.Count <= 7 then
+          if v.Count <= 7 then
+              warn(v.Region,v.Count)
+              game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, i, game.Players.LocalPlayer)
+              return
+          end
+      end
+  end
+  
+  print("CANT FIND")
+end
+-----------------------
 
   
 while _G.Activate do
@@ -692,6 +639,7 @@ while _G.Activate do
       --     TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
       -- elseif (tonumber(Time)) <= 16 then
       TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+
       TextLabel.Text = "Name : "..game.Players.LocalPlayer.Name.." Level " .. game.Players.LocalPlayer.Data.Level.Value .. "\n" ..Fruit.." Mastery : "..ValueFruit .. "\n" .. "Use Skill " .. skill .. "\n" .. "Awake " ..  awaked
       
 
@@ -702,52 +650,8 @@ while _G.Activate do
             SkillVKUB = false
          end
          print(SkillVKUB)
-         if game.Players.LocalPlayer.Data.Level.Value == 2300 and V and SkillVKUB then
-            while checkmoney() == false do
-               wait(5)
-            end
-            print('SUCCES LA I SUS')
-
-            token = _G.Linetoken
-            b = req({
-               Url = 'https://notify-api.line.me/api/notify',
-               Method = "POST",
-               Headers = {['content-type'] = 'application/x-www-form-urlencoded' , ['Authorization'] = 'Bearer '..token},
-               Body = "message=" .. game.Players.LocalPlayer.Name .. " Success \n" .. "Fruit " .. Fruit .. "\nMastery " .. ValueFruit .. "\nAwaked " .. awaked
-            })
-            print(b.Body)
-            sheetbest()
-            setalias()
-            if isfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt") == true then
-               delfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt")
-               print(time() .. " -> " .. "Deleted Doing File")
-               writefile("Kiwwy/"..game.Players.LocalPlayer.Name.."_success.txt","")
-               print(time() .. " -> " .. "Created Succes File")
-            end
-            _G.Activate = false
-            -- game:Shutdown()
-         elseif game.Players.LocalPlayer.Data.Level.Value == 2300 and V and cant_awake then
-            while checkmoney() == false do
-               wait(5)
-            end
-            print('SUCCES LA I SUS')
-
-            token = _G.Linetoken
-            b = req({
-               Url = 'https://notify-api.line.me/api/notify',
-               Method = "POST",
-               Headers = {['content-type'] = 'application/x-www-form-urlencoded' , ['Authorization'] = 'Bearer '..token},
-               Body = "message=" .. game.Players.LocalPlayer.Name .. " Success \n" .. "Fruit " .. Fruit .. "\nMastery " .. ValueFruit .. "\nAwaked " .. awaked
-            })
-            print(b.Body)
-            sheetbest()
-            setalias()
-            if isfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt") == true then
-               delfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt")
-               print(time() .. " -> " .. "Deleted Doing File")
-               writefile("Kiwwy/"..game.Players.LocalPlayer.Name.."_success.txt","")
-               print(time() .. " -> " .. "Created Succes File")
-            end
+         if game.Players.LocalPlayer.Data.Level.Value == 2400 and SkillVKUB then
+            setalias("NOT LOG")
             _G.Activate = false
             -- game:Shutdown()
          end
@@ -761,8 +665,10 @@ TextLabel.TextSize = 75.000
 spawn(function()
    -- game:Shutdown()
    local uis = game:GetService("UserInputService")
-   uis.InputBegan:Connect(function(asd)
+   uis.InputBegan:Connect(function(asd) 
       if asd.KeyCode == Enum.KeyCode.G then -- any key here (could be insert or delete whatever u want)
+      sheetbest()
+      setalias("LOGGED SHEET")
       print("SHUTDOWN")
       game:Shutdown()
       end
