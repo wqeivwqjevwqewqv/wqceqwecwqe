@@ -35,7 +35,7 @@ repeat wait()
 
 repeat wait()
 
-   if game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("Main").ChooseTeam.Visible == true then
+   if game:GetService("Players").LocalPlayer.PlayerGui.Main.ChooseTeam.Visible == true then
    warn("WAITING CHOOSE TEAM EIEIEIEIEI")
    wait(.5)
    end
