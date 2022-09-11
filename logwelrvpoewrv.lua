@@ -12,12 +12,11 @@ repeat wait() until game.Players.LocalPlayer:FindFirstChild("PlayerGui");
 repeat wait() until game.Players.LocalPlayer.PlayerGui:FindFirstChild("Main");
 repeat wait()
 
-if game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("Main").ChooseTeam.Visible == true then
-   for i,v in pairs(getconnections(game:GetService("Players").LocalPlayer.PlayerGui.Main.ChooseTeam.Container.Pirates.Frame.ViewportFrame.TextButton.MouseButton1Click)) do
-      v.Function()
-   end
+   if game.Players.LocalPlayer.Team == nil then
+   warn("WAITING CHOOSE TEAM EIEIEIEIEI")
    wait(.5)
-end
+   end
+
 until game.Players.LocalPlayer.Team ~= nil and game:IsLoaded()
 
 
