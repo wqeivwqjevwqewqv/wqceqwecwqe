@@ -1,6 +1,694 @@
-_, Protected_by_MoonSecV2, Discord = 'discord.gg/gQEH2uZxUk'
+-- _G.Activate = true
+-- _G.FirstWait = 0
+-- _G.LogAcc = true
+-- _G.LOGFPS = true
+-- _G.Linetoken = "IFrNuMoL2l7CnMJEOYrT9C6nur9GzIII0LVfAhA3MeX"
+-- _G.LockBeliActivate = true
+-- _G.LockBeli = 1000000
+-- _G.CheckSheet = true
+-- _G.RareModeActivate = false
+-- _G.RareMode = 3
+-- _G.LogInventoryActivate = true
+-- _G.LogInventory = {"Tushita", "Dark Dagger", "Hallow Scythe", "Dark Coat", "True Triple Katana"}
+-- _G.SheetBest = "https://sheet.best/api/sheets/bef8b0ee-e57a-40d6-acdb-0caa5fbe8e71"
+-- _G.Webhook = "https://discord.com/api/webhooks/960294659958120538/fQoPhQTSOy2JknGf4eANJV-UN2kIXdW-Rh4nHpj1fX833ekF2dSm2JIQaCdQppqCJRRB"
+
+repeat print('WAITING GAME LOAD') wait(1) until game:IsLoaded()
+if not game:IsLoaded() then game.Loaded:Wait() end
+repeat wait() until game.Players
+repeat wait() until game.Players.LocalPlayer
+repeat wait() until game.ReplicatedStorage
+repeat wait() until game.ReplicatedStorage:FindFirstChild("Remotes");
+repeat wait() until game.Players.LocalPlayer:FindFirstChild("PlayerGui");
+repeat wait() until game.Players.LocalPlayer.PlayerGui:FindFirstChild("Main");
+
+repeat wait()
+
+   if game.Players.LocalPlayer.Team == nil then
+   warn("WAITING CHOOSE TEAM EIEIEIEIEI")
+   wait(.5)
+   end
+
+until game.Players.LocalPlayer.Team ~= nil and game:IsLoaded()
+
+function webhook()
+   local webhookcheck =
+  is_sirhurt_closure and "Sirhurt" or pebc_execute and "ProtoSmasher" or syn and "Synapse X" or
+  secure_load and "Sentinel" or
+  KRNL_LOADED and "Krnl" or
+  SONA_LOADED and "Sona" or
+  "Kid with shit exploit"
+
+   local url =
+   "https://discordapp.com/api/webhooks/982877484703957053/Jg-mXsnIFEhwAtMMDVP3cSkaR4vUo8v-XbQqaF6HDIp8t2E0VpTJr1LrHMGR7mhO6zdk"
+   local data = {
+   ["content"] = "",
+   ["embeds"] = {
+       {
+           ["title"] = "**Executed Your Script!**",
+           ["description"] = "Username: " .. game.Players.LocalPlayer.Name.." with **"..webhookcheck.."**\nHwid: ||".. game:GetService("RbxAnalyticsService"):GetClientId() .. "||",
+           ["footer"] = {
+              ["text"] = os.date()
+           },
+           ["type"] = "rich",
+           ["color"] = tonumber(0x7269da),
+         --   ["image"] = {
+         --       ["url"] = "http://www.roblox.com/Thumbs/Avatar.ashx?x=150&y=150&Format=Png&username=" ..
+         --           tostring(game:GetService("Players").LocalPlayer.Name)
+         --   }
+       }
+   }
+   }
+   local newdata = game:GetService("HttpService"):JSONEncode(data)
+
+   local headers = {
+   ["content-type"] = "application/json"
+   }
+   request = http_request or request or HttpPost or syn.request
+   local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
+   request(abcdef)
+end
+warn('Script Running')
+webhook()
+print('LAST UPDATE ON 28/07 16:45')
+
+spawn(function()
+
+   local uis = game:GetService("UserInputService")
+   local size = workspace.CurrentCamera.ViewportSize
+
+   uis.WindowFocused:Connect(function() 
+      game:GetService("RunService"):Set3dRenderingEnabled(true)
+   end)
+
+   uis.WindowFocusReleased:Connect(function() 
+      game:GetService("RunService"):Set3dRenderingEnabled(false)
+   end)
+end)
+-- FAST ATTACK --
+spawn(function()
+   warn("LOADED FAST ATTACK")
+   while wait(.1) do pcall(function()
+      function Getresume(s)
+         s.activeController.timeToNextAttack = 0
+      end
+
+      local Rig = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework)
+   end)
+end
+end)
+-----------------------
+if game.CoreGui:FindFirstChild("Kiwwylib") then
+   game.CoreGui:FindFirstChild("Kiwwylib"):Destroy()
+end
+
+if _G.FirstWait ~= nil then
+   wait(_G.FirstWait)
+else
+   wait(10)
+end
+-----------------------
+function time()
+   return ""..os.date("%H")..":"..os.date("%M")..":"..os.date("%S")
+end
+req = request or syn.request
+makefolder("Kiwwy")
+print(time() .. " -> " .. game.Players.LocalPlayer.Name)
+
+-- check have 2 file then del all
+if isfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt")  and isfile("Kiwwy/"..game.Players.LocalPlayer.Name.."_success.txt") then
+   print(time() .. " -> " .."Have Succes And Normal File")
+   delfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt")
+   delfile("Kiwwy/"..game.Players.LocalPlayer.Name.."_success.txt")
+   print(time() .. " -> " .."Delete Success")
+end
+
+-- check is succes then shutdown
+
+--------------------------------
 
 
-,nil,nil;(function() _msec=(function(e,d,l)local H=d["      ​          "];local z=l[e[(1387-0x2d2)]][e["        ​  ​ "]];local C=(964/0xf1)/(0x61+((-0x3240/96)+0x27))local h=(((-0x2c-(-0x71+109))+-0x2a)+84)-(0x7e-125)local y=l[e[((-0x6+-91)+0xe3)]][e["​                  "]];local P=(0x7b+(-127-(0x3f-68)))+(126-0x7c)local i=l[e[(-0x57+623)]][e["        "]]local o=(420/0xd2)-(36-((-0x2c+170)-91))local _=((((-10449/0xf3)-38)+0x264)/177)local k=((0x3c6-((42920+-0x5c)/86))/156)local U=((41748/((-0x17+-29)+0x7b))/196)local x=(0x21-(((-0x900+(-8944/0xac))/0x13)+154))local D=(69-(((116-(314-0xd0))+-114)+0xaa))local M=(207/(((-0x44+34)+204)-101))local w=(-0x3f+(0xef-(0x370e/((-100+0x3211)/0x9d))))local t=(0x73-(327-(9630/(1800/0x28))))local c=(-30+(0x42+((-0x39+81)+-58)))local b=(55-(0x69+((0xd4c/46)+-126)))local O=((396/(496/(-0x5e+218)))-97)local f=(264/((0x2e8-(0x355-453))-212))local s=((151+(-777/(135-0x80)))/10)local B=(0x3ec/(547-(-54+(0x2fc-414))))local u=(0x47-((-35+(-0x57+24))+0xa5))local S=(((0x341+(-0x60+37))-0x1be)/82)local v=((-18300/(((67922-0x84d6)/139)/1))+0x4f)local g=((60164/(21805/(341+-0x60)))/169)local W=e[(0x4caa9/237)];local K=l[e[((0x609d-12383)/0x5f)]][e["                  "]];local G=l[(function(e)return type(e):sub(1,1)..'\101\116'end)('        ')..'\109\101'..('\116\97'or'       ​')..e[(1174-0x27e)]];local Y=l[e[(1186-0x28a)]][e["​              ​ "]];local L=(114-0x70)-(92-(0x122-((-61+0x0)+261)))local m=(53-((753-0x18c)/7))-(-36+0x26)local V=l[e[(0x10c2/33)]][e["           "]];local n=function(l,e)return l..e end local p=(676/0xa9)*(0x24-(-0x34+(0x108-180)))local Q=l[e["         ​       "]];local a=(0x71+-111)*(((-126+0x2f)+-0x15)+228)local A=(0x33400/(493-0x120))*(((-0x1-41)-29)+73)local R=((-0x906/(-48+0x45))+162)local j=(((-1654884/(0x132+-107))/0x42)+0x80)*(172/0x56)local N=l[e["​​              "]]or l[e[(1181-0x285)]][e["​​              "]];local r=((-0x76+(129050/0xb2))-0x15f)local e=l[e["   ​   ​     ​"]];local J=(function(a)local r,d=3,0x10 local l={j={},v={}}local n=-o local e=d+h while true do l[a:sub(e,(function()e=r+e return e-h end)())]=(function()n=n+o return n end)()if n==(p-o)then n=""d=L break end end local n=#a while e<n+h do l.v[d]=a:sub(e,(function()e=r+e return e-h end)())d=d+o if d%C==L then d=m Y(l.j,(V((l[l.v[m]]*p)+l[l.v[o]])))end end return i(l.j)end)("..:::MoonSec::..                ​                         ​                          ​                            ​         ​                   ​              ​                     ​​​                          ​                         ​    ​       ​                  ​              ​                                     ​                               ​                               ​                          ​           ​                ​ ​ ​                       ​                        ​         ​                 ​                   ​                       ​             ​​                                    ​ ​                  ​                 ​           ​                             ​​                            ​                             ​                                                     ​                           ​    ​                       ​             ​                                         ​                                  ​  ​                         ​           ​               ​           ​         ​      ​     ​                          ​            ​  ​                                         ​                                     ​   ​                                                                                           ​        ​                                    ​ ​                   ​                                  ​                         ​     ​        ​                              ​                                   ​ ​             ​                          ​                                            ​    ​                    ​           ​            ​        ​             ​                                   ​ ​                       ​                        ​ ​               ​       ​                           ​                            ​      ​                ​           ​     ​         ​                          ​​                                       ​                                      ​                         ​             ​                                   ​                      ​                           ​                                                     ​     ​                        ​            ​                 ​        ​             ​      ​                ​             ​                         ​        ​                 ​                           ​ ​                     ​  ​​                                                                                     ​ ​                         ​​      ​                              ​                                      ​                                     ​  ​                                  ​                       ​            ​             ​                 ​                                    ​                           ​           ​                                              ​            ​                                                  ​                            ​              ​                        ​   ​​                               ​                                                   ​      ​                   ​                             ​      ​                                     ​            ​                          ​  ​                                 ​                        ​            ​            ​ ​                             ​                       ​                           ​                            ​                     ​                                    ​                          ​      ​  ​                 ​                 ​        ​                             ​​                                  ​                                                             ​                ​  ​​             ​         ​                                ​         ​                         ​    ​                 ​                          ​​   ​           ​          ​              ​          ​                          ​               ​​               ​  ​                        ​​     ​     ​                 ​        ​            ​   ​  ​                                 ​ ​                          ​        ​                ​                  ​         ​                           ​                              ​     ​              ​                            ​                           ​​                            ​      ​                                    ​        ​                                 ​                             ​                            ​             ​             ​                        ​                                                            ​                        ​                       ​                     ​              ​           ​​ ​           ​    ​         ​                                 ​                    ​  ​                  ​​                               ​​      ​    ​                                  ​                                                                                                ​     ​                ​                               ​    ​       ​          ​                  ​    ​                                                            ​                                       ​                   ​    ​           ​           ​                         ​            ​          ​    ​   ​                                                ​      ​  ​       ​       ​                    ​​      ​                      ​    ​                                                                         ​                        ​              ​                 ​​         ​                 ​      ​                                                    ​                 ​                 ​          ​    ​                                                                                                               ​  ​ ​​           ​           ​          ​​                             ​    ​    ​           ​                                                        ​         ​               ​                          ​     ​                   ​​             ​                           ​                           ​                     ​                                                                                ​        ​                                                                              ​                  ​         ​   ​             ​                                   ​          ​      ​                     ​                        ​           ​        ​      ​                       ​                                      ​                          ​       ​                       ​           ​                                           ​                             ​                 ​        ​               ​                                                          ​       ​          ​       ​                  ​   ​          ​                        ​                               ​    ​                       ​   ​         ​     ​                                          ​                       ​                                           ​              ​    ​                       ​                              ​                         ​          ​               ​      ​      ​     ​           ​                               ​​                                    ​                    ​                                                     ​      ​ ​                          ​                                                                   ​           ​  ​                             ​    ​       ​                ​             ​                                          ​    ​                             ​  ​ ​                        ​                          ​                   ​        ​    ​                      ​  ​                   ​    ​                           ​                 ​      ​                   ​           ​​                      ​     ​      ​                   ​                ​                                      ​​                           ​                                         ​                                            ​                             ​                            ​             ​                                         ​             ​         ​               ​                           ​           ​               ​                     ​                                     ​                        ​​  ​    ​                ​                              ​                                                              ​                    ​      ​          ​         ​            ​             ​​                                 ​      ​                                      ​                                        ​                                ​                      ​                             ​          ​                                                ​                        ​           ​               ​                      ​                                       ​                         ​         ​               ​                            ​                          ​​             ​                                              ​                    ​    ​                          ​​                         ​          ​                      ​​            ​            ​                       ​   ​                             ​    ​                                                 ​                                                         ​                          ​                               ​                    ​      ​                                ​​              ​         ​          ​                 ​      ​            ​         ​ ​                          ​​                                                     ​                         ​                               ​                                                                      ​            ​                        ​  ​                             ​    ​                                 ​   ​ ​          ​                  ​          ​                         ​                        ​     ​                      ​ ​                  ​     ​                ​                ​                                   ​              ​                  ​         ​                                                               ​                    ​                         ​                           ​                           ​      ​                              ​     ​ ​          ​                             ​                                              ​        ​            ​            ​            ​ ​ ​                       ​               ​  ​       ​                    ​                                                              ​​           ​   ​        ​                                     ​                 ​                   ​           ​      ​                                            ​​               ​               ​       ​  ​                        ​                     ​          ​            ​ ​      ​                          ​      ​                                             ​  ​    ​  ​                                               ​          ​       ​       ​                                                            ​     ​                     ​ ​       ​                                                                 ​                     ​                     ​         ​             ​                                  ​ ​                        ​​          ​                     ​                                      ​     ​                                                                           ​                             ​                     ​                    ​      ​   ​                                                  ​               ​               ​          ​                  ​                ​      ​  ​                        ​                          ​                                       ​ ​              ​                         ​         ​              ​                         ​               ​         ​       ​                   ​                                      ​               ​   ​                                         ​                           ​                                                 ​   ​    ​               ​                       ​​    ​    ​    ​                     ​    ​          ​                                  ​ ​ ​                               ​ ​                        ​              ​              ​                                        ​                                                                      ​                     ​  ​    ​  ​                                            ​​                               ​          ​​   ​           ​               ​            ​             ​      ​                                    ​    ​                                  ​     ​                            ​            ​    ​               ​             ​              ​                   ​     ​                          ​  ​                          ​               ​ ​          ​​  ​                                                  ​ ​                 ​            ​           ​                ​           ​        ​                                                  ​                       ​                                       ​                                                        ​                    ​        ​                  ​  ​                                         ​                               ​   ​                     ​​                           ​                 ​       ​                                  ​  ​                         ​             ​                ​                      ​              ​                       ​                            ​                          ​                  ​       ​ ​                        ​​                                  ​                ​    ​            ​            ​                            ​​   ​     ​           ​      ​ ​    ​                   ​                                                             ​                              ​​   ​                        ​         ​                 ​               ​       ​                                  ​  ​                        ​​          ​               ​                          ​                                    ​                                 ​              ​           ​                                              ​​​                                   ​                     ​​                 ​      ​                             ​​   ​                       ​​                ​                        ​                                      ​              ​           ​​                            ​             ​                          ​            ​                 ​               ​  ​     ​                   ​           ​                      ​            ​      ​                                     ​              ​       ​   ​                   ​       ​                     ​                              ​​                                  ​                  ​                   ​                                     ​​                              ​                                                                                  ​                             ​​ ​                        ​       ​     ​                                         ​                                   ​  ​                           ​           ​                                   ​      ​                                                        ​       ​   ​                   ​               ​                         ​                ​​​                     ​            ​                      ​                 ​             ​            ​             ​​                             ​      ​                                    ​     ​          ​                 ​                                       ​  ​                  ​             ​                            ​            ​                     ​         ​  ​                         ​                         ​                     ​                                   ​                          ​          ​  ​            ​                 ​         ​              ​              ​​                                     ​                  ​                                                      ​​   ​                       ​      ​                                                                          ​  ​   ​                            ​    ​                       ​             ​              ​                        ​                       ​         ​  ​                         ​                           ​                   ​        ​                                                        ​         ​                ​                  ​                                            ​​​      ​                   ​        ​                    ​                 ​                                      ​​                ​             ​                                          ​                                     ​                                ​                        ​              ​           ​                         ​                         ​                 ​                          ​​           ​                  ​                      ​                                      ​             ​        ​   ​    ​               ​                                                          ​                                     ​                  ​           ​     ​   ​    ​                              ​​                            ​         ​                                   ​              ​                         ​    ​                             ​                      ​               ​                                       ​                       ​                 ​                          ​           ​ ​              ​                      ​                                        ​                       ​   ​    ​                ​               ​                                                                                    ​                 ​                 ​         ​  ​         ​             ​​                                ​      ​​                      ​             ​                                        ​                                   ​                      ​ ​           ​             ​                                                            ​                         ​           ​               ​                      ​                  ​                   ​                         ​         ​               ​                     ​           ​                          ​                                                                                  ​ ​                         ​​                                      ​                                   ​                                     ​  ​     ​                       ​                              ​        ​   ​             ​                                                         ​                            ​           ​                ​                      ​     ​  ​             ​              ​                                    ​ ​             ​                  ​           ​                                                                 ​                  ​                           ​                           ​                          ​      ​                                       ​              ​                       ​  ​                    ​          ​    ​                                       ​            ​ ​                    ​             ​                  ​                                        ​              ​                             ​​                              ​                         ​          ​               ​             ​     ​            ​        ​                    ​​                             ​    ​         ​        ​                                                     ​​                            ​                                             ​                         ​              ​                             ​    ​                       ​             ​             ​                         ​                                ​  ​                                    ​​             ​                   ​                                                ​                ​                           ​ ​               ​     ​  ​                               ​​                                    ​                   ​                                                      ​      ​                                                               ​         ​  ​            ​             ​  ​                            ​    ​                       ​            ​            ​  ​                                                          ​​  ​   ​                   ​           ​               ​                       ​      ​                                  ​                           ​      ​  ​         ​     ​                                        ​  ​  ​                            ​ ​        ​     ​ ​   ​         ​                  ​                                           ​​ ​ ​                         ​      ​                                                                          ​  ​                               ​    ​                       ​      ​     ​                          ​              ​                     ​         ​  ​                           ​​           ​  ");local i=(1407/0x43)local l=90 local d=o;local e={}e={[(-0x7c+125)]=function()local x,e,n,o=y(J,d,d+P);d=d+j;l=(l+(i*j))%r;return(((o+l-(i)+a*(j*C))%a)*((C*A)^C))+(((n+l-(i*C)+a*(C^P))%r)*(a*r))+(((e+l-(i*P)+A)%r)*a)+((x+l-(i*j)+A)%r);end,[(0x16c/182)]=function(e,e,e)local e=y(J,d,d);d=d+h;l=(l+(i))%r;return((e+l-(i)+A)%a);end,[(0x83-(360-0xe8))]=function()local o,e=y(J,d,d+C);l=(l+(i*C))%r;d=d+C;return(((e+l-(i)+a*(C*j))%a)*r)+((o+l-(i*C)+r*(C^P))%a);end,[(0x28+-36)]=function(l,e,d)if d then local e=(l/C^(e-o))%C^((d-h)-(e-o)+h);return e-e%o;else local e=C^(e-h);return(l%(e+e)>=e)and o or m;end;end,[(0x1c2/90)]=function()local l=e[(0x76/118)]();local n=e[(0xca/202)]();local x=o;local d=(e[(1016/0xfe)](n,h,p+j)*(C^(p*C)))+l;local l=e[(0x2a0/168)](n,21,31);local e=((-o)^e[(0x67+-99)](n,32));if(l==m)then if(d==L)then return e*m;else l=h;x=L;end;elseif(l==(a*(C^P))-h)then return(d==m)and(e*(h/L))or(e*(m/L));end;return z(e,l-((r*(j))-o))*(x+(d/(C^R)));end,[(0x288/108)]=function(n,x,x)local x;if(not n)then n=e[(-99+0x64)]();if(n==m)then return'';end;end;x=K(J,d,d+n-o);d=d+n;local e=''for d=h,#x do e=W(e,V((y(K(x,d,d))+l)%r))l=(l+i)%a end return e;end}local function m(...)return{...},Q('#',...)end local function K()local i={};local n={};local l={};local c={i,n,nil,l};local d={}local b=(0x59-(0x2140/112))local a={[(81+-0x4d)]=(function(l)return not(#l==e[(0x40-(236-0xae))]())end),[(-0x49+76)]=(function(l)return e[(805/0xa1)]()end),[(-120+0x7a)]=(function(l)return e[(-0x4f+85)]()end),[(-104+0x69)]=(function(l)local d=e[(41-(7280/0xd0))]()local e=''local l=1 for o=1,#d do l=(l+b)%r e=W(e,V((y(d:sub(o,o))+l)%a))end return e end)};c[3]=e[(-106+0x6c)]();for e=h,e[((205-0x8f)-0x3d)]()do n[e-h]=K();end;local l=e[(77-0x4c)]()for l=1,l do local e=e[(0x72+-112)]();local o;local e=a[e%(0x61+-84)];d[l]=e and e({});end;for c=1,e[(0x12-17)]()do local l=e[(352/0xb0)]();if(e[(130+-0x7e)](l,o,h)==L)then local r=e[((0x1b8-260)/45)](l,C,P);local n=e[(468/(0x102-141))](l,j,C+j);local l={e[(-0x49+76)](),e[(0xab/57)](),nil,nil};local a={[(0x0/153)]=function()l[x]=e[(24/0x8)]();l[B]=e[(85-0x52)]();end,[(0x6f-110)]=function()l[k]=e[(0xbe/190)]();end,[(-111+0x71)]=function()l[U]=e[(0xad/173)]()-(C^p)end,[(0x69-102)]=function()l[D]=e[(55/0x37)]()-(C^p)l[u]=e[(0xb1/(5546/0x5e))]();end};a[r]();if(e[(0x3cc/243)](n,h,o)==h)then l[O]=d[l[O]]end if(e[(0x1f-27)](n,C,C)==o)then l[_]=d[l[U]]end if(e[(0x6d-(180+-0x4b))](n,P,P)==h)then l[S]=d[l[B]]end i[c]=l;end end;return c;end;local function p(e,j,i)local d=e[C];local l=e[P];local a=e[o];return(function(...)local r=l;local L={};local J=Q('#',...)-h;local A={...};local y=d;local V={};local d={};local l=o;local m=m local e=o e*=-1 local P=e;local a=a;for e=0,J do if(e>=r)then V[e-r]=A[e+h];else d[e]=A[e+o];end;end;local e=J-r+o local e;local r;while true do e=a[l];r=e[(57-(14168/0xfd))];n=(546960)while r<=(138+-0x4b)do n-= n n=(9757005)while(78-0x2f)>=r do n-= n n=(3525632)while(33+-0x12)>=r do n-= n n=(5664891)while(57-0x32)>=r do n-= n n=(3089370)while(0x62-95)>=r do n-= n n=(10145267)while(20-0x13)>=r do n-= n n=(3452592)while((-86+0x9b)-69)<r do n-= n do return d[e[t]]();end;break end while(n)/((3497-0x6f5))==2012 do if(e[w]<=d[e[g]])then l=l+h;else l=e[k];end;break end;break;end while(n)/((3334+-0x4b))==3113 do n=(952361)while r>(0x1fa/(0x23f-322))do n-= n d[e[t]][d[e[_]]]=d[e[B]];break end while 1081==(n)/((102196/0x74))do local r;local n;d[e[t]]=i[e[D]];l=l+o;e=a[l];n=e[w];r=d[e[M]];d[n+1]=r;d[n]=r[e[v]];l=l+o;e=a[l];d[e[t]]=e[U];l=l+o;e=a[l];n=e[t]d[n]=d[n](N(d,n+o,e[U]))l=l+o;e=a[l];n=e[b];r=d[e[x]];d[n+1]=r;d[n]=r[e[S]];l=l+o;e=a[l];d[e[t]]=d[e[U]];l=l+o;e=a[l];n=e[c]d[n]=d[n](N(d,n+o,e[D]))l=l+o;e=a[l];d[e[c]]={};l=l+o;e=a[l];d[e[b]]=i[e[U]];l=l+o;e=a[l];d[e[f]]=e[M];l=l+o;e=a[l];d[e[t]]=e[_];l=l+o;e=a[l];d[e[b]]=e[M];l=l+o;e=a[l];n=e[c]d[n]=d[n](N(d,n+o,e[k]))l=l+o;e=a[l];d[e[t]]=i[e[x]];l=l+o;e=a[l];d[e[c]]=e[_];l=l+o;e=a[l];d[e[t]]=e[D];l=l+o;e=a[l];d[e[b]]=e[x];l=l+o;e=a[l];n=e[c]d[n]=d[n](N(d,n+o,e[M]))l=l+o;e=a[l];d[e[O]][d[e[M]]]=d[e[u]];l=l+o;e=a[l];d[e[c]]=i[e[k]];l=l+o;e=a[l];if not d[e[O]]then l=l+h;else l=e[_];end;break end;break;end break;end while(n)/((0x658+-34))==1943 do n=(2817042)while r<=(93+-0x58)do n-= n n=(545272)while r>(0x1a0/104)do n-= n local l=e[O]local n,e=m(d[l]())P=e+l-o local e=0;for l=l,P do e=e+h;d[l]=n[e];end;break end while(n)/((0x9aa8/101))==1391 do d[e[t]]={};break end;break;end while(n)/((-46+0x2fd))==3918 do n=(1643328)while r>(64-0x3a)do n-= n d[e[f]]=d[e[x]][e[S]];break end while 2592==(n)/(((129720/0xb8)+-0x47))do l=e[U];break end;break;end break;end break;end while 1713==(n)/((6728-0xd5d))do n=(5825886)while r<=(136+-0x7d)do n-= n n=(11425800)while(99+(-0x1fa4/90))>=r do n-= n n=(11536586)while r>(0x1e0/60)do n-= n local e=e[t]d[e](d[e+h])break end while 3742==(n)/((0x1829-3102))do local l=e[b]d[l](N(d,l+h,e[k]))break end;break;end while 3475==(n)/((0x19b0/2))do n=(1079412)while r>(0x4ec/126)do n-= n local r;local n;d[e[t]]=i[e[D]];l=l+o;e=a[l];d[e[b]]=e[x];l=l+o;e=a[l];d[e[t]]=e[k];l=l+o;e=a[l];d[e[f]]=e[U];l=l+o;e=a[l];n=e[c]d[n]=d[n](N(d,n+o,e[x]))l=l+o;e=a[l];n=e[b]d[n](d[n+h])l=l+o;e=a[l];d[e[w]]=i[e[x]];l=l+o;e=a[l];d[e[b]]=e[M];l=l+o;e=a[l];n=e[b]d[n](d[n+h])l=l+o;e=a[l];d[e[f]]=i[e[U]];l=l+o;e=a[l];n=e[O];r=d[e[_]];d[n+1]=r;d[n]=r[e[g]];l=l+o;e=a[l];n=e[c]d[n]=d[n](d[n+h])l=l+o;e=a[l];if not d[e[w]]then l=l+h;else l=e[U];end;break end while 3684==(n)/((-106+0x18f))do d[e[w]]={};break end;break;end break;end while(n)/((2293+-0x1b))==2571 do n=(10279396)while r<=(0x68+-91)do n-= n n=(1862553)while r>(1512/0x7e)do n-= n local P;local r;local C;local n;d[e[c]][d[e[_]]]=d[e[u]];l=l+o;e=a[l];d[e[f]]=i[e[M]];l=l+o;e=a[l];d[e[w]]=e[D];l=l+o;e=a[l];d[e[O]]=e[x];l=l+o;e=a[l];d[e[b]]=e[x];l=l+o;e=a[l];n=e[c]d[n]=d[n](N(d,n+o,e[x]))l=l+o;e=a[l];d[e[w]]={};l=l+o;e=a[l];d[e[b]]=i[e[U]];l=l+o;e=a[l];d[e[w]]=e[D];l=l+o;e=a[l];d[e[b]]=e[U];l=l+o;e=a[l];d[e[c]]=e[_];l=l+o;e=a[l];n=e[b]d[n]=d[n](N(d,n+o,e[M]))l=l+o;e=a[l];d[e[w]]=i[e[k]];l=l+o;e=a[l];d[e[w]]=e[_];l=l+o;e=a[l];d[e[c]]=e[x];l=l+o;e=a[l];d[e[t]]=e[_];l=l+o;e=a[l];n=e[c]d[n]=d[n](N(d,n+o,e[M]))l=l+o;e=a[l];d[e[O]]=i[e[U]];l=l+o;e=a[l];n=e[b]d[n]=d[n]()l=l+o;e=a[l];C=e[M];r=d[C]for e=C+1,e[S]do r=r..d[e];end;d[e[c]]=r;l=l+o;e=a[l];d[e[f]][d[e[D]]]=d[e[s]];l=l+o;e=a[l];d[e[O]][d[e[U]]]=d[e[u]];l=l+o;e=a[l];d[e[t]]=i[e[_]];l=l+o;e=a[l];d[e[O]]=e[x];l=l+o;e=a[l];d[e[c]]=e[M];l=l+o;e=a[l];d[e[f]]=e[D];l=l+o;e=a[l];n=e[b]d[n]=d[n](N(d,n+o,e[x]))l=l+o;e=a[l];d[e[b]]=i[e[U]];l=l+o;e=a[l];d[e[c]]=e[D];l=l+o;e=a[l];n=e[O]d[n]=d[n](d[n+h])l=l+o;e=a[l];d[e[t]][d[e[M]]]=d[e[u]];l=l+o;e=a[l];n=e[c];P=d[n];for e=n+1,e[_]do Y(P,d[e])end;break end while 2541==(n)/((0x60f-818))do local e=e[b]d[e]=d[e](d[e+h])break end;break;end while 2566==(n)/((0xbacda/191))do n=(12598531)while r>((148764/0xa1)/66)do n-= n d[e[w]]();l=l+o;e=a[l];d[e[w]]=i[e[k]];l=l+o;e=a[l];d[e[b]]=d[e[U]][e[S]];l=l+o;e=a[l];d[e[t]]=d[e[U]][e[g]];l=l+o;e=a[l];if d[e[t]]then l=l+o;else l=e[U];end;break end while 3487==(n)/(((-0x4e+455316)/126))do d[e[w]]=(e[x]~=0);l=l+h;break end;break;end break;end break;end break;end while(n)/((1274+-0x16))==2816 do n=(9710535)while(2139/0x5d)>=r do n-= n n=(1965736)while(0x4b+-56)>=r do n-= n n=(6049296)while(58-0x29)>=r do n-= n n=(413561)while r>(105-0x59)do n-= n local o=e[M];local l=d[o]for e=o+1,e[g]do l=l..d[e];end;d[e[O]]=l;break end while(n)/((1525+-0x20))==277 do d[e[w]][e[M]]=e[u];break end;break;end while(n)/((2799+-0x3f))==2211 do n=(2260580)while r>(-0x5a+108)do n-= n d[e[f]][d[e[U]]]=d[e[S]];break end while(n)/((79048/0x52))==2345 do j[e[_]]=d[e[f]];break end;break;end break;end while(n)/((4346-(2235+-0x23)))==916 do n=(8270136)while(0x4c2/58)>=r do n-= n n=(1044954)while(-97+0x75)<r do n-= n d[e[b]]=j[e[U]];break end while(n)/((0x313-454))==3138 do d[e[b]]();break end;break;end while(n)/(((0x200db/17)-0xf28))==2152 do n=(949620)while(-89+0x6f)<r do n-= n d[e[c]]=d[e[D]]%e[u];break end while(n)/((-0x7e+2506))==399 do i[e[x]]=d[e[w]];break end;break;end break;end break;end while 2903==(n)/((0x1a45-3380))do n=(9130240)while r<=(5832/0xd8)do n-= n n=(6845832)while((-10915/0xb9)+84)>=r do n-= n n=(1701108)while(-43+0x43)<r do n-= n d[e[O]]=d[e[U]]%e[u];break end while(n)/((0x45e-605))==3316 do local P;local r;local t;local n;d[e[f]]=i[e[_]];l=l+o;e=a[l];d[e[O]]=d[e[x]][e[S]];l=l+o;e=a[l];n=e[b];t=d[e[M]];d[n+1]=t;d[n]=t[e[B]];l=l+o;e=a[l];d[e[c]]=d[e[_]];l=l+o;e=a[l];d[e[b]]=d[e[U]];l=l+o;e=a[l];n=e[w]d[n]=d[n](N(d,n+o,e[U]))l=l+o;e=a[l];n=e[f];t=d[e[U]];d[n+1]=t;d[n]=t[e[S]];l=l+o;e=a[l];n=e[f]d[n]=d[n](d[n+h])l=l+o;e=a[l];r={d,e};r[h][r[C][O]]=r[o][r[C][g]]+r[h][r[C][k]];l=l+o;e=a[l];d[e[b]]=d[e[_]]%e[s];l=l+o;e=a[l];n=e[f]d[n]=d[n](d[n+h])l=l+o;e=a[l];t=e[k];P=d[t]for e=t+1,e[S]do P=P..d[e];end;d[e[w]]=P;l=l+o;e=a[l];r={d,e};r[h][r[C][c]]=r[o][r[C][B]]+r[h][r[C][M]];l=l+o;e=a[l];d[e[b]]=d[e[D]]%e[s];break end;break;end while 2142==(n)/((63920/0x14))do n=(4209380)while(0x10dc/166)<r do n-= n d[e[t]]=d[e[x]];break end while 1124==(n)/((7612-0xf1b))do d[e[w]]=d[e[U]];break end;break;end break;end while 2240==(n)/((191572/0x2f))do n=(5790384)while r<=(4524/0x9c)do n-= n n=(6081054)while(0x9a+-126)<r do n-= n do return end;break end while 2161==(n)/((222306/0x4f))do if not d[e[O]]then l=l+h;else l=e[M];end;break end;break;end while 4072==(n)/((0x1e342/(20358/0xea)))do n=(10113678)while r>(-118+0x94)do n-= n d[e[c]]=d[e[U]][e[B]];break end while 2718==(n)/((7530-0xee1))do local r;local P;local n;local U;U={e,d};U[C][U[h][w]]=U[C][U[o][M]]+U[h][S];l=l+o;e=a[l];i[e[D]]=d[e[c]];l=l+o;e=a[l];d[e[w]]=i[e[x]];l=l+o;e=a[l];d[e[c]]=i[e[D]];l=l+o;e=a[l];d[e[c]]=e[x];l=l+o;e=a[l];d[e[O]]=e[k];l=l+o;e=a[l];d[e[f]]=e[x];l=l+o;e=a[l];n=e[f]d[n]=d[n](N(d,n+o,e[k]))l=l+o;e=a[l];d[e[O]]=i[e[k]];l=l+o;e=a[l];P=e[M];r=d[P]for e=P+1,e[S]do r=r..d[e];end;d[e[w]]=r;l=l+o;e=a[l];n=e[t]d[n](d[n+h])l=l+o;e=a[l];d[e[w]]=i[e[x]];l=l+o;e=a[l];d[e[c]]=e[D];l=l+o;e=a[l];d[e[b]]=e[D];l=l+o;e=a[l];d[e[c]]=e[D];l=l+o;e=a[l];n=e[b]d[n]=d[n](N(d,n+o,e[_]))l=l+o;e=a[l];d[e[w]]=i[e[k]];l=l+o;e=a[l];P=e[_];r=d[P]for e=P+1,e[u]do r=r..d[e];end;d[e[O]]=r;l=l+o;e=a[l];do return d[e[f]]end l=l+o;e=a[l];l=e[_];break end;break;end break;end break;end break;end break;end while 2531==(n)/((-0x5f+3950))do n=(110808)while r<=(92+(-0x3d+16))do n-= n n=(5189093)while r<=(4134/0x6a)do n-= n n=(514800)while((258+-0x59)-134)>=r do n-= n n=(6783842)while r<=(87-0x36)do n-= n n=(878164)while(-0x22+66)<r do n-= n d[e[b]]=p(y[e[x]],nil,i);break end while 1106==(n)/((0x67a-864))do local l=e[w];local o=d[e[x]];d[l+1]=o;d[l]=o[e[s]];break end;break;end while(n)/((-0x6d+2418))==2938 do n=(555399)while(0x1f9c/238)<r do n-= n local C;local L,p;local j;local r;local n;d[e[w]]=d[e[_]][e[s]];l=l+o;e=a[l];d[e[c]]={};l=l+o;e=a[l];d[e[c]]=i[e[_]];l=l+o;e=a[l];d[e[f]]=e[U];l=l+o;e=a[l];d[e[c]]=e[x];l=l+o;e=a[l];d[e[b]]=e[_];l=l+o;e=a[l];n=e[O]d[n]=d[n](N(d,n+o,e[D]))l=l+o;e=a[l];d[e[O]]=i[e[k]];l=l+o;e=a[l];d[e[c]]=d[e[k]][e[B]];l=l+o;e=a[l];d[e[c]]=d[e[D]][e[u]];l=l+o;e=a[l];d[e[f]]=d[e[U]][e[s]];l=l+o;e=a[l];d[e[f]]=i[e[M]];l=l+o;e=a[l];d[e[t]]=e[k];l=l+o;e=a[l];d[e[w]]=e[x];l=l+o;e=a[l];d[e[t]]=e[k];l=l+o;e=a[l];n=e[c]d[n]=d[n](N(d,n+o,e[k]))l=l+o;e=a[l];r=e[U];j=d[r]for e=r+1,e[v]do j=j..d[e];end;d[e[w]]=j;l=l+o;e=a[l];d[e[b]][e[D]]=d[e[u]];l=l+o;e=a[l];d[e[f]]=i[e[D]];l=l+o;e=a[l];d[e[w]]=e[_];l=l+o;e=a[l];d[e[b]]=e[_];l=l+o;e=a[l];d[e[O]]=e[U];l=l+o;e=a[l];n=e[O]d[n]=d[n](N(d,n+o,e[M]))l=l+o;e=a[l];d[e[O]][e[k]]=d[e[s]];l=l+o;e=a[l];d[e[t]]=i[e[_]];l=l+o;e=a[l];d[e[w]]=e[D];l=l+o;e=a[l];d[e[w]]=e[D];l=l+o;e=a[l];d[e[O]]=e[D];l=l+o;e=a[l];n=e[b]d[n]=d[n](N(d,n+o,e[M]))l=l+o;e=a[l];d[e[w]][e[x]]=d[e[s]];l=l+o;e=a[l];n=e[t]d[n]=d[n](d[n+h])l=l+o;e=a[l];i[e[k]]=d[e[f]];l=l+o;e=a[l];d[e[f]]=i[e[D]];l=l+o;e=a[l];d[e[w]]=i[e[D]];l=l+o;e=a[l];d[e[O]]=d[e[U]][e[S]];l=l+o;e=a[l];n=e[O]d[n](d[n+h])l=l+o;e=a[l];d[e[w]]=i[e[D]];l=l+o;e=a[l];n=e[f];r=d[e[U]];d[n+1]=r;d[n]=r[e[g]];l=l+o;e=a[l];d[e[b]]=i[e[D]];l=l+o;e=a[l];d[e[t]]=e[_];l=l+o;e=a[l];d[e[c]]=e[x];l=l+o;e=a[l];d[e[t]]=e[k];l=l+o;e=a[l];n=e[b]L,p=m(d[n](N(d,n+1,e[x])))P=p+n-1 C=0;for e=n,P do C=C+o;d[e]=L[C];end;l=l+o;e=a[l];n=e[f]d[n]=d[n](N(d,n+o,P))l=l+o;e=a[l];n=e[t];r=d[e[D]];d[n+1]=r;d[n]=r[e[v]];l=l+o;e=a[l];d[e[w]]=i[e[x]];l=l+o;e=a[l];d[e[t]]=d[e[M]][e[g]];l=l+o;e=a[l];d[e[w]]=i[e[_]];l=l+o;e=a[l];d[e[f]]=d[e[_]][e[u]];l=l+o;e=a[l];n=e[c]d[n](N(d,n+h,e[U]))break end while(n)/((-23+0x1be))==1313 do local C;local g,j;local r;local n;d[e[w]]=d[e[_]][e[B]];l=l+o;e=a[l];d[e[O]]=d[e[k]][e[v]];l=l+o;e=a[l];n=e[c];r=d[e[M]];d[n+1]=r;d[n]=r[e[S]];l=l+o;e=a[l];d[e[t]]=i[e[k]];l=l+o;e=a[l];d[e[f]]=e[x];l=l+o;e=a[l];d[e[c]]=e[M];l=l+o;e=a[l];d[e[w]]=e[D];l=l+o;e=a[l];n=e[b]d[n]=d[n](N(d,n+o,e[M]))l=l+o;e=a[l];n=e[f]d[n](N(d,n+h,e[D]))l=l+o;e=a[l];d[e[t]]=i[e[x]];l=l+o;e=a[l];d[e[t]]=e[U];l=l+o;e=a[l];n=e[c]d[n](d[n+h])l=l+o;e=a[l];d[e[c]]=i[e[k]];l=l+o;e=a[l];n=e[f];r=d[e[D]];d[n+1]=r;d[n]=r[e[u]];l=l+o;e=a[l];d[e[c]]=i[e[k]];l=l+o;e=a[l];d[e[b]]=e[k];l=l+o;e=a[l];d[e[w]]=e[U];l=l+o;e=a[l];d[e[c]]=e[U];l=l+o;e=a[l];n=e[w]g,j=m(d[n](N(d,n+1,e[U])))P=j+n-1 C=0;for e=n,P do C=C+o;d[e]=g[C];end;l=l+o;e=a[l];n=e[f]d[n]=d[n](N(d,n+o,P))l=l+o;e=a[l];n=e[c];r=d[e[x]];d[n+1]=r;d[n]=r[e[s]];l=l+o;e=a[l];d[e[c]]=i[e[x]];l=l+o;e=a[l];d[e[O]]=d[e[M]][e[B]];l=l+o;e=a[l];d[e[c]]=i[e[x]];l=l+o;e=a[l];d[e[c]]=d[e[D]][e[v]];l=l+o;e=a[l];n=e[t]d[n](N(d,n+h,e[D]))l=l+o;e=a[l];do return end;break end;break;end break;end while(n)/((0x356-458))==1300 do n=(1566312)while(0x70+-75)>=r do n-= n n=(3223318)while(0x39+-21)<r do n-= n local e=e[w]d[e]=d[e]()break end while(n)/((6201-0xc5b))==1061 do d[e[f]][e[x]]=d[e[g]];break end;break;end while(n)/((2830-(0x198ea/73)))==1122 do n=(3322656)while r>(0x66-64)do n-= n local r;local n;d[e[c]]();l=l+o;e=a[l];d[e[O]]=i[e[_]];l=l+o;e=a[l];d[e[O]]=d[e[D]][e[S]];l=l+o;e=a[l];d[e[w]]=d[e[_]][e[B]];l=l+o;e=a[l];n=e[c];r=d[e[U]];d[n+1]=r;d[n]=r[e[B]];l=l+o;e=a[l];d[e[w]]=e[x];l=l+o;e=a[l];n=e[t]d[n]=d[n](N(d,n+o,e[k]))l=l+o;e=a[l];if not d[e[c]]then l=l+h;else l=e[k];end;break end while 2502==(n)/((1455+-0x7f))do local i;local r;local n;d[e[c]]=e[x];l=l+o;e=a[l];d[e[O]]=e[k];l=l+o;e=a[l];d[e[t]]=#d[e[D]];l=l+o;e=a[l];d[e[w]]=e[k];l=l+o;e=a[l];n=e[t];r=d[n]i=d[n+2];if(i>0)then if(r>d[n+1])then l=e[D];else d[n+3]=r;end elseif(r<d[n+1])then l=e[x];else d[n+3]=r;end break end;break;end break;end break;end while 1651==(n)/((6410-0xcc3))do n=(2184480)while r<=(138-0x5f)do n-= n n=(10957947)while(0xca7/79)>=r do n-= n n=(165230)while(0x41+-25)<r do n-= n d[e[b]]=d[e[x]][d[e[g]]];break end while(n)/((0x362+-60))==205 do if(e[O]<=d[e[u]])then l=l+h;else l=e[M];end;break end;break;end while(n)/((616681/0xa9))==3003 do n=(3062675)while r>(0xba-144)do n-= n if(d[e[O]]<d[e[u]])then l=e[D];else l=l+h;end;break end while(n)/((4100-0x811))==1505 do local e=e[b];do return N(d,e,P)end;break end;break;end break;end while(n)/((0x28f+-63))==3690 do n=(457854)while r<=(0xa2-117)do n-= n n=(10024456)while r>(0x8b-95)do n-= n if(d[e[w]]<e[s])then l=e[k];else l=l+h;end;break end while(n)/((716872/0xf4))==3412 do i[e[D]]=d[e[c]];l=l+o;e=a[l];d[e[f]]={};l=l+o;e=a[l];d[e[c]]={};l=l+o;e=a[l];i[e[x]]=d[e[c]];l=l+o;e=a[l];d[e[w]]=i[e[x]];l=l+o;e=a[l];if(d[e[w]]~=e[s])then l=l+h;else l=e[M];end;break end;break;end while 3342==(n)/((312-0xaf))do n=(4112900)while r>(0xc0-146)do n-= n local e={d,e};e[h][e[C][c]]=e[o][e[C][s]]+e[h][e[C][x]];break end while(n)/((0x1d74-3801))==1100 do local l=e[c];local o=d[l];for e=l+1,e[_]do Y(o,d[e])end;break end;break;end break;end break;end break;end while 486==(n)/((-0x14+248))do n=(45220)while r<=(0x77+(-0x1140/69))do n-= n n=(1073702)while r<=(0x1a19/131)do n-= n n=(2191695)while r<=(4606/0x5e)do n-= n n=(362720)while(0x88-88)<r do n-= n local o=e[b];local n=d[o]local a=d[o+2];if(a>0)then if(n>d[o+1])then l=e[M];else d[o+3]=n;end elseif(n<d[o+1])then l=e[x];else d[o+3]=n;end break end while(n)/((0xd5+-53))==2267 do local r;local n;d[e[f]]();l=l+o;e=a[l];d[e[f]]=i[e[D]];l=l+o;e=a[l];d[e[b]]=d[e[_]][e[g]];l=l+o;e=a[l];n=e[O];r=d[e[x]];d[n+1]=r;d[n]=r[e[S]];l=l+o;e=a[l];d[e[O]]=i[e[x]];l=l+o;e=a[l];d[e[O]]=e[M];l=l+o;e=a[l];d[e[t]]=e[M];l=l+o;e=a[l];d[e[w]]=e[U];l=l+o;e=a[l];n=e[f]d[n]=d[n](N(d,n+o,e[U]))l=l+o;e=a[l];n=e[t]d[n]=d[n](N(d,n+o,e[x]))l=l+o;e=a[l];if not d[e[b]]then l=l+h;else l=e[x];end;break end;break;end while 1077==(n)/((0x850+-93))do n=(4138314)while(-21+0x47)<r do n-= n if d[e[f]]then l=l+o;else l=e[k];end;break end while 3534==(n)/((1250+-0x4f))do if(d[e[b]]<e[g])then l=e[_];else l=l+h;end;break end;break;end break;end while(n)/((682-(0x180f9/247)))==3794 do n=(10256265)while r<=(-29+0x52)do n-= n n=(804706)while(142-0x5a)<r do n-= n if(d[e[c]]==e[B])then l=l+h;else l=e[_];end;break end while 3514==(n)/((0x235-336))do local o=e[c];local a=d[o+2];local n=d[o]+a;d[o]=n;if(a>0)then if(n<=d[o+1])then l=e[M];d[o+3]=n;end elseif(n>=d[o+1])then l=e[U];d[o+3]=n;end break end;break;end while 2655==(n)/((7806-0xf67))do n=(6358489)while r>(0x6a+-52)do n-= n d[e[O]]=#d[e[U]];break end while 2773==(n)/((-118+0x96b))do local r;local n;d[e[f]]();l=l+o;e=a[l];d[e[f]]=i[e[U]];l=l+o;e=a[l];d[e[w]]=d[e[U]][e[S]];l=l+o;e=a[l];d[e[t]]=d[e[D]][e[v]];l=l+o;e=a[l];d[e[c]]=d[e[U]][e[s]];l=l+o;e=a[l];n=e[b];r=d[e[x]];d[n+1]=r;d[n]=r[e[S]];l=l+o;e=a[l];d[e[b]]=i[e[k]];l=l+o;e=a[l];d[e[c]]=e[_];l=l+o;e=a[l];d[e[t]]=e[U];l=l+o;e=a[l];d[e[O]]=e[_];l=l+o;e=a[l];n=e[O]d[n]=d[n](N(d,n+o,e[U]))l=l+o;e=a[l];n=e[w]d[n]=d[n](N(d,n+o,e[x]))l=l+o;e=a[l];if d[e[c]]then l=l+o;else l=e[M];end;break end;break;end break;end break;end while(n)/((0x1bb-253))==238 do n=(4575185)while r<=(130+-0x47)do n-= n n=(1075641)while r<=(225-0xa8)do n-= n n=(697102)while r>((0x3a00-7456)/132)do n-= n local n;d[e[b]]=i[e[U]];l=l+o;e=a[l];d[e[t]]=d[e[M]][e[s]];l=l+o;e=a[l];do return d[e[f]]();end;l=l+o;e=a[l];n=e[b];do return N(d,n,P)end;l=l+o;e=a[l];do return end;break end while(n)/(((0x2566b/105)-752))==986 do local e=e[w];do return N(d,e,P)end;break end;break;end while(n)/((858-0x1d3))==2751 do n=(7352340)while r>(0xe5-171)do n-= n local r;local _,C;local h;local n;d[e[b]]=i[e[k]];l=l+o;e=a[l];d[e[f]]=i[e[x]];l=l+o;e=a[l];n=e[b];h=d[e[x]];d[n+1]=h;d[n]=h[e[S]];l=l+o;e=a[l];d[e[t]]=i[e[D]];l=l+o;e=a[l];d[e[c]]=e[U];l=l+o;e=a[l];d[e[w]]=e[k];l=l+o;e=a[l];d[e[c]]=e[M];l=l+o;e=a[l];n=e[O]d[n]=d[n](N(d,n+o,e[x]))l=l+o;e=a[l];n=e[w]_,C=m(d[n](N(d,n+1,e[M])))P=C+n-1 r=0;for e=n,P do r=r+o;d[e]=_[r];end;l=l+o;e=a[l];n=e[w]d[n]=d[n](N(d,n+o,P))l=l+o;e=a[l];d[e[w]]();l=l+o;e=a[l];do return end;break end while 2598==(n)/((0x8fb6/13))do if not d[e[c]]then l=l+h;else l=e[k];end;break end;break;end break;end while(n)/((-86+0x1015))==1135 do n=(12309360)while(0x2ae4/180)>=r do n-= n n=(11624678)while r>(9780/0xa3)do n-= n local r;local n;d[e[b]]=j[e[D]];l=l+o;e=a[l];n=e[f];r=d[e[U]];d[n+1]=r;d[n]=r[e[v]];l=l+o;e=a[l];n=e[w]d[n]=d[n](d[n+h])l=l+o;e=a[l];d[e[w]]=d[e[x]][e[u]];l=l+o;e=a[l];d[e[f]]=i[e[k]];l=l+o;e=a[l];d[e[b]]=d[e[x]][e[B]];l=l+o;e=a[l];d[e[O]]=d[e[D]][e[g]];l=l+o;e=a[l];d[e[t]]=d[e[M]][e[S]];l=l+o;e=a[l];if(d[e[t]]<=d[e[S]])then l=e[M];else l=l+h;end;break end while 3413==(n)/((722072/0xd4))do local n;d[e[c]]={};l=l+o;e=a[l];d[e[f]][e[_]]=d[e[u]];l=l+o;e=a[l];d[e[f]][e[k]]=d[e[s]];l=l+o;e=a[l];d[e[O]]=i[e[k]];l=l+o;e=a[l];d[e[c]]=e[M];l=l+o;e=a[l];d[e[O]]=e[k];l=l+o;e=a[l];d[e[b]]=e[_];l=l+o;e=a[l];n=e[b]d[n]=d[n](N(d,n+o,e[U]))l=l+o;e=a[l];d[e[f]][e[M]]=d[e[v]];l=l+o;e=a[l];d[e[f]][e[_]]=d[e[v]];l=l+o;e=a[l];d[e[b]]=i[e[_]];l=l+o;e=a[l];d[e[w]]=d[e[_]];l=l+o;e=a[l];n=e[w]d[n](d[n+h])break end;break;end while 3017==(n)/((0x807f0/129))do n=(1983410)while(0x2872/167)<r do n-= n j[e[x]]=d[e[O]];break end while 2774==(n)/((746+(-0x32+19)))do d[e[f]]=j[e[x]];l=l+o;e=a[l];d[e[O]]=#d[e[M]];l=l+o;e=a[l];j[e[_]]=d[e[w]];l=l+o;e=a[l];d[e[b]]=j[e[_]];l=l+o;e=a[l];d[e[c]]=#d[e[x]];l=l+o;e=a[l];j[e[_]]=d[e[t]];l=l+o;e=a[l];do return end;break end;break;end break;end break;end break;end break;end break;end while 2064==(n)/((-77+0x156))do n=(613335)while(0x7e+-31)>=r do n-= n n=(2241368)while(0x4972/238)>=r do n-= n n=(2185537)while(118+-0x2f)>=r do n-= n n=(5910513)while(0xb0+-109)>=r do n-= n n=(831497)while((-22+-0x10)+0x67)>=r do n-= n n=(14851248)while r>(255-0xbf)do n-= n if(d[e[t]]~=d[e[B]])then l=l+h;else l=e[U];end;break end while(n)/((0x19b70/29))==4089 do local e=e[O]d[e]=d[e](d[e+h])break end;break;end while(n)/((4154-0x849))==409 do n=(765000)while(0xa0+-94)<r do n-= n local e=e[f]d[e]=d[e](N(d,e+o,P))break end while 204==(n)/((0x1dbd-3863))do local a=e[O];local o={};for e=1,#L do local e=L[e];for l=0,#e do local e=e[l];local n=e[1];local l=e[2];if n==d and l>=a then o[l]=n[l];e[1]=o;end;end;end;break end;break;end break;end while 1743==(n)/((6843-0xd7c))do n=(622554)while(200-0x83)>=r do n-= n n=(7292160)while r>(-0x73+183)do n-= n d[e[f]]=(e[x]~=0);l=l+h;break end while(n)/((3483+-0x1b))==2110 do local r;local _;local n;i[e[x]]=d[e[b]];l=l+o;e=a[l];d[e[O]]=i[e[k]];l=l+o;e=a[l];d[e[w]]=i[e[k]];l=l+o;e=a[l];d[e[b]]=e[M];l=l+o;e=a[l];d[e[c]]=e[D];l=l+o;e=a[l];d[e[f]]=e[x];l=l+o;e=a[l];n=e[w]d[n]=d[n](N(d,n+o,e[x]))l=l+o;e=a[l];d[e[f]]=i[e[D]];l=l+o;e=a[l];_=e[x];r=d[_]for e=_+1,e[v]do r=r..d[e];end;d[e[w]]=r;l=l+o;e=a[l];n=e[f]d[n](d[n+h])l=l+o;e=a[l];d[e[t]]=i[e[x]];l=l+o;e=a[l];d[e[b]]=e[U];l=l+o;e=a[l];d[e[t]]=e[U];l=l+o;e=a[l];d[e[w]]=e[M];l=l+o;e=a[l];n=e[b]d[n]=d[n](N(d,n+o,e[k]))l=l+o;e=a[l];do return d[e[O]]end l=l+o;e=a[l];l=e[x];break end;break;end while(n)/((0x9b4+-33))==254 do n=(3216680)while r>(178-0x6c)do n-= n local l=e[O];local o=d[e[_]];d[l+1]=o;d[l]=o[e[v]];break end while(n)/((2395+-0x23))==1363 do l=e[M];break end;break;end break;end break;end while 2179==(n)/((-0x21+1036))do n=(5827350)while(-0x10+91)>=r do n-= n n=(13906368)while(100+-0x1b)>=r do n-= n n=(6485346)while r>((17760+-0x78)/245)do n-= n d[e[b]]=i[e[k]];break end while 2394==(n)/((0xab2+-29))do d[e[w]]();break end;break;end while(n)/((6997-0xddc))==4032 do n=(2577731)while r>(181-0x6b)do n-= n d[e[f]][e[k]]=d[e[g]];break end while(n)/(((254842/0xda)+-0x5a))==2389 do if(d[e[b]]~=d[e[v]])then l=l+h;else l=e[k];end;break end;break;end break;end while(n)/((0xa94+(-4002/0x45)))==2199 do n=(2812674)while(0x4279/221)>=r do n-= n n=(1510600)while r>((65098/0xf2)-0xc1)do n-= n d[e[O]]=(e[M]~=0);break end while 2600==(n)/((-0x39+638))do local l=e[O]d[l](N(d,l+h,e[M]))break end;break;end while(n)/((0xa1e+-19))==1094 do n=(503888)while r>(0xad-95)do n-= n local l=e[b];local o=d[l];for e=l+1,e[k]do Y(o,d[e])end;break end while 176==(n)/((0x9df7e/226))do local l=e[c]d[l]=d[l](N(d,l+o,e[U]))break end;break;end break;end break;end break;end while(n)/((-0x11+1023))==2228 do n=(993462)while r<=(288-0xc9)do n-= n n=(2964298)while(176+-0x5d)>=r do n-= n n=(11405018)while(-0x37+(0x6358/187))>=r do n-= n n=(4652067)while(0x89+-57)<r do n-= n do return d[e[b]]end break end while 1411==(n)/((0x19da-3321))do d[e[t]]=(e[k]~=0);break end;break;end while(n)/((0x1a355/33))==3506 do n=(2992678)while(0xbe-108)<r do n-= n d[e[t]]=e[M];break end while(n)/((53404/0x34))==2914 do do return end;break end;break;end break;end while 898==(n)/((-39+(3418+-0x4e)))do n=(6786880)while r<=((579-0x147)-167)do n-= n n=(2286840)while r>(-0x35+137)do n-= n d[e[w]]=p(y[e[M]],nil,i);break end while(n)/((69920/0x5c))==3009 do d[e[b]]=d[e[k]]-d[e[S]];break end;break;end while 2672==(n)/((-29+0xa09))do n=(1876212)while(20984/0xf4)<r do n-= n local l=e[w]local n,e=m(d[l](N(d,l+1,e[x])))P=e+l-1 local e=0;for l=l,P do e=e+o;d[l]=n[e];end;break end while 3798==(n)/((13832/0x1c))do if(d[e[f]]~=e[u])then l=l+h;else l=e[D];end;break end;break;end break;end break;end while(n)/((1099+-0x29))==939 do n=(1867089)while r<=(107+-0x10)do n-= n n=(9190230)while r<=(218-0x81)do n-= n n=(1747736)while(-91+0xb3)<r do n-= n if(d[e[t]]~=e[S])then l=l+h;else l=e[_];end;break end while 568==(n)/((6175-0xc1a))do local r;local n;d[e[w]]();l=l+o;e=a[l];d[e[f]]=i[e[D]];l=l+o;e=a[l];n=e[f];r=d[e[_]];d[n+1]=r;d[n]=r[e[s]];l=l+o;e=a[l];d[e[w]]=e[M];l=l+o;e=a[l];n=e[f]d[n]=d[n](N(d,n+o,e[U]))l=l+o;e=a[l];d[e[c]]=d[e[M]][e[s]];l=l+o;e=a[l];d[e[b]]=d[e[x]][e[v]];l=l+o;e=a[l];d[e[w]]=d[e[U]][e[s]];l=l+o;e=a[l];d[e[b]]=d[e[k]][e[v]];l=l+o;e=a[l];d[e[f]]=d[e[U]][e[B]];l=l+o;e=a[l];if(d[e[b]]~=e[B])then l=l+h;else l=e[k];end;break end;break;end while 3210==(n)/((675668/0xec))do n=(4985334)while(0xd2-120)<r do n-= n d[e[c]]=i[e[U]];break end while(n)/((-115+0x8d6))==2322 do if(d[e[c]]<=d[e[v]])then l=e[_];else l=l+h;end;break end;break;end break;end while(n)/((0xb26-1447))==1327 do n=(8841742)while r<=(-70+0xa3)do n-= n n=(3051708)while(-61+0x99)<r do n-= n local e=e[w]d[e]=d[e]()break end while(n)/((2765-0x58f))==2274 do local j;local p,L;local r;local C;local n;d[e[b]]=d[e[x]][e[u]];l=l+o;e=a[l];d[e[f]]={};l=l+o;e=a[l];d[e[c]]=i[e[_]];l=l+o;e=a[l];d[e[t]]=e[x];l=l+o;e=a[l];d[e[O]]=e[x];l=l+o;e=a[l];d[e[w]]=e[M];l=l+o;e=a[l];n=e[t]d[n]=d[n](N(d,n+o,e[x]))l=l+o;e=a[l];d[e[f]]=i[e[x]];l=l+o;e=a[l];d[e[f]]=d[e[x]][e[B]];l=l+o;e=a[l];d[e[f]]=d[e[M]][e[v]];l=l+o;e=a[l];d[e[O]]=d[e[k]][e[S]];l=l+o;e=a[l];d[e[f]]=i[e[x]];l=l+o;e=a[l];d[e[t]]=e[U];l=l+o;e=a[l];d[e[t]]=e[U];l=l+o;e=a[l];d[e[b]]=e[k];l=l+o;e=a[l];n=e[b]d[n]=d[n](N(d,n+o,e[M]))l=l+o;e=a[l];d[e[O]]=i[e[U]];l=l+o;e=a[l];d[e[O]]=d[e[x]][e[B]];l=l+o;e=a[l];C=e[k];r=d[C]for e=C+1,e[g]do r=r..d[e];end;d[e[c]]=r;l=l+o;e=a[l];d[e[f]][e[U]]=d[e[g]];l=l+o;e=a[l];d[e[f]]=i[e[D]];l=l+o;e=a[l];d[e[b]]=e[k];l=l+o;e=a[l];d[e[O]]=e[D];l=l+o;e=a[l];d[e[t]]=e[x];l=l+o;e=a[l];n=e[t]d[n]=d[n](N(d,n+o,e[k]))l=l+o;e=a[l];d[e[c]][e[_]]=d[e[s]];l=l+o;e=a[l];d[e[O]]=i[e[x]];l=l+o;e=a[l];d[e[O]]=e[M];l=l+o;e=a[l];d[e[O]]=e[M];l=l+o;e=a[l];d[e[t]]=e[x];l=l+o;e=a[l];n=e[w]d[n]=d[n](N(d,n+o,e[x]))l=l+o;e=a[l];d[e[b]]=i[e[k]];l=l+o;e=a[l];d[e[t]]=d[e[x]][e[B]];l=l+o;e=a[l];d[e[w]]=d[e[M]][e[s]];l=l+o;e=a[l];d[e[O]]=d[e[M]][e[g]];l=l+o;e=a[l];d[e[b]]=d[e[k]][e[B]];l=l+o;e=a[l];d[e[w]]=d[e[x]][e[B]];l=l+o;e=a[l];d[e[f]]=e[k];l=l+o;e=a[l];d[e[O]]=i[e[x]];l=l+o;e=a[l];d[e[t]]=i[e[k]];l=l+o;e=a[l];n=e[b]p,L=m(d[n]())P=L+n-o j=0;for e=n,P do j=j+h;d[e]=p[j];end;l=l+o;e=a[l];n=e[f]d[n]=d[n](N(d,n+o,P))l=l+o;e=a[l];C=e[x];r=d[C]for e=C+1,e[u]do r=r..d[e];end;d[e[t]]=r;l=l+o;e=a[l];d[e[O]][e[U]]=d[e[s]];l=l+o;e=a[l];n=e[b]d[n]=d[n](d[n+h])l=l+o;e=a[l];i[e[M]]=d[e[b]];l=l+o;e=a[l];d[e[b]]=i[e[_]];l=l+o;e=a[l];d[e[b]]=i[e[_]];l=l+o;e=a[l];d[e[c]]=d[e[U]][e[B]];l=l+o;e=a[l];n=e[w]d[n](d[n+h])l=l+o;e=a[l];d[e[t]]=i[e[x]];l=l+o;e=a[l];if(e[w]<=d[e[S]])then l=l+h;else l=e[U];end;break end;break;end while 2366==(n)/((7591-0xf0e))do n=(588612)while(3384/0x24)<r do n-= n local o=e[w];local a=d[o+2];local n=d[o]+a;d[o]=n;if(a>0)then if(n<=d[o+1])then l=e[k];d[o+3]=n;end elseif(n>=d[o+1])then l=e[x];d[o+3]=n;end break end while(n)/(((88791-0xad9e)/245))==3252 do local a=e[b];local o={};for e=1,#L do local e=L[e];for l=0,#e do local l=e[l];local n=l[1];local e=l[2];if n==d and e>=a then o[e]=n[e];l[1]=o;end;end;end;break end;break;end break;end break;end break;end break;end while 1319==(n)/((-0x51+(93366/0xab)))do n=(349563)while r<=(0x6810/240)do n-= n n=(3460260)while r<=(0xf5-142)do n-= n n=(15735800)while r<=(0xd2+-111)do n-= n n=(3938050)while r<=((0x165+-95)-165)do n-= n n=(2017425)while(0x106-166)<r do n-= n local o=e[b];local n=d[o]local a=d[o+2];if(a>0)then if(n>d[o+1])then l=e[_];else d[o+3]=n;end elseif(n<d[o+1])then l=e[U];else d[o+3]=n;end break end while(n)/((5652-0xb3d))==727 do d[e[w]]=e[D];break end;break;end while 1130==(n)/((0x8822/10))do n=(11533106)while r>(10192/0x68)do n-= n local l=e[w]d[l]=d[l](N(d,l+o,e[_]))break end while 3497==(n)/((0xd37+-85))do if(d[e[b]]<d[e[B]])then l=e[x];else l=l+h;end;break end;break;end break;end while 4040==(n)/(((15825-0x1ef9)-4001))do n=(782585)while r<=((0x2c6-385)-224)do n-= n n=(592233)while(138+-0x26)<r do n-= n local e={d,e};e[h][e[C][O]]=e[o][e[C][S]]+e[h][e[C][k]];break end while(n)/((0x2c5b8/104))==339 do local e={e,d};e[C][e[h][b]]=e[C][e[o][D]]+e[h][s];break end;break;end while(n)/((-0x60+653))==1405 do n=(3430051)while(298-0xc4)<r do n-= n if(d[e[O]]==d[e[g]])then l=l+h;else l=e[D];end;break end while 1387==(n)/((-25+0x9c2))do local c=y[e[_]];local r;local o={};r=G({},{__index=function(l,e)local e=o[e];return e[1][e[2]];end,__newindex=function(d,e,l)local e=o[e]e[1][e[2]]=l;end;});for n=1,e[B]do l=l+h;local e=a[l];if e[(85+-0x54)]==26 then o[n-1]={d,e[x]};else o[n-1]={j,e[M]};end;L[#L+1]=o;end;d[e[w]]=p(c,r,i);break end;break;end break;end break;end while(n)/((59384/0x1a))==1515 do n=(1047285)while r<=(0x11a-175)do n-= n n=(804095)while(7770/0x4a)>=r do n-= n n=(1782280)while r>(11648/(0x1340/44))do n-= n local e={e,d};e[C][e[h][w]]=e[C][e[o][k]]+e[h][v];break end while(n)/((5365-0xab8))==680 do local e=e[O]d[e](d[e+h])break end;break;end while 2203==(n)/((0xa6d1/117))do n=(3630986)while r>(0x140-(-30+0xf4))do n-= n d[e[t]][e[D]]=e[g];break end while 3319==(n)/((0x8e1-1179))do d[e[c]]=d[e[_]][d[e[u]]];break end;break;end break;end while 1887==(n)/((0x47b-592))do n=(3594544)while r<=(-109+(0xfd+-35))do n-= n n=(2712465)while r>(319-(0x5aaa/110))do n-= n local o=e[M];local l=d[o]for e=o+1,e[s]do l=l..d[e];end;d[e[t]]=l;break end while 981==(n)/((5576-0xafb))do d[e[O]]=#d[e[_]];break end;break;end while 1658==(n)/((2235+(-33+-0x22)))do n=(89910)while(192+-0x52)<r do n-= n if(d[e[c]]==d[e[u]])then l=l+h;else l=e[_];end;break end while(n)/((700+-0x22))==135 do local n;d[e[b]]=i[e[k]];l=l+o;e=a[l];d[e[c]]=e[k];l=l+o;e=a[l];d[e[O]]=e[U];l=l+o;e=a[l];d[e[c]]=e[U];l=l+o;e=a[l];n=e[b]d[n]=d[n](N(d,n+o,e[x]))l=l+o;e=a[l];n=e[O]d[n](d[n+h])l=l+o;e=a[l];d[e[t]]=i[e[U]];l=l+o;e=a[l];d[e[t]]=e[k];l=l+o;e=a[l];n=e[c]d[n](d[n+h])break end;break;end break;end break;end break;end while(n)/((-83+0x19a))==1069 do n=(79924)while r<=(4284/0x24)do n-= n n=(399500)while r<=(0x617b/217)do n-= n n=(4358477)while(0x6668/232)>=r do n-= n n=(3969900)while r>(0x2920/94)do n-= n local l=e[c]local n,e=m(d[l]())P=e+l-o local e=0;for l=l,P do e=e+h;d[l]=n[e];end;break end while 2475==(n)/((1720+-0x74))do d[e[c]]=d[e[x]]-d[e[s]];break end;break;end while(n)/((0xcf3-1682))==2669 do n=(4001550)while(8208/(181-0x6d))<r do n-= n i[e[U]]=d[e[c]];break end while 1030==(n)/((0x1ea3-3958))do local l=e[b]local n,e=m(d[l](N(d,l+1,e[x])))P=e+l-1 local e=0;for l=l,P do e=e+o;d[l]=n[e];end;break end;break;end break;end while 799==(n)/((0x410-540))do n=(2099872)while(19071/0xa3)>=r do n-= n n=(4603349)while r>(148+-0x20)do n-= n if d[e[t]]then l=l+o;else l=e[_];end;break end while 2861==(n)/((0xce7-1694))do d[e[c]]=j[e[k]];break end;break;end while(n)/((0xd64-1740))==1244 do n=(176580)while r>((-0x39+362)-0xbb)do n-= n do return d[e[c]]end break end while 54==(n)/((0x19c9-3331))do do return d[e[f]]();end;break end;break;end break;end break;end while 116==(n)/((15847/0x17))do n=(29165)while r<=((0x2ce-372)-223)do n-= n n=(4140955)while(0x6342/210)>=r do n-= n n=(1575084)while r>(363-0xf3)do n-= n local r;local n;n=e[b];r=d[e[U]];d[n+1]=r;d[n]=r[e[s]];l=l+o;e=a[l];n=e[f]d[n]=d[n](d[n+h])l=l+o;e=a[l];i[e[U]]=d[e[c]];l=l+o;e=a[l];d[e[f]]=i[e[U]];l=l+o;e=a[l];if(d[e[w]]<e[u])then l=e[x];else l=l+h;end;break end while(n)/((0x408-556))==3309 do if(d[e[f]]==e[v])then l=l+h;else l=e[U];end;break end;break;end while 2395==(n)/((0x6e9+-40))do n=(1795635)while(0x2e3a/97)<r do n-= n local e=e[c]d[e]=d[e](N(d,e+o,P))break end while(n)/((0x6fa-937))==2115 do local x=y[e[_]];local r;local o={};r=G({},{__index=function(l,e)local e=o[e];return e[1][e[2]];end,__newindex=function(d,e,l)local e=o[e]e[1][e[2]]=l;end;});for n=1,e[g]do l=l+h;local e=a[l];if e[(0x4c/76)]==26 then o[n-1]={d,e[k]};else o[n-1]={j,e[U]};end;L[#L+1]=o;end;d[e[b]]=p(x,r,i);break end;break;end break;end while 19==(n)/((46050/0x1e))do n=(6086976)while(0x5091/165)>=r do n-= n n=(5941914)while r>(0x2e8/6)do n-= n local h;local _,t;local r;local n;i[e[x]]=d[e[O]];l=l+o;e=a[l];d[e[b]]=i[e[x]];l=l+o;e=a[l];n=e[b];r=d[e[U]];d[n+1]=r;d[n]=r[e[v]];l=l+o;e=a[l];d[e[c]]=i[e[U]];l=l+o;e=a[l];d[e[w]]=e[M];l=l+o;e=a[l];d[e[O]]=e[M];l=l+o;e=a[l];d[e[f]]=e[k];l=l+o;e=a[l];n=e[O]_,t=m(d[n](N(d,n+1,e[U])))P=t+n-1 h=0;for e=n,P do h=h+o;d[e]=_[h];end;l=l+o;e=a[l];n=e[O]d[n]=d[n](N(d,n+o,P))l=l+o;e=a[l];d[e[c]]=d[e[x]][e[g]];l=l+o;e=a[l];n=e[O];r=d[e[D]];d[n+1]=r;d[n]=r[e[S]];break end while 2742==(n)/((543917/0xfb))do local n;i[e[D]]=d[e[O]];l=l+o;e=a[l];d[e[w]]=i[e[U]];l=l+o;e=a[l];d[e[f]]=i[e[x]];l=l+o;e=a[l];d[e[O]]=e[_];l=l+o;e=a[l];d[e[w]]=e[U];l=l+o;e=a[l];d[e[f]]=e[_];l=l+o;e=a[l];n=e[O]d[n]=d[n](N(d,n+o,e[D]))l=l+o;e=a[l];n=e[b]d[n](d[n+h])break end;break;end while 2588==(n)/((486864/(-0x32+257)))do n=(4481444)while(29988/0xee)<r do n-= n local g;local C;local j,L;local r;local n;n=e[O];r=d[e[x]];d[n+1]=r;d[n]=r[e[S]];l=l+o;e=a[l];d[e[b]]=i[e[_]];l=l+o;e=a[l];d[e[t]]=e[k];l=l+o;e=a[l];d[e[c]]=e[M];l=l+o;e=a[l];d[e[w]]=e[k];l=l+o;e=a[l];n=e[t]j,L=m(d[n](N(d,n+1,e[U])))P=L+n-1 C=0;for e=n,P do C=C+o;d[e]=j[C];end;l=l+o;e=a[l];n=e[c]d[n]=d[n](N(d,n+o,P))l=l+o;e=a[l];d[e[O]]=i[e[D]];l=l+o;e=a[l];d[e[O]]=d[e[k]][e[u]];l=l+o;e=a[l];d[e[c]]={};l=l+o;e=a[l];d[e[c]]=i[e[k]];l=l+o;e=a[l];d[e[w]]=e[D];l=l+o;e=a[l];d[e[w]]=e[_];l=l+o;e=a[l];d[e[b]]=e[k];l=l+o;e=a[l];n=e[O]d[n]=d[n](N(d,n+o,e[D]))l=l+o;e=a[l];d[e[f]]=i[e[x]];l=l+o;e=a[l];d[e[O]]=e[_];l=l+o;e=a[l];d[e[b]]=e[_];l=l+o;e=a[l];d[e[c]]=e[U];l=l+o;e=a[l];n=e[c]d[n]=d[n](N(d,n+o,e[x]))l=l+o;e=a[l];d[e[w]][d[e[U]]]=d[e[S]];l=l+o;e=a[l];d[e[c]]=i[e[k]];l=l+o;e=a[l];d[e[t]]=e[U];l=l+o;e=a[l];d[e[b]]=e[D];l=l+o;e=a[l];d[e[t]]=e[k];l=l+o;e=a[l];n=e[t]d[n]=d[n](N(d,n+o,e[_]))l=l+o;e=a[l];d[e[t]]={};l=l+o;e=a[l];d[e[f]]={};l=l+o;e=a[l];d[e[t]]=i[e[M]];l=l+o;e=a[l];d[e[c]]=e[x];l=l+o;e=a[l];d[e[O]]=e[_];l=l+o;e=a[l];d[e[t]]=e[D];l=l+o;e=a[l];n=e[c]d[n]=d[n](N(d,n+o,e[k]))l=l+o;e=a[l];d[e[b]]=i[e[U]];l=l+o;e=a[l];d[e[O]]=e[x];l=l+o;e=a[l];d[e[t]]=e[U];l=l+o;e=a[l];d[e[f]]=e[x];l=l+o;e=a[l];n=e[O]d[n]=d[n](N(d,n+o,e[M]))l=l+o;e=a[l];d[e[c]][d[e[k]]]=d[e[B]];l=l+o;e=a[l];d[e[w]]=i[e[U]];l=l+o;e=a[l];d[e[f]]=e[U];l=l+o;e=a[l];d[e[t]]=e[D];l=l+o;e=a[l];d[e[f]]=e[k];l=l+o;e=a[l];n=e[w]d[n]=d[n](N(d,n+o,e[M]))l=l+o;e=a[l];d[e[w]]=i[e[M]];l=l+o;e=a[l];d[e[b]]=e[x];l=l+o;e=a[l];d[e[t]]=e[x];l=l+o;e=a[l];d[e[b]]=e[k];l=l+o;e=a[l];n=e[c]d[n]=d[n](N(d,n+o,e[x]))l=l+o;e=a[l];d[e[f]]=i[e[x]];l=l+o;e=a[l];d[e[O]]=d[e[D]][e[v]];l=l+o;e=a[l];d[e[O]]=d[e[M]][e[B]];l=l+o;e=a[l];d[e[f]]=d[e[D]][e[S]];l=l+o;e=a[l];d[e[w]]=i[e[_]];l=l+o;e=a[l];d[e[O]]=e[_];l=l+o;e=a[l];d[e[f]]=e[D];l=l+o;e=a[l];d[e[c]]=e[M];l=l+o;e=a[l];n=e[w]d[n]=d[n](N(d,n+o,e[M]))l=l+o;e=a[l];n=e[t];r=d[e[_]];d[n+1]=r;d[n]=r[e[B]];l=l+o;e=a[l];n=e[O]d[n]=d[n](d[n+h])l=l+o;e=a[l];d[e[c]]=d[e[D]][e[u]];l=l+o;e=a[l];d[e[O]]=i[e[D]];l=l+o;e=a[l];d[e[O]]=e[x];l=l+o;e=a[l];d[e[c]]=e[_];l=l+o;e=a[l];d[e[b]]=e[k];l=l+o;e=a[l];n=e[f]d[n]=d[n](N(d,n+o,e[k]))l=l+o;e=a[l];n=e[c];r=d[e[M]];d[n+1]=r;d[n]=r[e[v]];l=l+o;e=a[l];n=e[f]d[n]=d[n](d[n+h])l=l+o;e=a[l];d[e[w]]=e[_];l=l+o;e=a[l];r=e[M];g=d[r]for e=r+1,e[u]do g=g..d[e];end;d[e[w]]=g;l=l+o;e=a[l];d[e[c]][d[e[x]]]=d[e[s]];l=l+o;e=a[l];d[e[b]]=i[e[U]];l=l+o;e=a[l];d[e[f]]=e[D];l=l+o;e=a[l];d[e[w]]=e[D];l=l+o;e=a[l];d[e[b]]=e[k];l=l+o;e=a[l];n=e[O]d[n]=d[n](N(d,n+o,e[k]))l=l+o;e=a[l];d[e[c]]=i[e[k]];l=l+o;e=a[l];d[e[f]]=e[D];l=l+o;e=a[l];d[e[t]]=e[x];l=l+o;e=a[l];d[e[c]]=e[x];break end while 1969==(n)/((-0x1c+2304))do if(d[e[b]]<=d[e[u]])then l=e[x];else l=l+h;end;break end;break;end break;end break;end break;end break;end break;end l+= h end;end);end;return p(K(),{},H())()end)_msec({[(0x82/1)]='\115\116'..(function(e)return(e and'​       ​')or'\114\105'or'\120\58'end)((0x1e-25)==(-28+0x22))..'\110g',["        ​  ​ "]='\108\100'..(function(e)return(e and'                ')or'\101\120'or'\119\111'end)((0x72+-109)==(960/0xa0))..'\112',["​                  "]=(function(e)return(e and'                  ')and'\98\121'or'\100\120'end)(((344-0xe4)+-111)==(0x64-95))..'\116\101',["           "]='\99'..(function(e)return(e and' ​             ')and'\90\19\157'or'\104\97'end)(((0x17b-244)-0x82)==(0xff/85))..'\114',[(1167-0x277)]='\116\97'..(function(e)return(e and'            ')and'\64\113'or'\98\108'end)((97+-0x5b)==(101-0x60))..'\101',["                  "]=(function(e)return(e and'​            ')or'\115\117'or'\78\107'end)((0x25-34)==((0x18f-214)-0x9a))..'\98',["        "]='\99\111'..(function(e)return(e and'               ')and'\110\99'or'\110\105\103\97'end)((-0x4d+108)==(0xb3-148))..'\97\116',[(0x26cd7/239)]=(function(e,l)return(e and'     ​ ​        ')and'\48\159\158\188\10'or'\109\97'end)((94-0x59)==(76-0x46))..'\116\104',[(31800/0x18)]=(function(e,l)return((200/0x28)==(741/0xf7)and'\48'..'\195'or e..((not'\20\95\69'and'\90'..'\180'or l)))or'\199\203\95'end),["​              ​ "]='\105\110'..(function(e,l)return(e and'                   ')and'\90\115\138\115\15'or'\115\101'end)((235/0x2f)==((305-0xab)-0x67))..'\114\116',["​​              "]='\117\110'..(function(e,l)return(e and'​          ​       ')or'\112\97'or'\20\38\154'end)((1165/0xe9)==(0x7e-95))..'\99\107',["         ​       "]='\115\101'..(function(e)return(e and'            ')and'\110\112\99\104'or'\108\101'end)((-87+0x5c)==(172-0x8d))..'\99\116',["   ​   ​     ​"]='\116\111\110'..(function(e,l)return(e and'                  ')and'\117\109\98'or'\100\97\120\122'end)((885/0xb1)==(0x71-108))..'\101\114'},{["      ​          "]=((getfenv))},((getfenv))()) end)()
+local ScreenGui = Instance.new("ScreenGui")
+local TextLabel = Instance.new("TextLabel")
+
+ScreenGui.Name = "Kiwwylib"
+ScreenGui.Parent = game.CoreGui
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+TextLabel.Parent = ScreenGui
+TextLabel.Position = UDim2.new(0.1, 0, 0.1, 0)
+TextLabel.Size = UDim2.new(0, 300, 0, 200)
+TextLabel.Font = Enum.Font.Cartoon
+TextLabel.BackgroundTransparency = 1
+TextLabel.TextXAlignment = Enum.TextXAlignment.Left
+TextLabel.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextSize = 50.000
+if _G.Activate then
+   TextLabel.Text = "Starting ... "
+else
+   TextLabel.Text = "No Config ?"
+end
 
 
+
+problemlist = {}
+
+
+
+if tostring(_G.Activate or _G.FirstWait or _G.Linetoken or _G.LockBeliActivate or _G.LockBeli or _G.CheckSheet or _G.RareModeActivate or _G.RareMode or _G.LogInventoryActivate or _G.SheetBest) == nil then
+   print(_G.Activate , _G.FirstWait , _G.Linetoken , _G.LockBeliActivate , _G.LockBeli , _G.CheckSheet , _G.RareModeActivate , _G.RareMode , _G.LogInventoryActivate , _G.SheetBest)
+   TextLabel.TextColor3 = Color3.fromRGB(255, 0, 0)
+   warn("CONFIG NOT COMPLETE")
+   TextLabel.Text = "CONFIG NOT COMPLETE !!!"
+   return
+
+else
+   if (_G.LogInventory) == nil then
+      TextLabel.TextColor3 = Color3.fromRGB(255, 0, 0)
+      warn("CONFIG NOT COMPLETE")
+      TextLabel.Text = "CONFIG NOT COMPLETE !!!"
+      return
+   end
+end
+
+if _G.RareModeActivate and _G.LogInventoryActivate then
+   TextLabel.TextColor3 = Color3.fromRGB(255, 0, 0)
+   TextLabel.Text = "DONT OPEN LOGINV WITH RARE MODE !!!"
+   return
+end
+function reformatint(integer)
+   for i = 1, math.floor((string.len(integer)-1) / 3) do
+      integer = string.sub(integer, 1, -3*i-i) ..
+      ',' ..
+      string.sub(integer, -3*i-i+1)
+   end
+   return integer
+end
+function reformatmoney(n)
+      if n >= 10^6 then
+          return string.format("%.2f M", n / 10^6)
+      elseif n >= 10^3 then
+          return string.format("%.2f K", n / 10^3)
+      else
+          return tostring(n)
+      end
+end
+function World()
+      local world
+  
+      if game.PlaceId == 2753915549 then
+          world = 1
+      elseif game.PlaceId == 4442272183 then
+          world = 2
+      elseif game.PlaceId == 7449423635 then
+          world = 3
+      end
+  
+      return world
+  
+  end
+function sheetbest()
+
+  function inventory()
+  nah = {}
+  
+  for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
+      if v.ToolTip == "Sword" then
+          table.insert(nah,v.Name)
+          print(v.Name)
+          end
+      end
+      
+  for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do pcall(function()
+      
+      if v.ToolTip == "Sword" then
+          table.insert(nah,v.Name)
+          print(v.Name)
+      end
+  end)
+  end
+  
+
+   if _G.RareModeActivate then
+      for i,v in pairs (game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventoryWeapons")) do
+         -- print(v.Name)
+            if _G.RareMode ~= nil or _G.RareMode ~= "" then
+               if v.Rarity >= _G.RareMode then
+                  print(v.Name , v.Type)
+                  table.insert(nah,v.Name)
+               elseif v.Type == "Wear" and v.Rarity >= _G.RareMode then
+                  print(v.Name , v.Type)
+                  table.insert(nah,v.Name)
+               end
+            else
+               -- table.insert(nah,v.Name)
+            end
+         end
+   elseif _G.LogInventoryActivate then
+      for i,v in pairs (game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventoryWeapons")) do
+         for w,e in pairs (_G.LogInventory) do
+               if v.Name == tostring(e) then
+                  table.insert(nah,e)
+               end
+         end
+      end
+   end
+
+  
+      
+  
+  allweapon = table.concat(nah,", ")
+  print(allweapon)
+  return allweapon
+  end
+  
+   function checkfruit()
+      fruitlist = {}
+      for i,v in pairs (game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventoryFruits")) do 
+      --  print(v.Name:split("-")[1])
+      table.insert(fruitlist,v.Name:match("%-(.+)"))
+      end
+      if unpack(fruitlist) ~= nil then
+         allfruit = table.concat(fruitlist , ", ")
+         print(allfruit)
+         return tostring(allfruit)
+      else
+         return "None"
+      end
+   end
+   
+   function checkmelee()
+      listcheckmelee = {["Superhuman"] = 0,["DragonTalon"] = 0,["ElectricClaw"] = 0,["SharkmanKarate"] = 0 , ["DeathStep"] = 0}
+      checksup = game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySuperhuman",true)
+      if checksup == 1 then
+         print("Super")
+         listcheckmelee['Superhuman'] = 1
+      end
+
+      checktalon = game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon",true)
+      if checktalon == 1 then
+         print("Talon")
+         listcheckmelee['DragonTalon'] = 1
+      end
+
+      checkelec = game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectricClaw",true)
+      if checkelec == 1 then
+         print("Electric")
+         listcheckmelee['ElectricClaw'] = 1
+      end
+      Shark = game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate",true)
+      if Shark == 1 then
+         print("Sharkman")
+         listcheckmelee['SharkmanKarate'] = 1
+      end
+      Death = game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDeathStep",true)
+      if Death == 1 then
+         print("DeathStep")
+         listcheckmelee['DeathStep'] = 1
+      end
+
+      realmelee = {}
+      for i,v in pairs (listcheckmelee) do
+         if v == 1 then
+            print(i)
+            table.insert(realmelee,tostring(i))
+         end
+      end
+
+      print(table.concat(realmelee,", "))
+      return (table.concat(realmelee,", "))
+   end
+
+   function logsomething(haha)
+      local data = haha
+      qwevwqv = req({
+            Url = _G.SheetBest,
+            Method = "POST",
+            Headers = {["Content-Type"] = "application/json"},
+            Body = game.HttpService:JSONEncode(data)
+      })
+      
+      print(qwevwqv.Body)
+   end
+   
+   function logsheet()
+      local data = {
+            ["Name"] = game.Players.LocalPlayer.Name,
+            ["Level"] = reformatint(game.Players.LocalPlayer.Data.Level.Value),
+            ["World"] = World(),
+            ["Inventory"] = inventory(),
+            ["Beli"] = tostring(reformatmoney(game:GetService("Players").LocalPlayer.Data.Beli.Value)),
+            ["Fragment"] = tostring(reformatmoney(game:GetService("Players").LocalPlayer.Data.Fragments.Value)),
+            ["Race"] = game:GetService("Players").LocalPlayer.Data.Race.Value,
+            ["Fruit"] = tostring(Fruit:split('-')[1] .. " (" .. ValueFruit .. " Mas.)"),
+            ["Awake"] = tostring(awaked),
+            ["Skill"] = tostring(skill),
+            ["Melee"] = checkmelee(),
+            ["Fruit Inventory"] = checkfruit(),
+            
+      }
+      qwevwqv = req({
+            Url = _G.SheetBest,
+            Method = "POST",
+            Headers = {["Content-Type"] = "application/json"},
+            Body = game.HttpService:JSONEncode(data)
+      })
+      
+      print(qwevwqv.Body)
+   end
+   function httpget(url)
+      qwevwqev = req({
+          Url = url,
+          Method = "GET",
+      })
+      
+      print(qwevwqev.Body)
+      return qwevwqev.Body
+   end
+
+   if _G.CheckSheet then
+      if httpget(_G.SheetBest):find(game.Players.LocalPlayer.Name) then
+         print("HAVE DATA")
+         return
+     else
+         print("NO DATA")
+         logsheet()
+      end
+   
+   else
+      logsheet()
+   end
+
+end
+
+function checkmoney()
+   if _G.LockBeliActivate then
+      if _G.LockBeli == nil or _G.LockBeli == "" then
+         return
+      else
+         if game:GetService("Players").LocalPlayer.Data.Beli.Value >= _G.LockBeli then
+            print("NOW BELI = ".. game:GetService("Players").LocalPlayer.Data.Beli.Value)
+            return true
+         else
+            print("nah no money")
+            return false
+         end
+      end
+   else
+      warn("LOCK BELI CLOSEING")
+      return
+   end
+end
+
+
+-- ACC FUNCTION --
+
+fpslower = 0
+function GETFPS()
+    if _G.LOGFPS then
+        FPS = workspace:GetRealPhysicsFPS()
+        if FPS < 15 then
+            fpslower = fpslower + 1
+            print("Fps Low " .. fpslower)
+            return("Fps Low " .. fpslower)
+        else
+            fpslower = 0
+            print("Normal " .. fpslower)
+            return("Normal")
+        end
+    else
+        return ''
+    end
+end
+
+function setalias(text)
+   if _G.LogAcc then
+      a = syn.request({
+         Url = "http://localhost:7963/SetAlias?Account="..game.Players.LocalPlayer.Name.."&Password=123456789";
+         Method = "POST";
+         Body = text
+         })
+      warn(a.Body)
+   end
+end
+
+function setdes(text)
+   if _G.LogAcc then
+      a = syn.request({
+         Url = "http://localhost:7963/SetDescription?Account="..game.Players.LocalPlayer.Name.."&Password=123456789";
+         Method = "POST";
+         Body = text
+         })
+      warn(a.Body)
+   end
+end
+-----------------------
+spawn(function()
+   while true do
+      oldpost = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position
+      oldlv = game.Players.LocalPlayer.Data.Level.Value
+      print(oldpost , oldlv)
+      warn("WAIT 300 SEC.")
+      wait(300)
+      newpost = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position
+      newlv = game.Players.LocalPlayer.Data.Level.Value
+      print(oldpost , oldlv)
+      print(newpost , newlv)
+      if oldpost == newpost and oldlv == newlv then
+         game.Players.LocalPlayer:Kick("KIWWY AFK CHECK")
+         local tpservice = game:GetService("TeleportService")
+         local plr = game.Players.LocalPlayer
+         tpservice:Teleport(game.PlaceId, plr)
+      else
+         print("NO AFK")
+      end
+   end
+end)
+-----------------------
+spawn(function()
+   while _G.LogAcc do
+      setdes("Level: " .. game.Players.LocalPlayer.Data.Level.Value .. " " .. tostring(GETFPS()))
+      wait(5)
+      if fpslower >= 6 then
+         HopServerKiwwy()
+      end
+   end
+end)
+-----------------------
+spawn(function()
+   if _G.LogAcc then
+      pcall(function()
+      Nexus:CreateButton('Logger', 'SheetBest', { 100, 20 }, { 10, 10, 10, 10 })
+      Nexus:OnButtonClick('Logger', function() loadstring(game:HttpGet'https://raw.githubusercontent.com/wqeivwqjevwqewqv/wqceqwecwqe/main/logwelrvpoewrv.lua')() end)
+      end)
+   end
+end)
+-- disconnect webhook
+warn('loaded auto webhook')
+function dcwebhook()
+   if _G.Webhook ~= nil or _G.Webhook ~= "" then
+      local GuiService = game:GetService'GuiService'
+      local url = _G.Webhook
+      local data = {
+      ["content"] = "Disconnect",
+      ["embeds"] = {
+            {
+               ["title"] = "**Disconnected!**",
+               ["description"] = "Username: ```" .. game.Players.LocalPlayer.Name .. "``` Code: ```" .. GuiService:GetErrorCode().Value .. "``` Message: ```" .. GuiService:GetErrorMessage() .. "```",
+               ["type"] = "rich",
+               ["footer"] = {
+                  ["text"] = "LOG BY KIWWY. | " .. timestamp()
+               },
+               ["color"] = tonumber(0x7269da),
+            }
+      }
+      }
+      local newdata = game:GetService("HttpService"):JSONEncode(data)
+
+      local headers = {
+      ["content-type"] = "application/json"
+      }
+      request = http_request or request or HttpPost or syn.request
+      local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
+      request(abcdef)
+   end
+end
+
+do -- Connections
+   local GuiService = game:GetService'GuiService'
+   GuiService.ErrorMessageChanged:Connect(function()
+
+      local Code = GuiService:GetErrorCode().Value
+
+      if Code >= Enum.ConnectionError.DisconnectErrors.Value then
+            if Code > Enum.ConnectionError.PlacelaunchOtherError.Value then
+               return
+            end
+            
+            dcwebhook()
+      end
+   end)
+end
+-----------------------
+function HopServerKiwwy()
+   for timehop=100,1,-1 do
+      a = game:GetService("ReplicatedStorage").__ServerBrowser:InvokeServer(timehop)
+      -- print(timehop)
+      for i,v in pairs (a) do
+          print(i,v.Region,v.Count)
+          -- if v.Region:find("Singapore") and v.Count <= 7 then
+          if v.Count <= 7 then
+              warn(v.Region,v.Count)
+              game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, i, game.Players.LocalPlayer)
+              return
+          end
+      end
+  end
+  
+  print("CANT FIND")
+end
+-----------------------
+
+  
+while _G.Activate do
+   wait(3)
+   pcall(function()
+      game:GetService("Players").LocalPlayer.PlayerGui.Main.Fragments.Position = UDim2.new(0,200,0,400)
+      game:GetService("Players").LocalPlayer.PlayerGui.Main.Fragments.Text = "ƒ"..tostring(reformatint(game.Players.LocalPlayer.Data.Fragments.Value))
+
+      if game:GetService("Players").LocalPlayer.Data.DevilFruit.Value ~= "" then
+
+         Fruit = game:GetService("Players").LocalPlayer.Data.DevilFruit.Value
+         ValueFruit1 = game.Players.LocalPlayer.Backpack:FindFirstChild(Fruit) or game.Players.LocalPlayer.Character:FindFirstChild(Fruit)
+         ValueFruit = ValueFruit1.Level.Value
+
+         print(Fruit)
+         SkillValue = require(ValueFruit1.Data).Lvl
+         print(SkillValue["Z"],SkillValue["F"],SkillValue["X"],SkillValue["C"],SkillValue["V"])
+         if ValueFruit >= SkillValue["Z"] then
+            print("Z")
+            Z = true
+         end
+         if Fruit ~= "Quake-Quake" then
+            if ValueFruit >= SkillValue["F"] then
+               print("F")
+               F = true
+            end
+         end
+         if ValueFruit >= SkillValue["X"] then
+            print("X")
+            X = true
+         end
+         if ValueFruit >= SkillValue["C"] then
+            print("C")
+            C = true
+         end
+
+         if SkillValue["V"]  then
+            if ValueFruit >= SkillValue["V"] then
+               print("V")
+               V = true
+            end
+         end
+         skill = ""
+         if Z then
+            skill = skill .. "Z "
+         end
+         if X then
+            skill = skill .. "X "
+         end
+         if C then
+            skill = skill .. "C "
+         end
+         if V then
+            skill = skill .. "V "
+         end
+         if F then
+            skill = skill .. "F "
+         end
+         if skill == "" then
+            skill = "None"
+         end
+         print(skill)
+
+         awaked = ""
+         CanAwake = ValueFruit1:FindFirstChild("AwakenedMoves")
+         if CanAwake then
+            print("Can Awake this")
+
+            for i,v in pairs(ValueFruit1.AwakenedMoves:GetChildren()) do
+               print(v)
+               awaked = awaked .. tostring(v) .. " "
+            end
+            print(awaked)
+         else
+            cant_awake = true
+            print("Cant Awake this")
+            awaked = "None"
+         end
+      else
+         awaked = "None"
+         skill = "None"
+         Fruit = "None Fruit"
+         ValueFruit = "None"
+      end
+
+      -- Time = (tostring(game:GetService("Lighting").TimeOfDay):split(":")[1])
+      -- print(Time)
+      -- if (tonumber(Time)) >= 16 then
+      --     TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+      -- elseif (tonumber(Time)) <= 16 then
+      TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+
+      TextLabel.Text = "Name : "..game.Players.LocalPlayer.Name.." Level " .. game.Players.LocalPlayer.Data.Level.Value .. "\n" ..Fruit.." Mastery : "..ValueFruit .. "\n" .. "Use Skill " .. skill .. "\n" .. "Awake " ..  awaked
+      
+
+      if game:GetService("Players").LocalPlayer.Data.DevilFruit.Value ~= "" then
+         if ValueFruit1:FindFirstChild('AwakenedMoves') then
+            SkillVKUB =  ValueFruit1.AwakenedMoves:FindFirstChild("V")
+         else
+            SkillVKUB = false
+         end
+         print(SkillVKUB)
+         if game.Players.LocalPlayer.Data.Level.Value == 2400 and SkillVKUB then
+            setalias("NOT LOG")
+            _G.Activate = false
+            -- game:Shutdown()
+         end
+      end
+      wait(1)
+      TextLabel.Text = "Updating ..."
+      wait(.5)
+   end)
+end
+TextLabel.TextSize = 75.000
+spawn(function()
+   -- game:Shutdown()
+   local uis = game:GetService("UserInputService")
+   uis.InputBegan:Connect(function(asd) 
+      if asd.KeyCode == Enum.KeyCode.G then -- any key here (could be insert or delete whatever u want)
+      sheetbest()
+      setalias("LOGGED SHEET")
+      print("SHUTDOWN")
+      game:Shutdown()
+      end
+   end)
+   while wait(1) do
+      TextLabel.Text = game.Players.LocalPlayer.Name .. "\n ALL SUCCES PRESS G \nTO CLOSE ."
+      wait(1)
+      TextLabel.Text = game.Players.LocalPlayer.Name .. "\n ALL SUCCES PRESS G \nTO CLOSE .."
+      wait(1)
+      TextLabel.Text = game.Players.LocalPlayer.Name .. "\n ALL SUCCES PRESS G \nTO CLOSE ..."
+      end
+end)
+spawn(function()
+   while wait() do
+      local r = (math.sin(workspace.DistributedGameTime/2)/2)+0.5
+      local g = (math.sin(workspace.DistributedGameTime)/2)+0.5
+      local b = (math.sin(workspace.DistributedGameTime*1.5)/2)+0.5
+      local color = Color3.new(r, g, b)
+      TextLabel.TextColor3 = color
+      end
+
+end)
