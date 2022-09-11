@@ -24,10 +24,11 @@ repeat wait() until game.Players.LocalPlayer.PlayerGui:FindFirstChild("Main");
 
 repeat wait()
 
-   if game:GetService("Players").LocalPlayer.PlayerGui.Main.ChooseTeam.Visible == true then
+   if game.Players.LocalPlayer.Team == nil then
    warn("WAITING CHOOSE TEAM EIEIEIEIEI")
    wait(.5)
    end
+
 until game.Players.LocalPlayer.Team ~= nil and game:IsLoaded()
 
 function webhook()
