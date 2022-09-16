@@ -1,4 +1,4 @@
-_G.SheetBest = "https://sheet.best/api/sheets/b9423a13-dd9e-4e50-92ea-e49632326a45"
+_G.SheetBest = "https://sheet.best/api/sheets/d6c6fc61-2878-4536-b90c-0c9a829c866f"
 _G.LogInventoryActivate = true
 _G.LogInventory = {"Tushita", "Dark Dagger", "Hallow Scythe", "Dark Coat", "True Triple Katana"}
 
