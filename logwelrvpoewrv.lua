@@ -13,9 +13,14 @@ repeat wait() until game.Players.LocalPlayer.PlayerGui:FindFirstChild("Main");
 repeat wait()
 
    if game.Players.LocalPlayer.Team == nil then
-   warn("WAITING CHOOSE TEAM EIEIEIEIEI")
-   wait(.5)
-   end
+      ChooseTeamAb = game:GetService("Players").LocalPlayer.PlayerGui.Main.ChooseTeam.Container.Pirates.Frame.ViewportFrame.TextButton.AbsolutePosition
+      local VIM = game:GetService("VirtualInputManager")
+      VIM:SendMouseButtonEvent(ChooseTeamAb.X + 100 , ChooseTeamAb.Y + 150, 0, true, game, 0)
+      wait(.15)
+      VIM:SendMouseButtonEvent(ChooseTeamAb.X + 100 , ChooseTeamAb.Y + 150, 0, false, game, 0)
+      warn("WAITING CHOOSE TEAM EIEIEIEIEI")
+      wait(.5)
+  end
 
 until game.Players.LocalPlayer.Team ~= nil and game:IsLoaded()
 
