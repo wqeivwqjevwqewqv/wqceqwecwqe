@@ -1,18 +1,3 @@
--- _G.Activate = true
--- _G.FirstWait = 0
--- _G.LogAcc = true
--- _G.LOGFPS = true
--- _G.Linetoken = "IFrNuMoL2l7CnMJEOYrT9C6nur9GzIII0LVfAhA3MeX"
--- _G.LockBeliActivate = true
--- _G.LockBeli = 1000000
--- _G.CheckSheet = true
--- _G.RareModeActivate = false
--- _G.RareMode = 3
--- _G.LogInventoryActivate = true
--- _G.LogInventory = {"Tushita", "Dark Dagger", "Hallow Scythe", "Dark Coat", "True Triple Katana"}
--- _G.SheetBest = "https://sheet.best/api/sheets/bef8b0ee-e57a-40d6-acdb-0caa5fbe8e71"
--- _G.Webhook = "https://discord.com/api/webhooks/960294659958120538/fQoPhQTSOy2JknGf4eANJV-UN2kIXdW-Rh4nHpj1fX833ekF2dSm2JIQaCdQppqCJRRB"
-
 repeat print('WAITING GAME LOAD') wait(1) until game:IsLoaded()
 if not game:IsLoaded() then game.Loaded:Wait() end
 repeat wait() until game.Players
@@ -289,42 +274,26 @@ function sheetbest()
    end
    
    function checkmelee()
-      listcheckmelee = {["Superhuman"] = 0,["DragonTalon"] = 0,["ElectricClaw"] = 0,["SharkmanKarate"] = 0 , ["DeathStep"] = 0}
-      checksup = game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySuperhuman",true)
-      if checksup == 1 then
-         print("Super")
-         listcheckmelee['Superhuman'] = 1
-      end
-
-      checktalon = game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon",true)
-      if checktalon == 1 then
-         print("Talon")
-         listcheckmelee['DragonTalon'] = 1
-      end
-
-      checkelec = game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectricClaw",true)
-      if checkelec == 1 then
-         print("Electric")
-         listcheckmelee['ElectricClaw'] = 1
-      end
-      Shark = game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate",true)
-      if Shark == 1 then
-         print("Sharkman")
-         listcheckmelee['SharkmanKarate'] = 1
-      end
-      Death = game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDeathStep",true)
-      if Death == 1 then
-         print("DeathStep")
-         listcheckmelee['DeathStep'] = 1
-      end
-
       realmelee = {}
-      for i,v in pairs (listcheckmelee) do
-         if v == 1 then
-            print(i)
-            table.insert(realmelee,tostring(i))
-         end
+      if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySuperhuman",true) == 1 then
+         table.insert(realmelee, "Superhuman")
       end
+      if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon",true) == 1 then
+         table.insert(realmelee, "DragonTalon")
+      end
+      if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectricClaw",true) == 1 then
+         table.insert(realmelee, "BuyElectricClaw")
+      end
+      if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate",true) == 1 then
+         table.insert(realmelee, "BuySharkmanKarate")
+      end
+      if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDeathStep",true) == 1 then
+         table.insert(realmelee, "BuyDeathStep")
+      end
+      if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyGodhuman",true) == 1 then
+         table.insert(realmelee, "BuyGodhuman")
+      end
+
 
       print(table.concat(realmelee,", "))
       return (table.concat(realmelee,", "))
