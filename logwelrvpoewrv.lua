@@ -244,47 +244,27 @@ end
 ---------------------------------------
 
 function checkmelee()
-   listcheckmelee = {["Superhuman"] = 0,["DragonTalon"] = 0,["ElectricClaw"] = 0,["SharkmanKarate"] = 0 , ["DeathStep"] = 0}
-   checksup = game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySuperhuman",true)
-   if checksup == 1 then
-      print("Super")
-      listcheckmelee['Superhuman'] = 1
-   end
-
-   checktalon = game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon",true)
-   if checktalon == 1 then
-      print("Talon")
-      listcheckmelee['DragonTalon'] = 1
-   end
-
-   checkelec = game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectricClaw",true)
-   if checkelec == 1 then
-      print("Electric")
-      listcheckmelee['ElectricClaw'] = 1
-   end
-   Shark = game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate",true)
-   if Shark == 1 then
-      print("Sharkman")
-      listcheckmelee['SharkmanKarate'] = 1
-   end
-   Death = game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDeathStep",true)
-   if Death == 1 then
-      print("DeathStep")
-      listcheckmelee['DeathStep'] = 1
-   end
-
    realmelee = {}
+   if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySuperhuman",true) == 1 then
+      table.insert(realmelee, "Superhuman")
+   end
+   if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon",true) == 1 then
+      table.insert(realmelee, "DragonTalon")
+   end
+   if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectricClaw",true) == 1 then
+      table.insert(realmelee, "BuyElectricClaw")
+   end
+   if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate",true) == 1 then
+      table.insert(realmelee, "BuySharkmanKarate")
+   end
+   if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDeathStep",true) == 1 then
+      table.insert(realmelee, "BuyDeathStep")
+   end
+   if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyGodhuman",true) == 1 then
+      table.insert(realmelee, "BuyGodhuman")
+   end
 
-   for i,v in pairs (listcheckmelee) do
-      if v == 1 then
-         print(i)
-         table.insert(realmelee,tostring(i))
-      end
-   end
-   if unpack(realmelee) == nil then
-       realmelee = "None"
-      return realmelee
-   end
+
    print(table.concat(realmelee,", "))
    return (table.concat(realmelee,", "))
 end
