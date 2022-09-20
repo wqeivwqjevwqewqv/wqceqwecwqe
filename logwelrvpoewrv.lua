@@ -252,16 +252,16 @@ function checkmelee()
       table.insert(realmelee, "DragonTalon")
    end
    if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectricClaw",true) == 1 then
-      table.insert(realmelee, "BuyElectricClaw")
+      table.insert(realmelee, "ElectricClaw")
    end
    if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate",true) == 1 then
-      table.insert(realmelee, "BuySharkmanKarate")
+      table.insert(realmelee, "SharkmanKarate")
    end
    if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDeathStep",true) == 1 then
-      table.insert(realmelee, "BuyDeathStep")
+      table.insert(realmelee, "DeathStep")
    end
    if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyGodhuman",true) == 1 then
-      table.insert(realmelee, "BuyGodhuman")
+      table.insert(realmelee, "Godhuman")
    end
 
 
