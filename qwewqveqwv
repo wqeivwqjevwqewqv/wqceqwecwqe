@@ -38,20 +38,16 @@ task.spawn(function() -- start
 warn("SCRIPT LOADED")
 -----------------------------------
 if _G.Nexus then  --load ram setting
+
     spawn(function()
-        while true do
-            warn("FREE FIRE ACTIVATE RUOK FF")
-            spawn(function()
-                loadstring(game:HttpGet'https://raw.githubusercontent.com/ic3w0lf22/Roblox-Account-Manager/master/RBX%20Alt%20Manager/Nexus/Nexus.lua')() 
-                Nexus.Commands.performance() 
-                Nexus.Commands.mute()
-            end)
-            wait(1)
-        end
+        loadstring(game:HttpGet'https://raw.githubusercontent.com/ic3w0lf22/Roblox-Account-Manager/master/RBX%20Alt%20Manager/Nexus/Nexus.lua')() 
+        Nexus.Commands.performance() 
+        Nexus.Commands.mute()
     end)
+
 end
 
-wait(3)
+wait(5)
 -----------------------------------
 local RAMAccount = loadstring(game:HttpGet("https://raw.githubusercontent.com/ic3w0lf22/Roblox-Account-Manager/master/RAMAccount.lua"))()
 wait(2)
