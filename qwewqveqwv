@@ -46,7 +46,7 @@ if _G.Nexus then  --load ram setting
                 Nexus.Commands.performance() 
                 Nexus.Commands.mute()
             end)
-            wait(10)
+            wait(1)
         end
     end)
 end
