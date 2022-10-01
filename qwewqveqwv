@@ -37,15 +37,15 @@ task.spawn(function() -- start
         -----------------------------------
 warn("SCRIPT LOADED")
 -----------------------------------
-if _G.Nexus then  --load ram setting
+-- if _G.Nexus then  --load ram setting
 
-    spawn(function()
-        loadstring(game:HttpGet'https://raw.githubusercontent.com/ic3w0lf22/Roblox-Account-Manager/master/RBX%20Alt%20Manager/Nexus/Nexus.lua')() 
-        Nexus.Commands.performance() 
-        Nexus.Commands.mute()
-    end)
+    -- spawn(function()
+    --     loadstring(game:HttpGet'https://raw.githubusercontent.com/ic3w0lf22/Roblox-Account-Manager/master/RBX%20Alt%20Manager/Nexus/Nexus.lua')() 
+    --     Nexus.Commands.performance() 
+    --     Nexus.Commands.mute()
+    -- end)
 
-end
+-- end
 
 wait(5)
 -----------------------------------
@@ -276,40 +276,38 @@ function logdescritionfile()
     end
 -----------------------------------
 logtimevalue = 10
-spawn(function() -- create button
-    if _G.Nexus then 
+if _G.Nexus then 
+    spawn(function() -- create button
+        warn("CREATE BUTTON")
+        Nexus:CreateLabel('LogSheetLabel', 'SHEET BEST URL')
+        Nexus:NewLine()
+        Nexus:CreateTextBox('LogSheetText', _G.BestSheet, { 250, 20 }, { 10, 10, 10, 10 })
+        Nexus:NewLine()
+        Nexus:CreateButton('LogSheetButton', 'LogSheet', { 100, 20 }, { 10, 10, 10, 10 })
+        Nexus:OnButtonClick('LogSheetButton', function() logsheet() end)
+        Nexus:NewLine()
 
-            warn("CREATE BUTTON")
-            Nexus:CreateLabel('LogSheetLabel', 'SHEET BEST URL')
-            Nexus:NewLine()
-            Nexus:CreateTextBox('LogSheetText', _G.BestSheet, { 250, 20 }, { 10, 10, 10, 10 })
-            Nexus:NewLine()
-            Nexus:CreateButton('LogSheetButton', 'LogSheet', { 100, 20 }, { 10, 10, 10, 10 })
-            Nexus:OnButtonClick('LogSheetButton', function() logsheet() end)
-            Nexus:NewLine()
+        Nexus:CreateNumeric('LogTimeText', 10,0,1)
 
-            Nexus:CreateNumeric('LogTimeText', 10,0,1)
+        Nexus:CreateLabel('MiscLabel', 'Misc.')
+        Nexus:NewLine()
 
-            Nexus:CreateLabel('MiscLabel', 'Misc.')
-            Nexus:NewLine()
+        Nexus:CreateButton('LogDescriptionText', 'Log Des text', { 100, 20 }, { 10, 10, 10, 10 })
+        Nexus:OnButtonClick('LogDescriptionText', function() logdescritionfile() end)
 
-            Nexus:CreateButton('LogDescriptionText', 'Log Des text', { 100, 20 }, { 10, 10, 10, 10 })
-            Nexus:OnButtonClick('LogDescriptionText', function() logdescritionfile() end)
+        Nexus:CreateButton('Shutdownbutton', 'Shutdown', { 100, 20 }, { 10, 10, 10, 10 })
+        Nexus:OnButtonClick('Shutdownbutton', function() game:Shutdown() end)
 
-            Nexus:CreateButton('Shutdownbutton', 'Shutdown', { 100, 20 }, { 10, 10, 10, 10 })
-            Nexus:OnButtonClick('Shutdownbutton', function() game:Shutdown() end)
+        Nexus:CreateButton('RejoinButton', 'Rejoin', { 100, 20 }, { 10, 10, 10, 10 })
+        Nexus:OnButtonClick('RejoinButton', function() local TeleportService = game:GetService'TeleportService' TeleportService:TeleportToPlaceInstance(game.PlaceId, game.JobId) end)
+    end)
+end
 
-            Nexus:CreateButton('RejoinButton', 'Rejoin', { 100, 20 }, { 10, 10, 10, 10 })
-            Nexus:OnButtonClick('RejoinButton', function() local TeleportService = game:GetService'TeleportService' TeleportService:TeleportToPlaceInstance(game.PlaceId, game.JobId) end)
 
-    end
-
-end)
 -----------------------------------
-spawn(function() -- check value button
-    wait(10)
-    if _G.Nexus then 
-        _G.CheckNexusValue = true
+if _G.Nexus then 
+    _G.CheckNexusValue = true
+    spawn(function()
         while _G.CheckNexusValue do
             Nexus:CreateTextBox('LogSheetText', _G.BestSheet, { 250, 20 }, { 10, 10, 10, 10 })
             Nexus:CreateNumeric('LogTimeText', 10,0,1)
@@ -330,8 +328,8 @@ spawn(function() -- check value button
                 logtimevalue = tonumber(logtimevalue)
             end
         end
-    end
-end)
+    end)
+end
 -----------------------------------
 function checkmelee()
     melee = {}
