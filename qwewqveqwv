@@ -1,73 +1,403 @@
-_G.BestSheet = "https://sheet.best/api/sheets/becff129-d8b7-4414-a3c9-46d00b073b42"
-_G.Nexus = true
-_G.LogMax = true
-_G.Webhook ="https://discord.com/api/webhooks/964205206877376512/9GL652bqMADDg0iMRn4zAGYaoi1TrJU6U6pnSxkQJnPjTePTYaOH0AhJQo74d5sFcZFO"
+_G.Activate = true
+_G.FirstWait = 0
+_G.LogAcc = true
 _G.LOGFPS = true
-_G.CHECKAFK = true
-_G.WORLD = true
-_G.LogBackPack = true
+_G.Linetoken = "IFrNuMoL2l7CnMJEOYrT9C6nur9GzIII0LVfAhA3MeX"
+_G.LockBeliActivate = true
+_G.LockBeli = 1000000
+_G.CheckSheet = true
+_G.RareModeActivate = false
+_G.RareMode = 3
+_G.LogInventoryActivate = true
 _G.LogInventory = {"Tushita", "Dark Dagger", "Hallow Scythe", "Dark Coat", "True Triple Katana"}
+_G.SheetBest = "https://sheet.best/api/sheets/bef8b0ee-e57a-40d6-acdb-0caa5fbe8e71"
+_G.Webhook = "https://discord.com/api/webhooks/960294659958120538/fQoPhQTSOy2JknGf4eANJV-UN2kIXdW-Rh4nHpj1fX833ekF2dSm2JIQaCdQppqCJRRB"
 
-task.spawn(function() -- start
-    repeat print("WAITING GAME LOAD") wait(1) until game:IsLoaded()
-    if not game:IsLoaded() then game.Loaded:Wait() end
-    repeat wait() until game.Players
-    repeat wait() until game.Players.LocalPlayer
-    repeat wait() until game.ReplicatedStorage
-    repeat wait() until game.ReplicatedStorage:FindFirstChild("Remotes")
-    repeat wait() until game.Players.LocalPlayer:FindFirstChild("PlayerGui")
-    repeat wait() until game.Players.LocalPlayer.PlayerGui:FindFirstChild("Main")
+repeat print('WAITING GAME LOAD') wait(1) until game:IsLoaded()
+if not game:IsLoaded() then game.Loaded:Wait() end
+repeat wait() until game.Players
+repeat wait() until game.Players.LocalPlayer
+repeat wait() until game.ReplicatedStorage
+repeat wait() until game.ReplicatedStorage:FindFirstChild("Remotes");
+repeat wait() until game.Players.LocalPlayer:FindFirstChild("PlayerGui");
+repeat wait() until game.Players.LocalPlayer.PlayerGui:FindFirstChild("Main");
 
-        repeat wait()
-            if game.Players.LocalPlayer.Team == nil then
-                pcall(function()
-                    for i, v in ipairs(getconnections(game:GetService("Players").LocalPlayer.PlayerGui.Main.ChooseTeam.Container.Pirates.Frame.ViewportFrame.TextButton.Activated)) do
-                        v.Function()
-                    end
-                    
-                    for i, v in ipairs(getconnections(game:GetService("Players").LocalPlayer.PlayerGui.Main.ChooseTeam.Container.Pirates.Frame.ViewportFrame.TextButton.MouseButton1Click)) do
-                        v.Function()
-                    end
-                end)
-                wait(.5)
+repeat wait()
 
+   if game.Players.LocalPlayer.Team == nil then
+   warn("WAITING CHOOSE TEAM EIEIEIEIEI")
+   wait(.5)
+   end
+
+until game.Players.LocalPlayer.Team ~= nil and game:IsLoaded()
+
+warn('Script Running')
+print('LAST UPDATE ON 28/07 16:45')
+
+spawn(function()
+
+   local uis = game:GetService("UserInputService")
+   local size = workspace.CurrentCamera.ViewportSize
+
+   uis.WindowFocused:Connect(function() 
+      game:GetService("RunService"):Set3dRenderingEnabled(true)
+   end)
+
+   uis.WindowFocusReleased:Connect(function() 
+      game:GetService("RunService"):Set3dRenderingEnabled(false)
+   end)
+end)
+-- FAST ATTACK --
+spawn(function()
+   warn("LOADED FAST ATTACK")
+   while wait(.1) do pcall(function()
+      function Getresume(s)
+         s.activeController.timeToNextAttack = 0
+      end
+
+      local Rig = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework)
+   end)
+end
+end)
+-----------------------
+if game.CoreGui:FindFirstChild("Kiwwylib") then
+   game.CoreGui:FindFirstChild("Kiwwylib"):Destroy()
+end
+
+if _G.FirstWait ~= nil then
+   wait(_G.FirstWait)
+else
+   wait(10)
+end
+-----------------------
+function time()
+   return ""..os.date("%H")..":"..os.date("%M")..":"..os.date("%S")
+end
+req = request or syn.request
+makefolder("Kiwwy")
+print(time() .. " -> " .. game.Players.LocalPlayer.Name)
+
+-- check have 2 file then del all
+if isfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt")  and isfile("Kiwwy/"..game.Players.LocalPlayer.Name.."_success.txt") then
+   print(time() .. " -> " .."Have Succes And Normal File")
+   delfile("Kiwwy/"..game.Players.LocalPlayer.Name..".txt")
+   delfile("Kiwwy/"..game.Players.LocalPlayer.Name.."_success.txt")
+   print(time() .. " -> " .."Delete Success")
+end
+
+-- check is succes then shutdown
+
+--------------------------------
+
+
+local ScreenGui = Instance.new("ScreenGui")
+local TextLabel = Instance.new("TextLabel")
+
+ScreenGui.Name = "Kiwwylib"
+ScreenGui.Parent = game.CoreGui
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+TextLabel.Parent = ScreenGui
+TextLabel.Position = UDim2.new(0.1, 0, 0.1, 0)
+TextLabel.Size = UDim2.new(0, 300, 0, 200)
+TextLabel.Font = Enum.Font.Cartoon
+TextLabel.BackgroundTransparency = 1
+TextLabel.TextXAlignment = Enum.TextXAlignment.Left
+TextLabel.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextSize = 50.000
+if _G.Activate then
+   TextLabel.Text = "Starting ... "
+else
+   TextLabel.Text = "No Config ?"
+end
+
+
+
+problemlist = {}
+
+
+
+if tostring(_G.Activate or _G.FirstWait or _G.Linetoken or _G.LockBeliActivate or _G.LockBeli or _G.CheckSheet or _G.RareModeActivate or _G.RareMode or _G.LogInventoryActivate or _G.SheetBest) == nil then
+   print(_G.Activate , _G.FirstWait , _G.Linetoken , _G.LockBeliActivate , _G.LockBeli , _G.CheckSheet , _G.RareModeActivate , _G.RareMode , _G.LogInventoryActivate , _G.SheetBest)
+   TextLabel.TextColor3 = Color3.fromRGB(255, 0, 0)
+   warn("CONFIG NOT COMPLETE")
+   TextLabel.Text = "CONFIG NOT COMPLETE !!!"
+   return
+
+else
+   if (_G.LogInventory) == nil then
+      TextLabel.TextColor3 = Color3.fromRGB(255, 0, 0)
+      warn("CONFIG NOT COMPLETE")
+      TextLabel.Text = "CONFIG NOT COMPLETE !!!"
+      return
+   end
+end
+
+if _G.RareModeActivate and _G.LogInventoryActivate then
+   TextLabel.TextColor3 = Color3.fromRGB(255, 0, 0)
+   TextLabel.Text = "DONT OPEN LOGINV WITH RARE MODE !!!"
+   return
+end
+function reformatint(integer)
+   for i = 1, math.floor((string.len(integer)-1) / 3) do
+      integer = string.sub(integer, 1, -3*i-i) ..
+      ',' ..
+      string.sub(integer, -3*i-i+1)
+   end
+   return integer
+end
+function reformatmoney(n)
+      if n >= 10^6 then
+          return string.format("%.2f M", n / 10^6)
+      elseif n >= 10^3 then
+          return string.format("%.2f K", n / 10^3)
+      else
+          return tostring(n)
+      end
+end
+------------------
+-- disconnect webhook
+warn('loaded auto webhook')
+function dcwebhook()
+   if _G.Webhook ~= nil or _G.Webhook ~= "" then
+      local GuiService = game:GetService'GuiService'
+      local url = _G.Webhook
+      local data = {
+      ["content"] = "Disconnect",
+      ["embeds"] = {
+            {
+               ["title"] = "**Disconnected!**",
+               ["description"] = "Username: ```" .. game.Players.LocalPlayer.Name .. "``` Code: ```" .. GuiService:GetErrorCode().Value .. "``` Message: ```" .. GuiService:GetErrorMessage() .. "```",
+               ["type"] = "rich",
+               ["footer"] = {
+                  ["text"] = "LOG BY KIWWY. | " .. timestamp()
+               },
+               ["color"] = tonumber(0x7269da),
+            }
+      }
+      }
+      local newdata = game:GetService("HttpService"):JSONEncode(data)
+
+      local headers = {
+      ["content-type"] = "application/json"
+      }
+      request = http_request or request or HttpPost or syn.request
+      local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
+      request(abcdef)
+   end
+end
+
+do -- Connections
+   local GuiService = game:GetService'GuiService'
+   GuiService.ErrorMessageChanged:Connect(function()
+
+      local Code = GuiService:GetErrorCode().Value
+
+      if Code >= Enum.ConnectionError.DisconnectErrors.Value then
+            if Code > Enum.ConnectionError.PlacelaunchOtherError.Value then
+               return
             end
-        until game.Players.LocalPlayer.Team ~= nil and game:IsLoaded() 
-
-        -----------------------------------
-warn("SCRIPT LOADED")
------------------------------------
-if _G.Nexus then  --load ram setting
-
-    spawn(function()
-        loadstring(game:HttpGet'https://raw.githubusercontent.com/ic3w0lf22/Roblox-Account-Manager/master/RBX%20Alt%20Manager/Nexus/Nexus.lua')() 
-        Nexus.Commands.performance() 
-        Nexus.Commands.mute()
-    end)
-
+            
+            dcwebhook()
+      end
+   end)
 end
-
-wait(5)
------------------------------------
-local RAMAccount = loadstring(game:HttpGet("https://raw.githubusercontent.com/ic3w0lf22/Roblox-Account-Manager/master/RAMAccount.lua"))()
-wait(2)
-local MyAccount = RAMAccount.new(game.Players.LocalPlayer.Name)
-MyAccount:SetDescription("START")
------------------------------------
+------------------
 function World()
-    local world
+      local world
+  
+      if game.PlaceId == 2753915549 then
+          world = 1
+      elseif game.PlaceId == 4442272183 then
+          world = 2
+      elseif game.PlaceId == 7449423635 then
+          world = 3
+      end
+  
+      return world
+  
+  end
+function sheetbest()
 
-    if game.PlaceId == 2753915549 then
-        world = 1
-    elseif game.PlaceId == 4442272183 then
-        world = 2
-    elseif game.PlaceId == 7449423635 then
-        world = 3
-    end
+  function inventory()
+  nah = {}
+  
+  for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
+      if v.ToolTip == "Sword" then
+          table.insert(nah,v.Name)
+          print(v.Name)
+          end
+      end
+      
+  for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do pcall(function()
+      
+      if v.ToolTip == "Sword" then
+          table.insert(nah,v.Name)
+          print(v.Name)
+      end
+  end)
+  end
+  
 
-    return world
+   if _G.RareModeActivate then
+      for i,v in pairs (game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventoryWeapons")) do
+         -- print(v.Name)
+            if _G.RareMode ~= nil or _G.RareMode ~= "" then
+               if v.Rarity >= _G.RareMode then
+                  print(v.Name , v.Type)
+                  table.insert(nah,v.Name)
+               elseif v.Type == "Wear" and v.Rarity >= _G.RareMode then
+                  print(v.Name , v.Type)
+                  table.insert(nah,v.Name)
+               end
+            else
+               -- table.insert(nah,v.Name)
+            end
+         end
+   elseif _G.LogInventoryActivate then
+      for i,v in pairs (game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventoryWeapons")) do
+         for w,e in pairs (_G.LogInventory) do
+               if v.Name == tostring(e) then
+                  table.insert(nah,e)
+               end
+         end
+      end
+   end
+
+  
+      
+  
+  allweapon = table.concat(nah,", ")
+  print(allweapon)
+  return allweapon
+  end
+  
+   function checkfruit()
+      fruitlist = {}
+      for i,v in pairs (game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventoryFruits")) do 
+      --  print(v.Name:split("-")[1])
+      table.insert(fruitlist,v.Name:match("%-(.+)"))
+      end
+      if unpack(fruitlist) ~= nil then
+         allfruit = table.concat(fruitlist , ", ")
+         print(allfruit)
+         return tostring(allfruit)
+      else
+         return "None"
+      end
+   end
+   
+   function checkmelee()
+      realmelee = {}
+      if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySuperhuman",true) == 1 then
+         table.insert(realmelee, "Superhuman")
+      end
+      if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon",true) == 1 then
+         table.insert(realmelee, "DragonTalon")
+      end
+      if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectricClaw",true) == 1 then
+         table.insert(realmelee, "BuyElectricClaw")
+      end
+      if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate",true) == 1 then
+         table.insert(realmelee, "BuySharkmanKarate")
+      end
+      if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDeathStep",true) == 1 then
+         table.insert(realmelee, "BuyDeathStep")
+      end
+      if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyGodhuman",true) == 1 then
+         table.insert(realmelee, "BuyGodhuman")
+      end
+
+
+      print(table.concat(realmelee,", "))
+      return (table.concat(realmelee,", "))
+   end
+
+   function logsomething(haha)
+      local data = haha
+      qwevwqv = req({
+            Url = _G.SheetBest,
+            Method = "POST",
+            Headers = {["Content-Type"] = "application/json"},
+            Body = game.HttpService:JSONEncode(data)
+      })
+      
+      print(qwevwqv.Body)
+   end
+   
+   function logsheet()
+      local data = {
+            ["Name"] = game.Players.LocalPlayer.Name,
+            ["Level"] = reformatint(game.Players.LocalPlayer.Data.Level.Value),
+            ["World"] = World(),
+            ["Inventory"] = inventory(),
+            ["Beli"] = tostring(reformatmoney(game:GetService("Players").LocalPlayer.Data.Beli.Value)),
+            ["Fragment"] = tostring(reformatmoney(game:GetService("Players").LocalPlayer.Data.Fragments.Value)),
+            ["Race"] = game:GetService("Players").LocalPlayer.Data.Race.Value,
+            ["Fruit"] = tostring(Fruit:split('-')[1] .. " (" .. ValueFruit .. " Mas.)"),
+            ["Awake"] = tostring(awaked),
+            ["Skill"] = tostring(skill),
+            ["Melee"] = checkmelee(),
+            ["Fruit Inventory"] = checkfruit(),
+            
+      }
+      qwevwqv = req({
+            Url = _G.SheetBest,
+            Method = "POST",
+            Headers = {["Content-Type"] = "application/json"},
+            Body = game.HttpService:JSONEncode(data)
+      })
+      
+      print(qwevwqv.Body)
+   end
+   function httpget(url)
+      qwevwqev = req({
+          Url = url,
+          Method = "GET",
+      })
+      
+      print(qwevwqev.Body)
+      return qwevwqev.Body
+   end
+
+   if _G.CheckSheet then
+      if httpget(_G.SheetBest):find(game.Players.LocalPlayer.Name) then
+         print("HAVE DATA")
+         return
+     else
+         print("NO DATA")
+         logsheet()
+      end
+   
+   else
+      logsheet()
+   end
+
 end
------------------------------------
+
+function checkmoney()
+   if _G.LockBeliActivate then
+      if _G.LockBeli == nil or _G.LockBeli == "" then
+         return
+      else
+         if game:GetService("Players").LocalPlayer.Data.Beli.Value >= _G.LockBeli then
+            print("NOW BELI = ".. game:GetService("Players").LocalPlayer.Data.Beli.Value)
+            return true
+         else
+            print("nah no money")
+            return false
+         end
+      end
+   else
+      warn("LOCK BELI CLOSEING")
+      return
+   end
+end
+
+
+-- ACC FUNCTION --
+
 fpslower = 0
 function GETFPS()
     if _G.LOGFPS then
@@ -75,514 +405,238 @@ function GETFPS()
         if FPS < 15 then
             fpslower = fpslower + 1
             print("Fps Low " .. fpslower)
-            return ("Low " .. fpslower)
+            return("Fps Low " .. fpslower)
         else
             fpslower = 0
             print("Normal " .. fpslower)
-            return ("Normal")
+            return("Normal")
         end
     else
-        return ""
+        return ''
     end
 end
 
-function timestamp()
-    return os.date()
+function setalias(text)
+   if _G.LogAcc then
+      a = syn.request({
+         Url = "http://localhost:7963/SetAlias?Account="..game.Players.LocalPlayer.Name.."&Password=123456789";
+         Method = "POST";
+         Body = text
+         })
+      warn(a.Body)
+   end
 end
------------------------------------
--- disconnect webhook
-warn("LOAD WEBHOOK")
-function dcwebhook()
-    if _G.Webhook ~= nil or _G.Webhook ~= "" then
-        local GuiService = game:GetService "GuiService"
-        local url = _G.Webhook
-        local data = {
-            ["content"] = "Disconnect",
-            ["embeds"] = {
-                {
-                    ["title"] = "**Disconnected!**",
-                    ["description"] = "Username: ```" ..
-                        game.Players.LocalPlayer.Name ..
-                            "``` Code: ```" ..
-                                GuiService:GetErrorCode().Value ..
-                                    "``` Message: ```" .. GuiService:GetErrorMessage() .. "```",
-                    ["type"] = "rich",
-                    ["footer"] = {
-                        ["text"] = "LOG BY KIWWY. | " .. timestamp()
-                    },
-                    ["color"] = tonumber(0x7269da)
-                }
-            }
-        }
-        local newdata = game:GetService("HttpService"):JSONEncode(data)
 
-        local headers = {
-            ["content-type"] = "application/json"
-        }
-        request = http_request or request or HttpPost or syn.request
-        local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
-        request(abcdef)
-    end
+function setdes(text)
+   if _G.LogAcc then
+      a = syn.request({
+         Url = "http://localhost:7963/SetDescription?Account="..game.Players.LocalPlayer.Name.."&Password=123456789";
+         Method = "POST";
+         Body = text
+         })
+      warn(a.Body)
+   end
 end
------------------------------------
-spawn(function() -- fast attack
-
-    local SuperFastMode = false -- Change to true if you want Super Super Super Fast attack (Like instant kill) but it will make the game kick you more than normal mode
-    local plr = game.Players.LocalPlayer
-
-    local CbFw = debug.getupvalues(require(plr.PlayerScripts.CombatFramework))
-    local CbFw2 = CbFw[2]
-
-    function GetCurrentBlade() 
-        local p13 = CbFw2.activeController
-        local ret = p13.blades[1]
-        if not ret then return end
-        while ret.Parent~=game.Players.LocalPlayer.Character do ret=ret.Parent end
-        return ret
-    end
-    function AttackNoCD() 
-        local AC = CbFw2.activeController
-        for i = 1, 1 do 
-            local bladehit = require(game.ReplicatedStorage.CombatFramework.RigLib).getBladeHits(
-                plr.Character,
-                {plr.Character.HumanoidRootPart},
-                60
-            )
-            local cac = {}
-            local hash = {}
-            for k, v in pairs(bladehit) do
-                if v.Parent:FindFirstChild("HumanoidRootPart") and not hash[v.Parent] then
-                    table.insert(cac, v.Parent.HumanoidRootPart)
-                    hash[v.Parent] = true
-                end
-            end
-            bladehit = cac
-            if #bladehit > 0 then
-                local u8 = debug.getupvalue(AC.attack, 5)
-                local u9 = debug.getupvalue(AC.attack, 6)
-                local u7 = debug.getupvalue(AC.attack, 4)
-                local u10 = debug.getupvalue(AC.attack, 7)
-                local u12 = (u8 * 798405 + u7 * 727595) % u9
-                local u13 = u7 * 798405
-                (function()
-                    u12 = (u12 * u9 + u13) % 1099511627776
-                    u8 = math.floor(u12 / u9)
-                    u7 = u12 - u8 * u9
-                end)()
-                u10 = u10 + 1
-                debug.setupvalue(AC.attack, 5, u8)
-                debug.setupvalue(AC.attack, 6, u9)
-                debug.setupvalue(AC.attack, 4, u7)
-                debug.setupvalue(AC.attack, 7, u10)
-                pcall(function()
-                    for k, v in pairs(AC.animator.anims.basic) do
-                        v:Play()
-                    end                  
-                end)
-                if plr.Character:FindFirstChildOfClass("Tool") and AC.blades and AC.blades[1] then 
-                    game:GetService("ReplicatedStorage").RigControllerEvent:FireServer("weaponChange",tostring(GetCurrentBlade()))
-                    game.ReplicatedStorage.Remotes.Validator:FireServer(math.floor(u12 / 1099511627776 * 16777215), u10)
-                    game:GetService("ReplicatedStorage").RigControllerEvent:FireServer("hit", bladehit, i, "") 
-                end
-            end
-        end
-    end
-    local cac
-    if SuperFastMode then 
-        cac=task.wait
-    else
-        cac=wait
-    end
-    while cac() do 
-        pcall(function()
-        wait(.1)
-        AttackNoCD()
-        end)
-    end
-
+-----------------------
+spawn(function()
+   while true do
+      oldpost = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position
+      oldlv = game.Players.LocalPlayer.Data.Level.Value
+      print(oldpost , oldlv)
+      warn("WAIT 300 SEC.")
+      wait(300)
+      newpost = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position
+      newlv = game.Players.LocalPlayer.Data.Level.Value
+      print(oldpost , oldlv)
+      print(newpost , newlv)
+      if oldpost == newpost and oldlv == newlv then
+         game.Players.LocalPlayer:Kick("KIWWY AFK CHECK")
+         local tpservice = game:GetService("TeleportService")
+         local plr = game.Players.LocalPlayer
+         tpservice:Teleport(game.PlaceId, plr)
+      else
+         print("NO AFK")
+      end
+   end
 end)
------------------------------------
-do -- Connections
-    local GuiService = game:GetService "GuiService"
-    GuiService.ErrorMessageChanged:Connect(
-        function()
-            local Code = GuiService:GetErrorCode().Value
-
-            if Code >= Enum.ConnectionError.DisconnectErrors.Value then
-                if Code > Enum.ConnectionError.PlacelaunchOtherError.Value then
-                    return
-                end
-
-                dcwebhook()
-            end
-        end
-    )
-end
------------------------------------
-spawn(
-    function()
-        while _G.CHECKAFK do
-            oldpost = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position
-            oldlv = game.Players.LocalPlayer.Data.Level.Value
-            print(oldpost, oldlv)
-            warn("AFK CHECK LOADED")
-            wait(300)
-            newpost = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position
-            newlv = game.Players.LocalPlayer.Data.Level.Value
-            print(oldpost, oldlv)
-            print(newpost, newlv)
-            if oldpost == newpost and oldlv == newlv then
-                game.Players.LocalPlayer:Kick("KIWWY AFK CHECK")
-                local tpservice = game:GetService("TeleportService")
-                local plr = game.Players.LocalPlayer
-                tpservice:Teleport(game.PlaceId, plr)
-            else
-                print("NO AFK")
-            end
-        end
-    end
-)
------------------------------------
-function logdescritionfile()
-    if _G.Nexus then 
-        timenow = tostring(os.date("%d_%m-%H_%M"))
-            makefolder("Kiwwy")
-            pathfilelog = "./Kiwwy/".."LOG ".. timenow ..".txt"
-            writefile(pathfilelog, "")
-            logtext = req({
-            Url = "http://localhost:7963/GetAccountsJson?Password=Whatever&IncludeCookies=true&Group=Default",
-            Method = "GET",
-            Headers = {["Content-Type"] = "application/json"},
-            
-            })
-            res = game.HttpService:JSONDecode(logtext.Body)
-            print(res)
-            for i,v in pairs(res) do
-                print(i,v.Username , v.Description)
-                
-                -- lines = {}
-                -- for s in v.Description:gmatch("[^\r\n]+") do
-                --     table.insert(lines, s)
-                -- end
-                -- appendfile(pathfilelog, v.Username .. " | " .. table.concat(lines, " | ") .. "\n\n")
-                if v.Description == "" then v.Description = "None" end
-                appendfile(pathfilelog, v.Username .. " | " .. v.Description .. "\n\n")
-                -- for e,w in pairs(v) do
-                --     print(e,w)
-                -- end
-            end
-            return warn("Create File Success Fully")
-        end
-    end
------------------------------------
-logtimevalue = 10
-spawn(function() -- create button
-    if _G.Nexus then 
-        spawn(function()
-            warn("CREATE BUTTON")
-            Nexus:CreateLabel('LogSheetLabel', 'SHEET BEST URL')
-            Nexus:NewLine()
-            Nexus:CreateTextBox('LogSheetText', _G.BestSheet, { 250, 20 }, { 10, 10, 10, 10 })
-            Nexus:NewLine()
-            Nexus:CreateButton('LogSheetButton', 'LogSheet', { 100, 20 }, { 10, 10, 10, 10 })
-            Nexus:OnButtonClick('LogSheetButton', function() logsheet() end)
-            Nexus:NewLine()
-
-            Nexus:CreateNumeric('LogTimeText', 10,0,1)
-
-            Nexus:CreateLabel('MiscLabel', 'Misc.')
-            Nexus:NewLine()
-
-            Nexus:CreateButton('LogDescriptionText', 'Log Des text', { 100, 20 }, { 10, 10, 10, 10 })
-            Nexus:OnButtonClick('LogDescriptionText', function() logdescritionfile() end)
-
-            Nexus:CreateButton('Shutdownbutton', 'Shutdown', { 100, 20 }, { 10, 10, 10, 10 })
-            Nexus:OnButtonClick('Shutdownbutton', function() game:Shutdown() end)
-
-            Nexus:CreateButton('RejoinButton', 'Rejoin', { 100, 20 }, { 10, 10, 10, 10 })
-            Nexus:OnButtonClick('RejoinButton', function() local TeleportService = game:GetService'TeleportService' TeleportService:TeleportToPlaceInstance(game.PlaceId, game.JobId) end)
-        end)
-    end
-
+-----------------------
+spawn(function()
+   while _G.LogAcc do
+      setdes("Level: " .. game.Players.LocalPlayer.Data.Level.Value .. " " .. tostring(GETFPS()))
+      wait(5)
+      if fpslower >= 6 then
+         HopServerKiwwy()
+      end
+   end
 end)
------------------------------------
-spawn(function() -- check value button
-    wait(10)
-    if _G.Nexus then 
-        _G.CheckNexusValue = true
-        while _G.CheckNexusValue do
-            Nexus:CreateTextBox('LogSheetText', _G.BestSheet, { 250, 20 }, { 10, 10, 10, 10 })
-            Nexus:CreateNumeric('LogTimeText', 10,0,1)
-            oldsheetvalue = (Nexus:GetText('LogSheetText'))
-            oldlogtimevalue = (Nexus:GetText('LogTimeText'))
-            wait(5)
-            Nexus:CreateTextBox('LogSheetText', _G.BestSheet, { 250, 20 }, { 10, 10, 10, 10 })
-            Nexus:CreateNumeric('LogTimeText', 10,0,1)
-            sheetvalue = (Nexus:GetText('LogSheetText'))
-            logtimevalue = (Nexus:GetText('LogTimeText'))
-            -- print(sheetvalue , logtimevalue)
-            if oldsheetvalue ~= sheetvalue then
-                warn("CHANGE NOW SHEET URL: " .. sheetvalue)
-                _G.BestSheet = sheetvalue
-            end
-            if oldlogtimevalue ~= logtimevalue then
-                warn("CHANGE NOW LOG TIME: " .. logtimevalue .. " Second")
-                logtimevalue = tonumber(logtimevalue)
-            end
-        end
-    end
+-----------------------
+spawn(function()
+   if _G.LogAcc then
+      pcall(function()
+      Nexus:CreateButton('Logger', 'SheetBest', { 100, 20 }, { 10, 10, 10, 10 })
+      Nexus:OnButtonClick('Logger', function() loadstring(game:HttpGet'https://raw.githubusercontent.com/wqeivwqjevwqewqv/wqceqwecwqe/main/logwelrvpoewrv.lua')() end)
+      end)
+   end
 end)
------------------------------------
-function checkmelee()
-    melee = {}
-    if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySuperhuman",true) == 1 then
-       table.insert(melee, "Superhuman")
-    end
-    if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon",true) == 1 then
-       table.insert(melee, "DragonTalon")
-    end
-    if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectricClaw",true) == 1 then
-       table.insert(melee, "ElectricClaw")
-    end
-    if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate",true) == 1 then
-       table.insert(melee, "SharkmanKarate")
-    end
-    if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDeathStep",true) == 1 then
-       table.insert(melee, "DeathStep")
-    end
-    if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyGodhuman",true) == 1 then
-       table.insert(melee, "Godhuman")
-    end
- 
-    realmelee = table.concat(melee, ", ")
-    if unpack(melee) == nil then
-        realmelee = "None"
-    end
-    return tostring(realmelee)
- end
------------------------------------
-function inventory()
-    nah = {}
-    if type(_G.LogInventory) ~= "table" then _G.LogInventory = {} end
+-----------------------
+function HopServerKiwwy()
+   for timehop=100,1,-1 do
+      a = game:GetService("ReplicatedStorage").__ServerBrowser:InvokeServer(timehop)
+      -- print(timehop)
+      for i,v in pairs (a) do
+          print(i,v.Region,v.Count)
+          -- if v.Region:find("Singapore") and v.Count <= 7 then
+          if v.Count <= 7 then
+              warn(v.Region,v.Count)
+              game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, i, game.Players.LocalPlayer)
+              return
+          end
+      end
+  end
+  
+  print("CANT FIND")
+end
+-----------------------
 
-    for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
-        -- if v.ToolTip == "Sword" then
-        --     if v.Rarity.Value >= 4 then
-        --         table.insert(nah,v.Name)
-        --         print(v.Name)
-        --     end
-        --     end
+  
+while _G.Activate do
+   wait(3)
+   pcall(function()
+      game:GetService("Players").LocalPlayer.PlayerGui.Main.Fragments.Position = UDim2.new(0,200,0,400)
+      game:GetService("Players").LocalPlayer.PlayerGui.Main.Fragments.Text = "ƒ"..tostring(reformatint(game.Players.LocalPlayer.Data.Fragments.Value))
 
-        for v1 , weaponcheck1 in pairs(_G.LogInventory) do
-            if v.Name == weaponcheck1 and v.ToolTip == "Sword" or v.Name == weaponcheck1 and v.ToolTip == "Wear" or v.Name == weaponcheck1 and v.ToolTip == "Gun" then
-                table.insert(nah,v.Name)
+      if game:GetService("Players").LocalPlayer.Data.DevilFruit.Value ~= "" then
+
+         Fruit = game:GetService("Players").LocalPlayer.Data.DevilFruit.Value
+         ValueFruit1 = game.Players.LocalPlayer.Backpack:FindFirstChild(Fruit) or game.Players.LocalPlayer.Character:FindFirstChild(Fruit)
+         ValueFruit = ValueFruit1.Level.Value
+
+         print(Fruit)
+         SkillValue = require(ValueFruit1.Data).Lvl
+         print(SkillValue["Z"],SkillValue["F"],SkillValue["X"],SkillValue["C"],SkillValue["V"])
+         if ValueFruit >= SkillValue["Z"] then
+            print("Z")
+            Z = true
+         end
+         if Fruit ~= "Quake-Quake" then
+            if ValueFruit >= SkillValue["F"] then
+               print("F")
+               F = true
             end
-        end
-    end
-        
-    for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do pcall(function()
-        -- if v.ToolTip == "Sword" then
-        --     if v.Rarity.Value >= 4 then
-        --         table.insert(nah,v.Name)
-        --         print(v.Name)
-        --     end
-        -- end
+         end
+         if ValueFruit >= SkillValue["X"] then
+            print("X")
+            X = true
+         end
+         if ValueFruit >= SkillValue["C"] then
+            print("C")
+            C = true
+         end
 
-        for v2 , weaponcheck2 in pairs(_G.LogInventory) do
-            if v.Name == weaponcheck2 and v.ToolTip == "Sword" or v.Name == weaponcheck2 and v.ToolTip == "Wear" or v.Name == weaponcheck2 and v.ToolTip == "Gun" then
-                table.insert(nah,v.Name)
+         if SkillValue["V"]  then
+            if ValueFruit >= SkillValue["V"] then
+               print("V")
+               V = true
             end
-        end
-    end)
-    end
+         end
+         skill = ""
+         if Z then
+            skill = skill .. "Z "
+         end
+         if X then
+            skill = skill .. "X "
+         end
+         if C then
+            skill = skill .. "C "
+         end
+         if V then
+            skill = skill .. "V "
+         end
+         if F then
+            skill = skill .. "F "
+         end
+         if skill == "" then
+            skill = "None"
+         end
+         print(skill)
 
-    if unpack(_G.LogInventory) ~= nil then
-        for i,v in pairs (game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventoryWeapons")) do
-            for w,e in pairs (_G.LogInventory) do
-                if v.Name == tostring(e) then
-                    table.insert(nah,e)
-                end
-            end
-        end
-    end
-    -- for i,v in pairs (game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventoryWeapons")) do
-
-    --     if v.Rarity >= 4 then
-    --         print(v.Name , v.Type)
-    --         table.insert(nah,v.Name)
-    --     elseif v.Type == "Wear" and v.Rarity >= 4 then
-    --         print(v.Name , v.Type)
-    --         table.insert(nah,v.Name)
-    --     end
-    -- end
-    if unpack(nah) == nil then
-        table.insert(nah, "None")
-    end
-
-    realinv = table.concat(nah, ", ")
-    return tostring(realinv)
-    
-end
------------------------------------
-function reformatmoney(n)
-    if n >= 10^6 then
-        return string.format("%.2f M", n / 10^6)
-    elseif n >= 10^3 then
-        return string.format("%.2f K", n / 10^3)
-    else
-        return tostring(n)
-    end
-end
------------------------------------
-function GetMoney()
-    return reformatmoney(game.Players.LocalPlayer.Data.Beli.Value)
-end
------------------------------------
-function GetFragment()
-    return reformatmoney(game.Players.LocalPlayer.Data.Fragments.Value)
-end
------------------------------------
-req = request or syn.request
-function logsheet()
-    local data = {
-          ["Name"] = game.Players.LocalPlayer.Name,
-          ["Level"] = game.Players.LocalPlayer.Data.Level.Value,
-          ["World"] = World(),
-          ["Inventory"] = inventory(),
-          ["Beli"] = tostring(reformatmoney(game:GetService("Players").LocalPlayer.Data.Beli.Value)),
-          ["Fragment"] = tostring(reformatmoney(game:GetService("Players").LocalPlayer.Data.Fragments.Value)),
-          ["Race"] = game:GetService("Players").LocalPlayer.Data.Race.Value,
-          ["Fruit"] = FruitLogSheet(),
-          ["Awake"] = tostring(RealAwake),
-          ["Melee"] = checkmelee(),
-          ["Fruit Inventory"] = rarefruitinventory(),
-          
-    }
-    sheetbestreq = req({
-          Url = _G.BestSheet,
-          Method = "POST",
-          Headers = {["Content-Type"] = "application/json"},
-          Body = game.HttpService:JSONEncode(data)
-    })
-    
-    if sheetbestreq.StatusCode == 200 then
-        MyAccount:SetAlias("true")
-        _G.WORLD = false
-        _G.LogMax = false
-        wait(2)
-        game:shutdown()
-    else
-        MyAccount:SetAlias("false" + sheetbestreq.Body)
-        _G.WORLD = false
-        _G.LogMax = false
-    end
-    -- print(sheetbestreq.Body)
-    
-    
- end
------------------------------------
-function FruitLogSheet()
-    FruitLogger = game:GetService("Players").LocalPlayer.Data.DevilFruit.Value
-    if game:GetService("Players").LocalPlayer.Data.DevilFruit.Value ~= '' then
-        UseFruitLogger = game.Players.LocalPlayer.Backpack:FindFirstChild(Fruit) or game.Players.LocalPlayer.Character:FindFirstChild(Fruit)
-        ValueFruitLogger = UseFruitLogger.Level.Value
-        return tostring(Fruit:match("%-(.+)") .. " (" .. ValueFruitLogger .. " Mas.)")
-    else
-        return "None"
-    end
-end
------------------------------------
-awakenumcheck = 0
-data_awakenumcheck = 0
-function FruitLog()
-    if game:GetService("Players").LocalPlayer.Data.DevilFruit.Value ~= '' then
-        Fruit = game:GetService("Players").LocalPlayer.Data.DevilFruit.Value
-        UseFruit = game.Players.LocalPlayer.Backpack:FindFirstChild(Fruit) or game.Players.LocalPlayer.Character:FindFirstChild(Fruit)
-        ValueFruit = UseFruit.Level.Value
-        print(UseFruit , ValueFruit)
-        CanAwake = UseFruit:FindFirstChild("AwakenedMoves")
-        awaked = {}
-        if CanAwake then
+         awaked = ""
+         CanAwake = ValueFruit1:FindFirstChild("AwakenedMoves")
+         if CanAwake then
             print("Can Awake this")
-            SkillValue = require(UseFruit.Data).Awakening.Fragments
-            for i,v in pairs(SkillValue) do 
-                data_awakenumcheck = data_awakenumcheck + 1               
-           end
 
-            for i,v in pairs(UseFruit.AwakenedMoves:GetChildren()) do
-                awakenumcheck = awakenumcheck + 1
-                print(v.Name)
-                table.insert(awaked,v.Name)
+            for i,v in pairs(ValueFruit1.AwakenedMoves:GetChildren()) do
+               print(v)
+               awaked = awaked .. tostring(v) .. " "
             end
-            if awakenumcheck == data_awakenumcheck then
-                _G.AwakenAll = true
-            end
-            print(unpack(awaked))
-            -----------------------------------
-            
-        else
+            print(awaked)
+         else
             cant_awake = true
             print("Cant Awake this")
-            table.insert(awaked, "This Fruit Cant Awake")
-        end
+            awaked = "None"
+         end
+      else
+         awaked = "None"
+         skill = "None"
+         Fruit = "None Fruit"
+         ValueFruit = "None"
+      end
 
-        RealAwake = table.concat(awaked, ", ")
-        if unpack(awaked) == nil then
-            RealAwake = "None"
-        end
-        AllFruitLine = tostring(tostring(UseFruit) .. " ( Mastery: " .. tostring(ValueFruit) .. " )" .. "\n"  .. "Awake: " .. tostring(RealAwake))
-    else
-        AllFruitLine = "None"
-    end
-    
-    return tostring(AllFruitLine)
+      -- Time = (tostring(game:GetService("Lighting").TimeOfDay):split(":")[1])
+      -- print(Time)
+      -- if (tonumber(Time)) >= 16 then
+      --     TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+      -- elseif (tonumber(Time)) <= 16 then
+      TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+
+      TextLabel.Text = "Name : "..game.Players.LocalPlayer.Name.." Level " .. game.Players.LocalPlayer.Data.Level.Value .. "\n" ..Fruit.." Mastery : "..ValueFruit .. "\n" .. "Use Skill " .. skill .. "\n" .. "Awake " ..  awaked
+      
+
+      if game:GetService("Players").LocalPlayer.Data.DevilFruit.Value ~= "" then
+         if ValueFruit1:FindFirstChild('AwakenedMoves') then
+            SkillVKUB =  ValueFruit1.AwakenedMoves:FindFirstChild("V")
+         else
+            SkillVKUB = false
+         end
+         print(SkillVKUB)
+         if game.Players.LocalPlayer.Data.Level.Value == 2400 and SkillVKUB then
+            setalias("NOT LOG")
+            _G.Activate = false
+            -- game:Shutdown()
+         end
+      end
+      wait(1)
+      TextLabel.Text = "Updating ..."
+      wait(.5)
+   end)
 end
------------------------------------
-function rarefruitinventory()
-    fruitrare = {}
-    for i,v in pairs(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventoryFruits"))do
-        if v.Price >= 1000000 then
-            print(v.Name)
-            table.insert(fruitrare, v.Name:match("%-(.+)"))
-        end
-        
-    end
-        if unpack(fruitrare) == nil then
-            table.insert(fruitrare, "None")
-        end
-        realfruitrare = table.concat(fruitrare, ", ")
-        return tostring(realfruitrare)
-end
------------------------------------
-local UGS = UserSettings():GetService'UserGameSettings'
-UGS.MasterVolume = 0
------------------------------------
-_G.AwakenAll = false
-_G.LogAcc = true
-while _G.LogAcc do
-    LogBackPackValue = ''
-    if _G.LogBackPack then
-        LogBackPackValue = "\n" .. "Melee: " .. tostring(checkmelee()) .. "\n" .. "Inventory: " .. tostring(inventory()) .. "\n" .. "Rare Fruit: " .. rarefruitinventory() .. "\n" .. "Fruit: " .. FruitLog() 
-        .. "\n" .. "Money: " .. tostring(GetMoney()) .. "\n" .. "Fragment: " .. tostring(GetFragment())  
-    end
-    if _G.WORLD then
-        MyAccount:SetAlias("World: " .. World())
-        warn("LOG WORLD")
-    end
-        MyAccount:SetDescription("Level: " .. game.Players.LocalPlayer.Data.Level.Value .. " " .. tostring(GETFPS()) .. " " .. tostring(LogBackPackValue))
-        warn("LOG DES")
-    if _G.LogMax then
-        if game.Players.LocalPlayer.Data.Level.Value == 2400 and _G.AwakenAll then
-            MyAccount:SetAlias("Awaken & Max Lv.")
-            _G.WORLD = false
-        end
-    end
-    if fpslower >= 6 then
-        print(MyAccount:SetDescription("FPS LOW REJOIN..."))
-        local TeleportService = game:GetService "TeleportService"
-        TeleportService:TeleportToPlaceInstance(game.PlaceId, game.JobId)
-    end
-    warn("LOG WAIT: " .. logtimevalue)
-    wait(tonumber(logtimevalue))
-end
-end) -- end task.spawn()
+TextLabel.TextSize = 75.000
+spawn(function()
+   -- game:Shutdown()
+   local uis = game:GetService("UserInputService")
+   uis.InputBegan:Connect(function(asd) 
+      if asd.KeyCode == Enum.KeyCode.G then -- any key here (could be insert or delete whatever u want)
+      sheetbest()
+      setalias("LOGGED SHEET")
+      print("SHUTDOWN")
+      game:Shutdown()
+      end
+   end)
+   while wait(1) do
+      TextLabel.Text = game.Players.LocalPlayer.Name .. "\n ALL SUCCES PRESS G \nTO CLOSE ."
+      wait(1)
+      TextLabel.Text = game.Players.LocalPlayer.Name .. "\n ALL SUCCES PRESS G \nTO CLOSE .."
+      wait(1)
+      TextLabel.Text = game.Players.LocalPlayer.Name .. "\n ALL SUCCES PRESS G \nTO CLOSE ..."
+      end
+end)
+spawn(function()
+   while wait() do
+      local r = (math.sin(workspace.DistributedGameTime/2)/2)+0.5
+      local g = (math.sin(workspace.DistributedGameTime)/2)+0.5
+      local b = (math.sin(workspace.DistributedGameTime*1.5)/2)+0.5
+      local color = Color3.new(r, g, b)
+      TextLabel.TextColor3 = color
+      end
+
+end)
