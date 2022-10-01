@@ -1,7 +1,7 @@
 _G.BestSheet = "https://sheet.best/api/sheets/becff129-d8b7-4414-a3c9-46d00b073b42"
 _G.Nexus = true
 _G.LogMax = true
-_G.Webhook ="https://discord.com/api/webhooks/964205206877376512/9GL652bqMADDg0iMRn4zAGYaoi1TrJU6U6pnSxkQJnPjTePTYaOH0AhJQo74d5sFcZFO"
+_G.Webhook ="https://discord.com/api/webhooks/1021833011219681420/LmiTzgY1MMw7MV19NgfBwpnOTfq1eZbKSzcTmy0dJ-TgnUj4wX8P_wOh7H1cI11OKINJ"
 _G.LOGFPS = true
 _G.CHECKAFK = true
 _G.WORLD = true
