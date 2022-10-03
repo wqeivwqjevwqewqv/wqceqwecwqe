@@ -358,36 +358,6 @@ function checkmelee()
     end
     return tostring(realmelee)
  end
-
-
-function checkmeleelog()
-    meleelog = {}
-    if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySuperhuman",true) == 1 then
-        table.insert(meleelog, "Superhuman")
-    end
-    if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon",true) == 1 then
-        table.insert(meleelog, "DragonTalon")
-    end
-    if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectricClaw",true) == 1 then
-        table.insert(meleelog, "ElectricClaw")
-    end
-    if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate",true) == 1 then
-        table.insert(meleelog, "SharkmanKarate")
-    end
-    if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDeathStep",true) == 1 then
-        table.insert(meleelog, "DeathStep")
-    end
-    if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyGodhuman",true) == 1 then
-        table.insert(meleelog, "Godhuman")
-    end
-
-    realmeleelog = table.concat(meleelog, ", ")
-    if unpack(melee) == nil then
-        realmeleelog = "None"
-    end
-    return tostring(realmeleelog)
-end
-
 -----------------------------------
 function inventory()
     nah = {}
@@ -472,6 +442,8 @@ end
 -----------------------------------
 req = request or syn.request
 function logsheet()
+    _G.LogAcc = false
+
     local data = {
           ["Name"] = game.Players.LocalPlayer.Name,
           ["Level"] = game.Players.LocalPlayer.Data.Level.Value,
@@ -482,7 +454,7 @@ function logsheet()
           ["Race"] = game:GetService("Players").LocalPlayer.Data.Race.Value,
           ["Fruit"] = FruitLogSheet(),
           ["Awake"] = tostring(RealAwake),
-          ["Melee"] = checkmeleelog(),
+          ["Melee"] = checkmelee(),
           ["Fruit Inventory"] = rarefruitinventory(),
           
     }
