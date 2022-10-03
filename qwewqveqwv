@@ -195,7 +195,6 @@ spawn(function() -- fast attack
     end
     while cac() do 
         pcall(function()
-        wait(.1)
         AttackNoCD()
         end)
     end
@@ -443,7 +442,7 @@ end
 req = request or syn.request
 function logsheet()
     _G.LogAcc = false
-
+    
     local data = {
           ["Name"] = game.Players.LocalPlayer.Name,
           ["Level"] = game.Players.LocalPlayer.Data.Level.Value,
