@@ -46,8 +46,6 @@ warn("SCRIPT LOADED")
     -- end)
 
 -- end
-
-wait(5)
 -----------------------------------
 local RAMAccount = loadstring(game:HttpGet("https://raw.githubusercontent.com/ic3w0lf22/Roblox-Account-Manager/master/RAMAccount.lua"))()
 local MyAccount = RAMAccount.new(game.Players.LocalPlayer.Name)
@@ -300,7 +298,7 @@ if _G.Nexus then
         Nexus:CreateTextBox('LogSheetText', _G.BestSheet, { 250, 20 }, { 10, 10, 10, 10 })
         Nexus:NewLine()
         Nexus:CreateButton('LogSheetButton', 'LogSheet', { 100, 20 }, { 10, 10, 10, 10 })
-        Nexus:OnButtonClick('LogSheetButton', function() logsheet() end)
+        Nexus:OnButtonClick('LogSheetButton', function() print('press log') logsheet() end)
         Nexus:NewLine()
 
         Nexus:CreateNumeric('LogTimeText', 10,0,1)
@@ -481,7 +479,9 @@ function logsheet()
           Headers = {["Content-Type"] = "application/json"},
           Body = game.HttpService:JSONEncode(data)
     })
-    
+    print(sheetbestreq.Body , sheetbestreq.StatusCode)
+    local RAMAccount = loadstring(game:HttpGet("https://raw.githubusercontent.com/ic3w0lf22/Roblox-Account-Manager/master/RAMAccount.lua"))()
+    local MyAccount = RAMAccount.new(game.Players.LocalPlayer.Name)
     if sheetbestreq.StatusCode == 200 then
         MyAccount:SetAlias("true")
         _G.WORLD = false
@@ -489,7 +489,7 @@ function logsheet()
         wait(5)
         game:shutdown()
     else
-        MyAccount:SetAlias("false" + sheetbestreq.Body)
+        MyAccount:SetAlias("false " .. sheetbestreq.Body)
         _G.WORLD = false
         _G.LogMax = false
     end
