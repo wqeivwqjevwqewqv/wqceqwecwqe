@@ -374,42 +374,42 @@ function checkmelee()
  end
 -----------------------------------
 function checkmeleelog()
-Item_Punch = {}
-local Punch_Sup = game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySuperhuman",true)
-local Punch_Dragon = game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon",true)
-local Punch_Ele = game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectricClaw",true)
-local Punch_Shark = game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate",true)
-local Punch_Death = game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDeathStep",true)
-local Punch_God = game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyGodhuman",true)
+    Item_Punch = {}
+    local Punch_Sup = game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySuperhuman",true)
+    local Punch_Dragon = game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon",true)
+    local Punch_Ele = game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectricClaw",true)
+    local Punch_Shark = game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate",true)
+    local Punch_Death = game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDeathStep",true)
+    local Punch_God = game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyGodhuman",true)
 
-if Punch_Sup == 1 then
-    table.insert(Item_Punch,"Superhuman")
-end
-if Punch_Dragon == 1 then
-    table.insert(Item_Punch,"DragonV2")
-end
-if Punch_Ele == 1 then
-    table.insert(Item_Punch,"ElectricV2")
-end
-if Punch_Shark == 1 then
-    table.insert(Item_Punch,"SharkMan")
-end
-if Punch_Death == 1 then
-    table.insert(Item_Punch,"DeathStepV2")
-end
-if Punch_God == 1 then
-    table.insert(Item_Punch,"Godhuman")
-end
-
-
+    if Punch_Sup == 1 then
+        table.insert(Item_Punch,"Superhuman")
+    end
+    if Punch_Dragon == 1 then
+        table.insert(Item_Punch,"DragonV2")
+    end
+    if Punch_Ele == 1 then
+        table.insert(Item_Punch,"ElectricV2")
+    end
+    if Punch_Shark == 1 then
+        table.insert(Item_Punch,"SharkMan")
+    end
+    if Punch_Death == 1 then
+        table.insert(Item_Punch,"DeathStepV2")
+    end
+    if Punch_God == 1 then
+        table.insert(Item_Punch,"Godhuman")
+    end
 
 
 
-realmeleelog = table.concat(Item_Punch, ", ")
-if unpack(realmeleelog) == nil then
-    realmeleelog = "None"
-end
-return tostring(realmeleelog)
+
+
+    realmeleelog = table.concat(Item_Punch, ", ")
+    if unpack(Item_Punch) == nil then
+        realmeleelog = "None"
+    end
+    return tostring(realmeleelog)
 end
 -----------------------------------
 function inventory()
