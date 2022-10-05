@@ -1,7 +1,7 @@
-_G.BestSheet = "https://sheet.best/api/sheets/becff129-d8b7-4414-a3c9-46d00b073b42"
+_G.BestSheet = "https://sheet.best/api/sheets/18a414a1-e1e5-47bb-8874-b4f609c2d959"
 _G.Nexus = true
 _G.LogMax = true
-_G.Webhook = "https://discord.com/api/webhooks/1021833011219681420/LmiTzgY1MMw7MV19NgfBwpnOTfq1eZbKSzcTmy0dJ-TgnUj4wX8P_wOh7H1cI11OKINJ"
+_G.Webhook = "https://discord.com/api/webhooks/1027338701656825997/THjDFT85DgynhXKi0dhjxtFgqgZJdIAt9O5G86pgzo8Y_f2B-Jkqa3_t-nIZhEmFlziU"
 _G.LOGFPS = true
 _G.CHECKAFK = true
 _G.WORLD = true
@@ -499,17 +499,20 @@ function logsheet()
     local RAMAccount = loadstring(game:HttpGet("https://raw.githubusercontent.com/ic3w0lf22/Roblox-Account-Manager/master/RAMAccount.lua"))()
     local MyAccount = RAMAccount.new(game.Players.LocalPlayer.Name)
     local data = {
-          ["Name"] = game.Players.LocalPlayer.Name,
+          ["Account"] = game.Players.LocalPlayer.Name,
           ["Level"] = game.Players.LocalPlayer.Data.Level.Value,
-          ["World"] = World(),
+          ["Melee"] = checkmeleelog(),
           ["Inventory"] = inventory(),
-          ["Beli"] = tostring(reformatmoney(game:GetService("Players").LocalPlayer.Data.Beli.Value)),
+          ["Fruit"] = tostring(FruitLog1Line),
+          ["RareFruit"] = rarefruitinventory(),
+          ["World"] = World(),
+          ["Money"] = tostring(reformatmoney(game:GetService("Players").LocalPlayer.Data.Beli.Value)),
           ["Fragment"] = tostring(reformatmoney(game:GetService("Players").LocalPlayer.Data.Fragments.Value)),
           ["Race"] = game:GetService("Players").LocalPlayer.Data.Race.Value,
-          ["Fruit"] = FruitLogSheet(),
-          ["Awake"] = tostring(RealAwake),
-          ["Melee"] = checkmeleelog(),
-          ["Fruit Inventory"] = rarefruitinventory(),
+
+          
+          
+          
           
     }
     sheetbestreq = req({
@@ -542,7 +545,7 @@ function FruitLogSheet()
     if game:GetService("Players").LocalPlayer.Data.DevilFruit.Value ~= '' then
         UseFruitLogger = game.Players.LocalPlayer.Backpack:FindFirstChild(Fruit) or game.Players.LocalPlayer.Character:FindFirstChild(Fruit)
         ValueFruitLogger = UseFruitLogger.Level.Value
-        return tostring(Fruit:match("%-(.+)") .. " (" .. ValueFruitLogger .. " Mas.)")
+        return tostring(Fruit:match("%-(.+)"))
     else
         return "None"
     end
@@ -586,6 +589,8 @@ function FruitLog()
         if unpack(awaked) == nil then
             RealAwake = "None"
         end
+        FruitLog1Line = tostring(tostring(FruitLogSheet()) .. " ( M: " .. tostring(ValueFruit) .. " | " .. "A: " .. tostring(awakenumcheck) .. " )")
+
         AllFruitLine = tostring(tostring(UseFruit) .. " ( Mastery: " .. tostring(ValueFruit) .. " )" .. "\n"  .. "Awake: " .. tostring(RealAwake))
     else
         AllFruitLine = "None"
