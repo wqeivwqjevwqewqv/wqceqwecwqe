@@ -535,7 +535,7 @@ function logsheet()
         _G.WORLD = false
         _G.LogMax = false
     end
-    -- print(sheetbestreq.Body)
+    print(sheetbestreq.Body)
     
     
  end
@@ -551,9 +551,9 @@ function FruitLogSheet()
     end
 end
 -----------------------------------
-awakenumcheck = 0
-data_awakenumcheck = 0
 function FruitLog()
+    awakenumcheck = 0
+    data_awakenumcheck = 0
     if game:GetService("Players").LocalPlayer.Data.DevilFruit.Value ~= '' then
         Fruit = game:GetService("Players").LocalPlayer.Data.DevilFruit.Value
         UseFruit = game.Players.LocalPlayer.Backpack:FindFirstChild(Fruit) or game.Players.LocalPlayer.Character:FindFirstChild(Fruit)
