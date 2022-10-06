@@ -573,6 +573,7 @@ function FruitLog()
                 -- print(v.Name)
                 table.insert(awaked,v.Name)
             end
+            print(awakenumcheck, data_awakenumcheck)
             if awakenumcheck == data_awakenumcheck then
                 _G.AwakenAll = true
             end
