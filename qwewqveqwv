@@ -220,7 +220,12 @@ function logdescritionfile()
     end
 -----------------------------------
 logtimevalue = 10
-if _G.Nexus then 
+if _G.Nexus then
+    warn("WAITING TO CONNECT NEXUS ...")
+    repeat task.wait() until game:IsLoaded() and Nexus
+    if not Nexus.IsConnected then Nexus.Connected:Wait() end
+    warn("CONNECTED NEXUS !")
+    Nexus.Commands.performance()
     spawn(function() -- create button
         warn("CREATE BUTTON")
         Nexus:CreateLabel('LogSheetLabel', 'SHEET BEST URL')
@@ -253,9 +258,43 @@ end
 
 -----------------------------------
 function blocknexus()
+
+    local function getToken(cookiegetcsrf)
+    
+        local authRes = req({
+            Url = "https://www.roblox.com/authentication/signoutfromallsessionsandreauthenticate",
+            Method = "POST",
+            Headers = {
+                ["content-type"] = "application/json",
+                ["user-agent"] = "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) discord/0.0.305 Chrome/69.0.3497.128 Electron/4.0.8 Safari/537.36",
+                ["cookie"] = ".ROBLOSECURITY="..cookiegetcsrf,
+            }
+        });
+        if authRes.Success then
+            return authRes.Headers["x-csrf-token"];
+        end;
+        local authRes2 = req({
+            Url = "https://auth.roblox.com/v1/account/pin",
+            Method = "GET",
+            Headers = {
+                ["content-type"] = "application/json",
+                ["user-agent"] = "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) discord/0.0.305 Chrome/69.0.3497.128 Electron/4.0.8 Safari/537.36",
+                ["cookie"] = ".ROBLOSECURITY="..cookiegetcsrf,
+                ["X-CSRF-TOKEN"] = authRes.Headers["x-csrf-token"]
+            }
+        });
+        if authRes2.Success then
+            return authRes.Headers["x-csrf-token"];
+        else
+            error("Incorrect Cookie")
+        end;
+    end;
+
     spawn(function()
         warn("Blocking .")
+        Nexus:Send('Log', { Content = 'Blocking .' })
         warn("Getting User ..")
+        Nexus:Send('Log', { Content = 'Getting User ..' })
         getuserrequest = req({
             Url = "http://localhost:7963/GetAccountsJson?Password=Whatever&IncludeCookies=true&Group=Default",
             Method = "GET",
@@ -264,38 +303,51 @@ function blocknexus()
             })
             resgetuser = game.HttpService:JSONDecode(getuserrequest.Body)
             useridlist = {}
-            usernamelist = {}
+            cookielist = {}
             for i,v in pairs(resgetuser) do
                 -- print(i,v.Username,v.UserId)
                 table.insert(useridlist, v.UserId)
-                table.insert(usernamelist, v.Username)
+                table.insert(cookielist, v.Cookie)
 
             end
         warn("Start Block ...")
-        for i,username in pairs(usernamelist) do
-            warn(username .. "Blocking wait 10 sec. to next queue .")
+        Nexus:Send('Log', { Content = 'Start Block ...' })
+        for i,cookie in pairs(cookielist) do
+            warn("Cookie" .. i .. " Blocking wait 10 sec. to next queue .")
+            Nexus:Send('Log', { Content = "Cookie" .. i .. " Blocking wait 10 sec. to next queue ." })
             spawn(function()
             for e,userid in pairs(useridlist) do
                 
             -- spawn(function()
-                    --   warn(username .. " block " .. userid)
+                    --   warn(username .. " block " .. userid) 
                     blockrequest = req({
-                            Url = "http://localhost:7963/BlockUser?Account="..username .. "&UserId=" .. userid,
-                            Method = "GET",
-                            Headers = {["Content-Type"] = "application/json"},
+                        Url = "https://accountsettings.roblox.com/v1/users/" .. userid .. "/block",
+                        Method = "POST",
+                        Cookies = {
+                            [".ROBLOSECURITY"] = cookie
+                        },
+                        Headers = {
+                            ["content-type"] = "application/json",
+                            ["user-agent"] = "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) discord/0.0.305 Chrome/69.0.3497.128 Electron/4.0.8 Safari/537.36",
+                            ["cookie"] = ".ROBLOSECURITY="..cookie,
+                            ["X-CSRF-Token"] = getToken(cookie)
+                        }
                             
                             })
                     -- print(blockrequest.Body)
                     -- print(blockrequest.StatusCode)
-                    if blockrequest.Body == '{}' and blockrequest.StatusCode == 200 then
-                        print("Success" , username .. " block " .. userid)
+                    if blockrequest.StatusCode == 200 then
+                        print("Success" .. " block " .. userid)
+                        Nexus:Send('Log', { Content = "Success" .. " block " .. userid })
                     else
-                        -- print("error" , blockrequest.StatusCode)
-                        resblock = game.HttpService:JSONDecode(blockrequest.Body)
+                        print("error" , blockrequest.Body , "block" , userid  )
+                        Nexus:Send('Log', { Content = "Error block ".. userid })
+                        -- resblock = game.HttpService:JSONDecode(blockrequest.Body)
                         -- print(resblock['errors'])
-                        for i,v in pairs(resblock['errors']) do
-                            print(v.message , username .. " block " .. userid )
-                        end
+                        -- for i,v in pairs(resblock['errors']) do
+                        --     print(v.message , username .. " block " .. userid )
+                            
+                        -- end
                     end
             wait(1)
             -- end)
@@ -303,6 +355,8 @@ function blocknexus()
         end)
         wait(10)
         end
+        warn("Block All Succesfully !")
+        Nexus:Send('Log', { Content = 'Block All Succesfully !' })
     end)
 end
 -----------------------------------
