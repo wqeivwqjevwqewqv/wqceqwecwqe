@@ -53,6 +53,7 @@ warn("[KIWWY SCRIPT] SCRIPT LOADED")
 
 -- end
 -----------------------------------
+warn("[KIWWY SCRIPT] TRYING TO CONNECT ACCOUNT MANAGER")
 local RAMAccount = loadstring(game:HttpGet("https://raw.githubusercontent.com/ic3w0lf22/Roblox-Account-Manager/master/RAMAccount.lua"))()
 local MyAccount = RAMAccount.new(game.Players.LocalPlayer.Name)
 wait(2)
@@ -259,7 +260,7 @@ end
 
 -----------------------------------
 function blocknexus()
-
+pcall(function()
     local function getToken(cookiegetcsrf)
     
         local authRes = req({
@@ -359,6 +360,7 @@ function blocknexus()
         warn("[KIWWY SCRIPT] Block All Succesfully !")
         Nexus:Send('Log', { Content = 'Block All Succesfully !' })
     end)
+end)
 end
 -----------------------------------
 if _G.Nexus then 
@@ -689,13 +691,13 @@ while _G.LogAcc do
     end
     if _G.WORLD then 
         MyAccount:SetAlias("World: " .. World())
-        warn("[KIWWY SCRIPT] LOG WORLD" , World())
+        warn("[KIWWY SCRIPT] LOG WORLD")
     end
-        LVNOW = tostring(game.Players.LocalPlayer.Data.Level.Value)
-        MyAccount:SetDescription("Level: " .. LVNOW , tostring(GETFPS()) , tostring(LogBackPackValue))
+        LVNOW = game.Players.LocalPlayer.Data.Level.Value
+        MyAccount:SetDescription("Level: " .. game.Players.LocalPlayer.Data.Level.Value .. " " .. tostring(GETFPS()) .. " " .. tostring(LogBackPackValue))
         warn("[KIWWY SCRIPT] LOG DESCRIPTION" , LVNOW)
     if _G.LogMax then
-        if LVNOW == 2400 and _G.AwakenAll then
+        if game.Players.LocalPlayer.Data.Level.Value == 2400 and _G.AwakenAll then
             MyAccount:SetAlias("Awaken & Max Lv.")
             _G.WORLD = false
         end
