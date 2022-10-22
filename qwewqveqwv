@@ -9,13 +9,13 @@ _G.LogBackPack = true
 _G.LogInventory = {"Tushita", "Dark Dagger", "Hallow Scythe", "Dark Coat", "True Triple Katana","Cursed Dual Katana"}
 
 if Loaded == true then
-    print("script loaded already!")
+    print("[KIWWY SCRIPT] script loaded already!")
     return
  end
 getgenv().Loaded = true
 
 task.spawn(function() -- start
-    repeat print("WAITING GAME LOAD") wait(1) until game:IsLoaded()
+    repeat print("[KIWWY SCRIPT] WAITING GAME LOAD") wait(1) until game:IsLoaded()
     if not game:IsLoaded() then game.Loaded:Wait() end
     repeat wait() until game.Players
     repeat wait() until game.Players.LocalPlayer
@@ -41,7 +41,7 @@ task.spawn(function() -- start
         until game.Players.LocalPlayer.Team ~= nil and game:IsLoaded() 
 
         -----------------------------------
-warn("SCRIPT LOADED")
+warn("[KIWWY SCRIPT] SCRIPT LOADED")
 -----------------------------------
 -- if _G.Nexus then  --load ram setting
 
@@ -71,7 +71,7 @@ function HopServerKiwwy()
             -- end
         end
     end
-        print("CANT FIND")
+        print("[KIWWY SCRIPT] CANT FIND")
     end
 
 -----------------------------------
@@ -112,7 +112,7 @@ function timestamp()
 end
 -----------------------------------
 -- disconnect webhook
-warn("LOAD WEBHOOK")
+warn("[KIWWY SCRIPT] LOAD WEBHOOK")
 function dcwebhook()
     if _G.Webhook ~= nil or _G.Webhook ~= "" then
         local GuiService = game:GetService "GuiService"
@@ -169,7 +169,7 @@ spawn(
             oldpost = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position
             oldlv = game.Players.LocalPlayer.Data.Level.Value
             -- print(oldpost, oldlv)
-            warn("AFK CHECK LOADED")
+            warn("[KIWWY SCRIPT] AFK CHECK LOADED")
             wait(300)
             newpost = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position
             newlv = game.Players.LocalPlayer.Data.Level.Value
@@ -181,7 +181,7 @@ spawn(
                 local plr = game.Players.LocalPlayer
                 tpservice:Teleport(game.PlaceId, plr)
             else
-                print("NO AFK")
+                print("[KIWWY SCRIPT] NO AFK")
             end
         end
     end
@@ -202,7 +202,7 @@ function logdescritionfile()
             res = game.HttpService:JSONDecode(logtext.Body)
             -- print(res)
             for i,v in pairs(res) do
-                print(i,v.Username , v.Description)
+                print("[KIWWY SCRIPT]",i,v.Username , v.Description)
                 
                 -- lines = {}
                 -- for s in v.Description:gmatch("[^\r\n]+") do
@@ -215,25 +215,26 @@ function logdescritionfile()
                 --     print(e,w)
                 -- end
             end
-            return warn("Create File Success Fully")
+            return warn("[KIWWY SCRIPT] Create File Success Fully")
         end
     end
 -----------------------------------
 logtimevalue = 10
 if _G.Nexus then
-    warn("WAITING TO CONNECT NEXUS ...")
+    warn("[KIWWY SCRIPT] WAITING TO CONNECT NEXUS ...")
+    MyAccount:SetDescription("WATING ACC CONTROL")
     repeat task.wait() until game:IsLoaded() and Nexus
     if not Nexus.IsConnected then Nexus.Connected:Wait() end
-    warn("CONNECTED NEXUS !")
-    Nexus.Commands.performance()
+    warn("[KIWWY SCRIPT] CONNECTED NEXUS !")
+    -- Nexus.Commands.performance()
     spawn(function() -- create button
-        warn("CREATE BUTTON")
+        warn("[KIWWY SCRIPT] CREATE BUTTON")
         Nexus:CreateLabel('LogSheetLabel', 'SHEET BEST URL')
         Nexus:NewLine()
         Nexus:CreateTextBox('LogSheetText', _G.BestSheet, { 250, 20 }, { 10, 10, 10, 10 })
         Nexus:NewLine()
         Nexus:CreateButton('LogSheetButton', 'LogSheet', { 100, 20 }, { 10, 10, 10, 10 })
-        Nexus:OnButtonClick('LogSheetButton', function() print('press log') logsheet() end)
+        Nexus:OnButtonClick('LogSheetButton', function() print('[KIWWY SCRIPT] press log') logsheet() end)
         Nexus:NewLine()
 
         Nexus:CreateNumeric('LogTimeText', 10,0,1)
@@ -291,9 +292,9 @@ function blocknexus()
     end;
 
     spawn(function()
-        warn("Blocking .")
+        warn("[KIWWY SCRIPT] Blocking .")
         Nexus:Send('Log', { Content = 'Blocking .' })
-        warn("Getting User ..")
+        warn("[KIWWY SCRIPT] Getting User ..")
         Nexus:Send('Log', { Content = 'Getting User ..' })
         getuserrequest = req({
             Url = "http://localhost:7963/GetAccountsJson?Password=Whatever&IncludeCookies=true&Group=Default",
@@ -310,10 +311,10 @@ function blocknexus()
                 table.insert(cookielist, v.Cookie)
 
             end
-        warn("Start Block ...")
+        warn("[KIWWY SCRIPT] Start Block ...")
         Nexus:Send('Log', { Content = 'Start Block ...' })
         for i,cookie in pairs(cookielist) do
-            warn("Cookie" .. i .. " Blocking wait 10 sec. to next queue .")
+            warn("[KIWWY SCRIPT] Cookie" .. i .. " Blocking wait 10 sec. to next queue .")
             Nexus:Send('Log', { Content = "Cookie" .. i .. " Blocking wait 10 sec. to next queue ." })
             spawn(function()
             for e,userid in pairs(useridlist) do
@@ -337,10 +338,10 @@ function blocknexus()
                     -- print(blockrequest.Body)
                     -- print(blockrequest.StatusCode)
                     if blockrequest.StatusCode == 200 then
-                        print("Success" .. " block " .. userid)
+                        print("[KIWWY SCRIPT] Success" .. " block " .. userid)
                         Nexus:Send('Log', { Content = "Success" .. " block " .. userid })
                     else
-                        print("error" , blockrequest.Body , "block" , userid  )
+                        print("[KIWWY SCRIPT] error" , blockrequest.Body , "block" , userid  )
                         Nexus:Send('Log', { Content = "Error block ".. userid })
                         -- resblock = game.HttpService:JSONDecode(blockrequest.Body)
                         -- print(resblock['errors'])
@@ -355,7 +356,7 @@ function blocknexus()
         end)
         wait(10)
         end
-        warn("Block All Succesfully !")
+        warn("[KIWWY SCRIPT] Block All Succesfully !")
         Nexus:Send('Log', { Content = 'Block All Succesfully !' })
     end)
 end
@@ -375,11 +376,11 @@ if _G.Nexus then
             logtimevalue = (Nexus:GetText('LogTimeText'))
             -- print(sheetvalue , logtimevalue)
             if oldsheetvalue ~= sheetvalue then
-                warn("CHANGE NOW SHEET URL: " .. sheetvalue)
+                warn("[KIWWY SCRIPT] CHANGE NOW SHEET URL: " .. sheetvalue)
                 _G.BestSheet = sheetvalue
             end
             if oldlogtimevalue ~= logtimevalue then
-                warn("CHANGE NOW LOG TIME: " .. logtimevalue .. " Second")
+                warn("[KIWWY SCRIPT] CHANGE NOW LOG TIME: " .. logtimevalue .. " Second")
                 logtimevalue = tonumber(logtimevalue)
             end
         end
@@ -388,6 +389,9 @@ end
 -----------------------------------
 function checkmelee()
     melee = {}
+    if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyGodhuman",true) == 1 then
+        table.insert(melee, "Godhuman")
+    end
     if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySuperhuman",true) == 1 then
        table.insert(melee, "Superhuman")
     end
@@ -402,9 +406,6 @@ function checkmelee()
     end
     if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDeathStep",true) == 1 then
        table.insert(melee, "DeathStep")
-    end
-    if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyGodhuman",true) == 1 then
-       table.insert(melee, "Godhuman")
     end
  
     realmelee = table.concat(melee, ", ")
@@ -423,27 +424,43 @@ function checkmeleelog()
     local Punch_Death = game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDeathStep",true)
     local Punch_God = game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyGodhuman",true)
 
-    if Punch_Sup == 1 then
-        table.insert(Item_Punch,"Superhuman")
-    end
-    if Punch_Dragon == 1 then
-        table.insert(Item_Punch,"DragonV2")
-    end
-    if Punch_Ele == 1 then
-        table.insert(Item_Punch,"ElectricV2")
-    end
-    if Punch_Shark == 1 then
-        table.insert(Item_Punch,"SharkMan")
-    end
+    spawn(function()
+        if Punch_Sup == 1 then
+            table.insert(Item_Punch,"Superhuman")
+        end
+    end)
+
+    spawn(function()
+        if Punch_Dragon == 1 then
+            table.insert(Item_Punch,"DragonV2")
+        end
+    end)
+
+    spawn(function()
+        if Punch_Ele == 1 then
+            table.insert(Item_Punch,"ElectricV2")
+        end
+    end)
+
+    spawn(function()
+        if Punch_Shark == 1 then
+            table.insert(Item_Punch,"SharkMan")
+        end
+    end)
+
+    spawn(function()
     if Punch_Death == 1 then
         table.insert(Item_Punch,"DeathStepV2")
     end
-    if Punch_God == 1 then
-        table.insert(Item_Punch,"Godhuman")
-    end
+    end)
 
+    spawn(function()
+        if Punch_God == 1 then
+            table.insert(Item_Punch,"Godhuman")
+        end
+    end)
 
-
+    wait(.1)
 
 
     realmeleelog = table.concat(Item_Punch, ", ")
@@ -562,7 +579,7 @@ function logsheet()
           Headers = {["Content-Type"] = "application/json"},
           Body = game.HttpService:JSONEncode(data)
     })
-    print(sheetbestreq.Body , sheetbestreq.StatusCode)
+    print("[KIWWY SCRIPT]" , sheetbestreq.Body , sheetbestreq.StatusCode)
     local RAMAccount = loadstring(game:HttpGet("https://raw.githubusercontent.com/ic3w0lf22/Roblox-Account-Manager/master/RAMAccount.lua"))()
     local MyAccount = RAMAccount.new(game.Players.LocalPlayer.Name)
     if sheetbestreq.StatusCode == 200 then
@@ -576,7 +593,7 @@ function logsheet()
         _G.WORLD = false
         _G.LogMax = false
     end
-    print(sheetbestreq.Body)
+    print("[KIWWY SCRIPT]" , sheetbestreq.Body)
     
     
  end
@@ -614,7 +631,7 @@ function FruitLog()
                 -- print(v.Name)
                 table.insert(awaked,v.Name)
             end
-            print(awakenumcheck, data_awakenumcheck)
+            print("[KIWWY SCRIPT]" , awakenumcheck, data_awakenumcheck)
             if awakenumcheck == data_awakenumcheck then
                 _G.AwakenAll = true
             end
@@ -670,25 +687,26 @@ while _G.LogAcc do
         LogBackPackValue = "\n" .. "Melee: " .. tostring(checkmelee()) .. "\n" .. "Inventory: " .. tostring(inventory()) .. "\n" .. "Rare Fruit: " .. rarefruitinventory() .. "\n" .. "Fruit: " .. FruitLog() 
         .. "\n" .. "Money: " .. tostring(GetMoney()) .. "\n" .. "Fragment: " .. tostring(GetFragment())  
     end
-    if _G.WORLD then
+    if _G.WORLD then 
         MyAccount:SetAlias("World: " .. World())
-        warn("LOG WORLD")
+        warn("[KIWWY SCRIPT] LOG WORLD" , World())
     end
-        MyAccount:SetDescription("Level: " .. game.Players.LocalPlayer.Data.Level.Value .. " " .. tostring(GETFPS()) .. " " .. tostring(LogBackPackValue))
-        warn("LOG DES")
+        LVNOW = tostring(game.Players.LocalPlayer.Data.Level.Value)
+        MyAccount:SetDescription("Level: " .. LVNOW , tostring(GETFPS()) , tostring(LogBackPackValue))
+        warn("[KIWWY SCRIPT] LOG DESCRIPTION" , LVNOW)
     if _G.LogMax then
-        if game.Players.LocalPlayer.Data.Level.Value == 2400 and _G.AwakenAll then
+        if LVNOW == 2400 and _G.AwakenAll then
             MyAccount:SetAlias("Awaken & Max Lv.")
             _G.WORLD = false
         end
     end
     if fpslower >= 6 then
-        print(MyAccount:SetDescription("FPS LOW REJOIN..."))
+        print("[KIWWY SCRIPT]" , MyAccount:SetDescription("FPS LOW REJOIN..."))
         -- local TeleportService = game:GetService "TeleportService"
         -- TeleportService:TeleportToPlaceInstance(game.PlaceId, game.JobId)
         HopServerKiwwy()
     end
-    warn("LOG WAIT: " .. logtimevalue)
+    warn("[KIWWY SCRIPT] LOG WAIT: " .. logtimevalue)
     wait(tonumber(logtimevalue))
 end
 end) -- end task.spawn()
