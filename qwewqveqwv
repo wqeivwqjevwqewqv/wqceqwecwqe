@@ -706,7 +706,7 @@ function FruitLogSheetNew()
         AllFruitLine = "None"
     end
     
-    return tostring(AllFruitLine)
+    return tostring(FruitLog1Line)
 end
 -----------------------------------
 function rarefruitinventory()
