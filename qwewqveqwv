@@ -563,7 +563,7 @@ function logsheet()
           ["Level"] = game.Players.LocalPlayer.Data.Level.Value,
           ["Melee"] = checkmeleelog(),
           ["Inventory"] = inventory(),
-          ["Fruit"] = tostring(FruitLog1Line),
+          ["Fruit"] = FruitLogSheetNew(),
           ["RareFruit"] = rarefruitinventory(),
           ["World"] = World(),
           ["Money"] = tostring(reformatmoney(game:GetService("Players").LocalPlayer.Data.Beli.Value)),
@@ -626,7 +626,7 @@ function FruitLog()
             SkillValue = require(UseFruit.Data).Awakening.Fragments
             for i,v in pairs(SkillValue) do 
                 data_awakenumcheck = data_awakenumcheck + 1               
-           end
+            end
 
             for i,v in pairs(UseFruit.AwakenedMoves:GetChildren()) do
                 awakenumcheck = awakenumcheck + 1
@@ -650,8 +650,57 @@ function FruitLog()
         if unpack(awaked) == nil then
             RealAwake = "None"
         end
-        FruitLog1Line = tostring(tostring(FruitLogSheet()) .. " ( M: " .. tostring(ValueFruit) .. " | " .. "A: " .. tostring(awakenumcheck) .. " )")
 
+        FruitLog1Line = tostring(tostring(FruitLogSheet()) .. " ( M: " .. tostring(ValueFruit) .. " | " .. "A: " .. tostring(awakenumcheck) .. " )")
+        AllFruitLine = tostring(tostring(UseFruit) .. " ( Mastery: " .. tostring(ValueFruit) .. " )" .. "\n"  .. "Awake: " .. tostring(RealAwake))
+    else
+        AllFruitLine = "None"
+    end
+    
+    return tostring(AllFruitLine)
+end
+-----------------------------------
+function FruitLogSheetNew()
+    awakenumcheck = 0
+    data_awakenumcheck = 0
+    if game:GetService("Players").LocalPlayer.Data.DevilFruit.Value ~= '' then
+        Fruit = game:GetService("Players").LocalPlayer.Data.DevilFruit.Value
+        UseFruit = game.Players.LocalPlayer.Backpack:FindFirstChild(Fruit) or game.Players.LocalPlayer.Character:FindFirstChild(Fruit)
+        ValueFruit = UseFruit.Level.Value
+        -- print(UseFruit , ValueFruit)
+        CanAwake = UseFruit:FindFirstChild("AwakenedMoves")
+        awaked = {}
+        if CanAwake then
+            -- print("Can Awake this")
+            SkillValue = require(UseFruit.Data).Awakening.Fragments
+            for i,v in pairs(SkillValue) do 
+                data_awakenumcheck = data_awakenumcheck + 1               
+            end
+
+            for i,v in pairs(UseFruit.AwakenedMoves:GetChildren()) do
+                awakenumcheck = awakenumcheck + 1
+                -- print(v.Name)
+                table.insert(awaked,v.Name)
+            end
+            print("[KIWWY SCRIPT]" , awakenumcheck, data_awakenumcheck)
+            if awakenumcheck == data_awakenumcheck then
+                _G.AwakenAll = true
+            end
+            -- print(unpack(awaked))
+            -----------------------------------
+            
+        else
+            cant_awake = true
+            -- print("Cant Awake this")
+            table.insert(awaked, "This Fruit Cant Awake")
+        end
+
+        RealAwake = table.concat(awaked, ", ")
+        if unpack(awaked) == nil then
+            RealAwake = "None"
+        end
+
+        FruitLog1Line = tostring(tostring(FruitLogSheet()) .. " ( M: " .. tostring(ValueFruit) .. " | " .. "A: " .. tostring(awakenumcheck) .. " )")
         AllFruitLine = tostring(tostring(UseFruit) .. " ( Mastery: " .. tostring(ValueFruit) .. " )" .. "\n"  .. "Awake: " .. tostring(RealAwake))
     else
         AllFruitLine = "None"
