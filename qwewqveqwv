@@ -1,12 +1,13 @@
 _G.BestSheet = "https://sheet.best/api/sheets/a55bc791-8aa4-48c4-a5ce-4ec7b5ac9f20"
+_G.LogInventory = {"Tushita", "Dark Dagger", "Hallow Scythe", "Dark Coat", "True Triple Katana","Cursed Dual Katana"}
+_G.Webhook = "https://discord.com/api/webhooks/1027338701656825997/THjDFT85DgynhXKi0dhjxtFgqgZJdIAt9O5G86pgzo8Y_f2B-Jkqa3_t-nIZhEmFlziU"
 _G.Nexus = true
 _G.LogMax = true
-_G.Webhook = "https://discord.com/api/webhooks/1027338701656825997/THjDFT85DgynhXKi0dhjxtFgqgZJdIAt9O5G86pgzo8Y_f2B-Jkqa3_t-nIZhEmFlziU"
 _G.LOGFPS = true
 _G.CHECKAFK = true
 _G.WORLD = true
 _G.LogBackPack = true
-_G.LogInventory = {"Tushita", "Dark Dagger", "Hallow Scythe", "Dark Coat", "True Triple Katana","Cursed Dual Katana"}
+
 
 if Loaded == true then
     print("[KIWWY SCRIPT] script loaded already!")
@@ -746,7 +747,7 @@ while _G.LogAcc do
         MyAccount:SetDescription("Level: " .. game.Players.LocalPlayer.Data.Level.Value .. " " .. tostring(GETFPS()) .. " " .. tostring(LogBackPackValue))
         warn("[KIWWY SCRIPT] LOG DESCRIPTION" , LVNOW)
     if _G.LogMax then
-        if game.Players.LocalPlayer.Data.Level.Value == 2400 and _G.AwakenAll then
+        if game.Players.LocalPlayer.Data.Level.Value == 2450 and _G.AwakenAll then
             MyAccount:SetAlias("Awaken & Max Lv.")
             _G.WORLD = false
         end
